@@ -1,3 +1,4 @@
+-- JngMkk
 CREATE TABLE weather (
     areaNo      BIGINT NOT NULL,
     si          VARCHAR(30) NOT NULL,
