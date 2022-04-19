@@ -1,3 +1,4 @@
+// JngMkk
 package weather
 
 import (
@@ -53,7 +54,7 @@ type Response struct {
 				TempC     float64 `json:"temp_c"`
 				IsDay     int     `json:"is_day"`
 				Condition struct {
-					Code int    `json:"code"`
+					Code int `json:"code"`
 				} `json:"condition"`
 				Humidity     int     `json:"humidity"`
 				ChanceOfRain float64 `json:"chance_of_rain"`
