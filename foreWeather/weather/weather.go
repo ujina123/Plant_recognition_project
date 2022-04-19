@@ -4,7 +4,7 @@ import (
 	"encoding/csv"
 	"os"
 
-	"github.com/JngMkk/project/check"
+	"github.com/JngMkk/foreWeather/check"
 )
 
 type Weather struct {
