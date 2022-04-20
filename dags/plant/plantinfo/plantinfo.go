@@ -28,7 +28,7 @@ func DeleteString(s string) string {
 	return re.ReplaceAllString(s, "")
 }
 
-func GetInfoStruct(r Response, c chan<- PlantInfo) {
+func GetInfoStruct(r InfoRes, c chan<- PlantInfo) {
 	plCode := r.Body.Item.CntntsNo
 	divName := r.Body.Item.ClCodeNm
 	eclgyName := r.Body.Item.EclgyCodeNm
@@ -98,7 +98,7 @@ func GetListCsv(path string) [][]string {
 }
 
 func GetInfo(key string, list [][]string) []PlantInfo {
-	var result Response
+	var result InfoRes
 	var plInfos []PlantInfo
 	c := make(chan PlantInfo)
 
@@ -150,7 +150,7 @@ func PlantInfoToCsv(key string) {
 	wErr := w.Write(headers)
 	check.CheckErr(wErr)
 
-	plList := GetListCsv("./data/plantlist.csv")
+	plList := GetListCsv("./data/plantList.csv")
 
 	p := GetInfo(key, plList)
 

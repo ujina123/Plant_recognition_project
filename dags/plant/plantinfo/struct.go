@@ -26,7 +26,7 @@ type PlantInfo struct {
 	SpeclManage   string // 설명
 }
 
-type Response struct {
+type InfoRes struct {
 	XMLName xml.Name `xml:"response"`
 	Text    string   `xml:",chardata"`
 	Header  struct {
