@@ -8,8 +8,6 @@ import (
 const k = ""
 
 func main() {
-	plantList := plantinfo.GetPlantList(k)
-	plantinfo.PlantListToCsv(plantList)
 	plantinfo.PlantInfoToCsv(k)
 	dryplant.DryPlInfoToCsv(k)
 }

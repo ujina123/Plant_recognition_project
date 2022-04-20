@@ -2,6 +2,44 @@ package plantinfo
 
 import "encoding/xml"
 
+type PlantList struct {
+	PlCode string
+	PlName string
+}
+
+type ListRes struct {
+	XMLName xml.Name `xml:"response"`
+	Text    string   `xml:",chardata"`
+	Header  struct {
+		Text             string `xml:",chardata"`
+		ResultCode       string `xml:"resultCode"`
+		ResultMsg        string `xml:"resultMsg"`
+		RequestParameter string `xml:"requestParameter"`
+	} `xml:"header"`
+	Body struct {
+		Text  string `xml:",chardata"`
+		Items struct {
+			Text string `xml:",chardata"`
+			Item []struct {
+				Text            string `xml:",chardata"`
+				CntntsNo        string `xml:"cntntsNo"`
+				CntntsSj        string `xml:"cntntsSj"`
+				RtnFileCours    string `xml:"rtnFileCours"`
+				RtnFileSeCode   string `xml:"rtnFileSeCode"`
+				RtnFileSn       string `xml:"rtnFileSn"`
+				RtnImageDc      string `xml:"rtnImageDc"`
+				RtnImgSeCode    string `xml:"rtnImgSeCode"`
+				RtnOrginlFileNm string `xml:"rtnOrginlFileNm"`
+				RtnStreFileNm   string `xml:"rtnStreFileNm"`
+				RtnThumbFileNm  string `xml:"rtnThumbFileNm"`
+			} `xml:"item"`
+			NumOfRows  string `xml:"numOfRows"`
+			PageNo     string `xml:"pageNo"`
+			TotalCount string `xml:"totalCount"`
+		} `xml:"items"`
+	} `xml:"body"`
+}
+
 type PlantInfo struct {
 	PlCode        string // 식물코드
 	DivName       string // 분류명

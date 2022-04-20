@@ -9,9 +9,19 @@ import (
 	"net/http"
 	"os"
 	"regexp"
+	"strings"
 
 	"github.com/JngMkk/plant/check"
 )
+
+func ReplaceString(s string) string {
+	return strings.ReplaceAll(s, "'", "")
+}
+
+func TrimSpace(s string) string {
+	re := regexp.MustCompile(`\s{2,}`)
+	return re.ReplaceAllString(s, "")
+}
 
 func TrimSpaceNewlineInString(s string) string {
 	re := regexp.MustCompile(`\n+`)
@@ -26,6 +36,73 @@ func ReplaceI(s string) string {
 func DeleteString(s string) string {
 	re := regexp.MustCompile(`\([^)]*\)`)
 	return re.ReplaceAllString(s, "")
+}
+
+func GetPlantListChan(i int, r ListRes, c chan<- []PlantList) {
+	var plant PlantList
+	var plants []PlantList
+	list := r.Body.Items.Item
+	plantCode := list[i].CntntsNo
+	plantName := TrimSpace(ReplaceString(list[i].CntntsSj))
+	plant = PlantList{
+		PlCode: plantCode,
+		PlName: plantName,
+	}
+	plants = append(plants, plant)
+	c <- plants
+}
+
+func GetPlantList(key string) []PlantList {
+	var result ListRes
+	var plants []PlantList
+	c := make(chan []PlantList)
+	gardenListURL := fmt.Sprintf("http://api.nongsaro.go.kr/service/garden/gardenList?apiKey=%s&pageNo=1&numOfRows=1000", key)
+
+	res, err := http.Get(gardenListURL)
+	check.CheckErr(err)
+	check.CheckRes(res)
+
+	defer res.Body.Close()
+
+	body, err := ioutil.ReadAll(res.Body)
+	check.CheckErr(err)
+
+	Xerr := xml.Unmarshal(body, &result)
+	check.CheckErr(Xerr)
+
+	if result.Header.ResultCode != "00" {
+		log.Fatalln("API Error")
+	}
+
+	list := result.Body.Items.Item
+	for i := 0; i < len(list); i++ {
+		go GetPlantListChan(i, result, c)
+	}
+
+	for i := 0; i < len(list); i++ {
+		plants = append(plants, <-c...)
+	}
+
+	return plants
+}
+
+func PlantListToCsv(p []PlantList) {
+	file, err := os.Create("./data/plantList.csv")
+	check.CheckErr(err)
+
+	w := csv.NewWriter(file)
+
+	defer w.Flush()
+
+	headers := []string{"plCode", "plName"}
+	wErr := w.Write(headers)
+	check.CheckErr(wErr)
+
+	for _, v := range p {
+		s := []string{v.PlCode, v.PlName}
+		err := w.Write(s)
+		check.CheckErr(err)
+	}
 }
 
 func GetInfoStruct(r InfoRes, c chan<- PlantInfo) {
@@ -76,34 +153,13 @@ func GetInfoStruct(r InfoRes, c chan<- PlantInfo) {
 	}
 }
 
-func AddItem(slice *[][]string, item ...string) {
-	*slice = append(*slice, item)
-}
-
-func GetListCsv(path string) [][]string {
-	var rows [][]string
-	csvFile, err := os.Open(path)
-	check.CheckErr(err)
-	defer csvFile.Close()
-
-	items, err := csv.NewReader(csvFile).ReadAll()
-	check.CheckErr(err)
-	for i, item := range items {
-		if i > 0 {
-			plc := item[0]
-			AddItem(&rows, plc)
-		}
-	}
-	return rows
-}
-
-func GetInfo(key string, list [][]string) []PlantInfo {
+func GetInfo(key string, p []PlantList) []PlantInfo {
 	var result InfoRes
 	var plInfos []PlantInfo
 	c := make(chan PlantInfo)
 
-	for _, v := range list {
-		url := fmt.Sprintf("http://api.nongsaro.go.kr/service/garden/gardenDtl?apiKey=%s&cntntsNo=%s&pageNo=1&numOfRows=100", key, v[0])
+	for _, v := range p {
+		url := fmt.Sprintf("http://api.nongsaro.go.kr/service/garden/gardenDtl?apiKey=%s&cntntsNo=%s&pageNo=1&numOfRows=100", key, v.PlCode)
 		res, err := http.Get(url)
 		check.CheckErr(err)
 		check.CheckRes(res)
@@ -119,7 +175,7 @@ func GetInfo(key string, list [][]string) []PlantInfo {
 		go GetInfoStruct(result, c)
 	}
 
-	for i := 0; i < len(list); i++ {
+	for i := 0; i < len(p); i++ {
 		pl := <-c
 		plInfos = append(plInfos, pl)
 	}
@@ -150,7 +206,8 @@ func PlantInfoToCsv(key string) {
 	wErr := w.Write(headers)
 	check.CheckErr(wErr)
 
-	plList := GetListCsv("./data/plantList.csv")
+	plList := GetPlantList(key)
+	PlantListToCsv(plList)
 
 	p := GetInfo(key, plList)
 
