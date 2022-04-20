@@ -1,4 +1,4 @@
-import requests
+# JngMkk
 from mod.slackbot import Slack
 import pendulum
 import pandas as pd
@@ -33,29 +33,9 @@ dag = DAG(
     catchup=False
 )
 
-def path():
-    t_now = datetime.now()
-    t_6 = t_now.replace(hour=6, minute=0, second=0, microsecond=0)
-    t_7 = t_now.replace(hour=7, minute=0, second=0, microsecond=0)
-    t_18 = t_now.replace(hour=18, minute=0, second=0, microsecond=0)
-    t_19 = t_now.replace(hour=19, minute=0, second=0, microsecond=0)
-    if t_6 <= t_now < t_7 or t_18 <= t_now < t_19:
-        task_id = 'path1'
-    else:
-        task_id = 'path2'
-    return task_id
-
-paths = ['path1', 'path2']
-
 #=================================================
 #                      Python                    #
 #=================================================
-
-check = BranchPythonOperator(
-    task_id='check_path',
-    python_callable=path,
-    dag=dag
-)
 
 #=================================================
 #                      Bash                      #
@@ -66,19 +46,3 @@ checkHDFS = BashOperator(
     bash_command='echo "hello"',
     dag=dag
 )
-
-next_job = DummyOperator(
-    task_id='next_job',
-    trigger_rule='all_success',
-    dag=dag,
-)
-
-for p in paths:
-    dummy = DummyOperator(
-        task_id=p,
-        dag=dag
-    )
-    if p == 'path1':
-        checkHDFS >> check >> dummy >> [weather, uv] >> next_job
-    else:
-        checkHDFS >> check >> dummy >> weather >> next_job
