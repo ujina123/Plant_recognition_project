@@ -1,14 +1,15 @@
 package main
 
 import (
-	"github.com/JngMkk/plant/getlist"
+	"github.com/JngMkk/plant/dryplant"
 	"github.com/JngMkk/plant/plantinfo"
 )
 
 const k = ""
 
 func main() {
-	plantList := getlist.GetPlantList(k)
-	getlist.PlantListToCsv(plantList)
+	plantList := plantinfo.GetPlantList(k)
+	plantinfo.PlantListToCsv(plantList)
 	plantinfo.PlantInfoToCsv(k)
+	dryplant.DryPlInfoToCsv(k)
 }
