@@ -136,7 +136,7 @@ func makeSlice(v PlantInfo, mainC chan<- []string) {
 
 func PlantInfoToCsv(key string) {
 	c := make(chan []string)
-	file, err := os.Create("./data/plantinfo.csv")
+	file, err := os.Create("./data/plantInfo.csv")
 	check.CheckErr(err)
 
 	w := csv.NewWriter(file)

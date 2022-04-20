@@ -110,7 +110,7 @@ func GetPlantList(key string) []PlantList {
 }
 
 func PlantListToCsv(p []PlantList) {
-	file, err := os.Create("./data/plantlist.csv")
+	file, err := os.Create("./data/plantList.csv")
 	check.CheckErr(err)
 
 	w := csv.NewWriter(file)
