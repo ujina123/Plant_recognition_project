@@ -1,0 +1,990 @@
+[
+    {
+        "name": "몬스테라 델리시오사",
+        "botanyNm": "Monstera deliciosa"
+    },
+    {
+        "name": "극락조화",
+        "botanyNm": "Strelitzia reginae"
+    },
+    {
+        "name": "아스파라거스 나누스",
+        "botanyNm": "Asparagus setaceus"
+    },
+    {
+        "name": "워터 코인",
+        "botanyNm": "Hydrocotyle verticillata"
+    },
+    {
+        "name": "블루 아이스",
+        "botanyNm": "Cupressus arizonica var. glabra 'Blue ice'"
+    },
+    {
+        "name": "청산호(연필선인장)",
+        "botanyNm": "Euphorbia tirucalli"
+    },
+    {
+        "name": "틸란드시아 카풋 메두사",
+        "botanyNm": "Tillandsia caput medusae"
+    },
+    {
+        "name": "수염 틸란드시아",
+        "botanyNm": "Tillandsia usneoides"
+    },
+    {
+        "name": "틸란드시아 휴스톤",
+        "botanyNm": "Tillandsia houston"
+    },
+    {
+        "name": "머틀허브나무",
+        "botanyNm": "Myrtus communis"
+    },
+    {
+        "name": "틸란드시아 푼키아나",
+        "botanyNm": "Tillandsia funckiana"
+    },
+    {
+        "name": "틸란드시아 바일레이",
+        "botanyNm": "Tillandisia baileyi"
+    },
+    {
+        "name": "틸란드시아 드루이드",
+        "botanyNm": "Tillandsia ionantha druid"
+    },
+    {
+        "name": "틸란시아 세로그라피카",
+        "botanyNm": "Tillandsia xerographica"
+    },
+    {
+        "name": "틸란드시아 아르젠티아",
+        "botanyNm": "Tillandsia argentea"
+    },
+    {
+        "name": "틸란드시아 애란토스",
+        "botanyNm": "Tillandisa aeranthos"
+    },
+    {
+        "name": "틸란드시아 쉬데이아나",
+        "botanyNm": "Tillandsia schiedeana"
+    },
+    {
+        "name": "틸란드시아 스트릭타",
+        "botanyNm": "Tillandsia stricta"
+    },
+    {
+        "name": "드라세나 드라코 (용혈수)",
+        "botanyNm": "Dracaena draco"
+    },
+    {
+        "name": "엽란",
+        "botanyNm": "Aspidistra elatior"
+    },
+    {
+        "name": "디펜바키아 마리안느",
+        "botanyNm": "Dieffenbachia 'Marianne'"
+    },
+    {
+        "name": "팔손이 나무",
+        "botanyNm": "Fatsia japonica"
+    },
+    {
+        "name": "무늬 라벤더(황금 라벤더)",
+        "botanyNm": "Lavandula allardii 'Meerlo'"
+    },
+    {
+        "name": "드라세나 맛상게아나 (행운목)",
+        "botanyNm": "Dracaena fragrans 'Massangeana'"
+    },
+    {
+        "name": "수박 페페로미아",
+        "botanyNm": "Peperomia sandersii"
+    },
+    {
+        "name": "올리브 나무",
+        "botanyNm": "Olea europaea"
+    },
+    {
+        "name": "디바오 소철",
+        "botanyNm": "Cycas debaoensis"
+    },
+    {
+        "name": "아스플레니움 코브라",
+        "botanyNm": "Asplenium nidus 'Cobra'"
+    },
+    {
+        "name": "비스마르크 야자",
+        "botanyNm": "Bismarckia nobilis"
+    },
+    {
+        "name": "개운죽",
+        "botanyNm": "Dracaena sanderiana"
+    },
+    {
+        "name": "알로에 베라",
+        "botanyNm": "Aloe barbadens"
+    },
+    {
+        "name": "싱고니움",
+        "botanyNm": "Syngonium podophyllum"
+    },
+    {
+        "name": "디시디아 메론",
+        "botanyNm": "Dischidia ovata"
+    },
+    {
+        "name": "페페로미아 프로스트라타",
+        "botanyNm": "Peperomia prostrata"
+    },
+    {
+        "name": "스투키",
+        "botanyNm": "Sansevieria cylindrica"
+    },
+    {
+        "name": "다바나 고사리",
+        "botanyNm": "Phlebodium aureum 'Davana'"
+    },
+    {
+        "name": "칼라데아 프레디",
+        "botanyNm": "Calathea Concinna 'Freddie'"
+    },
+    {
+        "name": "필레아 페페로미오데스",
+        "botanyNm": "Pilea peperomioides"
+    },
+    {
+        "name": "체리 세이지",
+        "botanyNm": "Salvia greggii"
+    },
+    {
+        "name": "슈퍼바 산세베리아",
+        "botanyNm": "Sansevieria 'Superba'"
+    },
+    {
+        "name": "틸란드시아 셀레리아나",
+        "botanyNm": "Tillandsia seleriana"
+    },
+    {
+        "name": "마오리 코로키아",
+        "botanyNm": "Corokia cotoneaster"
+    },
+    {
+        "name": "천냥금",
+        "botanyNm": "Ardisia japonica"
+    },
+    {
+        "name": "무늬 산호수",
+        "botanyNm": "Ardisia pusilla Variegata"
+    },
+    {
+        "name": "레몬밤",
+        "botanyNm": "Melissa officinalis"
+    },
+    {
+        "name": "아데니움(석화)",
+        "botanyNm": "Adenium obesum"
+    },
+    {
+        "name": "줄리아 페페",
+        "botanyNm": "Peperomia puteolata"
+    },
+    {
+        "name": "알로카시아 프라이덱",
+        "botanyNm": "Alocasia frydek"
+    },
+    {
+        "name": "페퍼민트",
+        "botanyNm": "Mentha x piperita"
+    },
+    {
+        "name": "산세베리아 문샤인",
+        "botanyNm": "Sansevieria trifasciata 'Moonshine'"
+    },
+    {
+        "name": "필로덴드론 레몬라임",
+        "botanyNm": "Philodendron 'Lemon Lime'"
+    },
+    {
+        "name": "은엽 아카시아",
+        "botanyNm": "Acacia Dealbata"
+    },
+    {
+        "name": "필로덴드론 마메이",
+        "botanyNm": "Philodendron mamei"
+    },
+    {
+        "name": "오색 마삭줄 (초설 마삭줄)",
+        "botanyNm": "Trachelospermum asiaticum var. intermedium"
+    },
+    {
+        "name": "스파티필름",
+        "botanyNm": "Spathiphylum sp."
+    },
+    {
+        "name": "스위트 바질",
+        "botanyNm": "Ocimum Basilicum"
+    },
+    {
+        "name": "산세베리아",
+        "botanyNm": "Sansevieria trifasciata var. laurentii"
+    },
+    {
+        "name": "필로덴드론 버킨 (무늬콩고)",
+        "botanyNm": "Philodendron Birkin"
+    },
+    {
+        "name": "드라세나 콤팩타",
+        "botanyNm": "Dracaena deremensis 'Virens Compacta'"
+    },
+    {
+        "name": "유칼립투스 슈가검",
+        "botanyNm": "Eucalyptus cladocalyx"
+    },
+    {
+        "name": "왜성 바나나",
+        "botanyNm": "Musa cavendish"
+    },
+    {
+        "name": "유카",
+        "botanyNm": "Yucca recurvifolia"
+    },
+    {
+        "name": "호주매화 (마누카)",
+        "botanyNm": "Leptospermum scoparium"
+    },
+    {
+        "name": "오로라 페페",
+        "botanyNm": "Iresine herbstii 'Aureoreticulata'"
+    },
+    {
+        "name": "히메 몬스테라(미니 몬스테라)",
+        "botanyNm": "Rhaphidophora tetrasperma"
+    },
+    {
+        "name": "해피트리",
+        "botanyNm": "Heteropanax fragrans"
+    },
+    {
+        "name": "아비스",
+        "botanyNm": "Asplenium nidus 'avis'"
+    },
+    {
+        "name": "몬스테라 아단소니",
+        "botanyNm": "Monstera adansonii"
+    },
+    {
+        "name": "십이지권",
+        "botanyNm": "Haworthia fasciata"
+    },
+    {
+        "name": "디시디아 애플",
+        "botanyNm": "Dischidia oiantha apple leaf"
+    },
+    {
+        "name": "스킨답서스",
+        "botanyNm": "Epipremnum aureum"
+    },
+    {
+        "name": "아프리칸 미니바이올렛",
+        "botanyNm": "Saintpaulia ionantha"
+    },
+    {
+        "name": "립살리스 트리고나",
+        "botanyNm": "Rhipsalis trigona"
+    },
+    {
+        "name": "사랑초 옵투사",
+        "botanyNm": "Oxalis obtusa"
+    },
+    {
+        "name": "더피 고사리",
+        "botanyNm": "Nephrolepis cordifolia 'Duffi'"
+    },
+    {
+        "name": "필로덴드론 옥시카르디움 '브라질'",
+        "botanyNm": "Philodendron hederaceum var. oxycardium 'Brasil'"
+    },
+    {
+        "name": "마오리 소포라",
+        "botanyNm": "Sophora prostrata 'Little Baby'"
+    },
+    {
+        "name": "율리치아나 스프랄리스",
+        "botanyNm": "Eulychnia castanea var. varispiralis"
+    },
+    {
+        "name": "필로덴드론 셀로움",
+        "botanyNm": "Philodendron selloum"
+    },
+    {
+        "name": "마란타 레우코네우라",
+        "botanyNm": "Maranta leuconeura var. kerchoveana"
+    },
+    {
+        "name": "지바시스 펠루치다 (실달개비, 엘레강스)",
+        "botanyNm": "Gibasis geniculata (Jacq.) Rohw"
+    },
+    {
+        "name": "아레카야자",
+        "botanyNm": "Chrysalidocarpus lutescens"
+    },
+    {
+        "name": "에크메아 파시아타",
+        "botanyNm": "Aechmea Fasciata"
+    },
+    {
+        "name": "알로카시아 사리안",
+        "botanyNm": "Alocasia Sarian"
+    },
+    {
+        "name": "필로덴드론 파스타짜넘",
+        "botanyNm": "Philodendron pastazanum"
+    },
+    {
+        "name": "필로덴드론 멜라노크리섬",
+        "botanyNm": "Philodendron melanocrhysum"
+    },
+    {
+        "name": "홍공작(무늬 백량금)",
+        "botanyNm": "Ardisia crenata 'Beni Kujaku'"
+    },
+    {
+        "name": "유칼립투스 구니",
+        "botanyNm": "Eucalyptus gunnii"
+    },
+    {
+        "name": "무늬 푸미라",
+        "botanyNm": "Ficus pumila Variegata"
+    },
+    {
+        "name": "괴마옥",
+        "botanyNm": "Euphorbia hypogaea"
+    },
+    {
+        "name": "휘카스 페티올라리스",
+        "botanyNm": "Ficus petiolaris"
+    },
+    {
+        "name": "코코스 야자 (코코넛 야자)",
+        "botanyNm": "Cocos Nucifera"
+    },
+    {
+        "name": "백운각",
+        "botanyNm": "Cereus hildmannianus"
+    },
+    {
+        "name": "보스턴 고사리",
+        "botanyNm": "Nephrolepis exaltata 'Bostoniensis'"
+    },
+    {
+        "name": "귀면각",
+        "botanyNm": "Cereus jamacaru"
+    },
+    {
+        "name": "안스리움 리갈레",
+        "botanyNm": "Anthurium regale"
+    },
+    {
+        "name": "칼라데아 세토사",
+        "botanyNm": "Calathea 'Compactstar'"
+    },
+    {
+        "name": "안스리움 클라리너비움",
+        "botanyNm": "Anthurium clarinervium"
+    },
+    {
+        "name": "튤립",
+        "botanyNm": "Tulipa gesneriana"
+    },
+    {
+        "name": "유칼립투스 폴리안",
+        "botanyNm": "Eucalyptus polyanthemos"
+    },
+    {
+        "name": "후마타 고사리",
+        "botanyNm": "Humata tyermannii(Davallia grffithiana)"
+    },
+    {
+        "name": "쿠션부쉬",
+        "botanyNm": "Leucophyta Brownii"
+    },
+    {
+        "name": "무늬 아이비",
+        "botanyNm": "Hedera helix 'Glacier'"
+    },
+    {
+        "name": "틸란드시아 필리폴리아",
+        "botanyNm": "Tillandsia filifolia"
+    },
+    {
+        "name": "미니 알로에",
+        "botanyNm": "Aloe arborescens"
+    },
+    {
+        "name": "틸란드시아 준세아",
+        "botanyNm": "Tillandsia juncea"
+    },
+    {
+        "name": "틸란드시아 시아네아",
+        "botanyNm": "Tillandsia Cyanea (Wallisia cyanea)"
+    },
+    {
+        "name": "틸란드시아 이오난사",
+        "botanyNm": "Tillandsia ionantha"
+    },
+    {
+        "name": "수채화 고무나무",
+        "botanyNm": "Ficus elastica 'Tineke'"
+    },
+    {
+        "name": "마리모",
+        "botanyNm": "Aegagropila linnaei"
+    },
+    {
+        "name": "틸란드시아 이오난사 푸에고",
+        "botanyNm": "Tillandsia Ionantha Fuego"
+    },
+    {
+        "name": "크루시아",
+        "botanyNm": "Clusia rosea"
+    },
+    {
+        "name": "목마가렛",
+        "botanyNm": "Argyranthemum frutescens"
+    },
+    {
+        "name": "아가베 아테누아타",
+        "botanyNm": "Agave attenuata"
+    },
+    {
+        "name": "산토소마 린드니",
+        "botanyNm": "Xanthosoma lindenii"
+    },
+    {
+        "name": "칼라데아 아마그리스",
+        "botanyNm": "Ctenanthe burle-marxii 'Amagris'"
+    },
+    {
+        "name": "블루스타 고사리",
+        "botanyNm": "Phlebodium aureum"
+    },
+    {
+        "name": "시기지움 (피어리스)",
+        "botanyNm": "Syzygium australe"
+    },
+    {
+        "name": "홍콩 야자 (쉐프렐라 홍콩)",
+        "botanyNm": "Schefflera arboricola"
+    },
+    {
+        "name": "연화죽",
+        "botanyNm": "Dracaena sanderiana"
+    },
+    {
+        "name": "동백나무",
+        "botanyNm": "Camellia japonica"
+    },
+    {
+        "name": "멕시코 소철",
+        "botanyNm": "Zamia furfuracea"
+    },
+    {
+        "name": "칼라데아 오르비폴리아",
+        "botanyNm": "Calathea Orbifolia"
+    },
+    {
+        "name": "알리 고무나무",
+        "botanyNm": "Ficus binnendijk 'Alii'"
+    },
+    {
+        "name": "안스리움 포게티",
+        "botanyNm": "Anthurium forgetii"
+    },
+    {
+        "name": "무레이 소철",
+        "botanyNm": "Macrozamia moorei"
+    },
+    {
+        "name": "디시디아 넘초크",
+        "botanyNm": "Dischidia imbricata X vidalii"
+    },
+    {
+        "name": "알로카시아 아마조니카",
+        "botanyNm": "Alocasia amazonica"
+    },
+    {
+        "name": "왁스 플라워",
+        "botanyNm": "Chamelaucium uncinatum"
+    },
+    {
+        "name": "벵갈 고무나무",
+        "botanyNm": "Ficus benghalensis"
+    },
+    {
+        "name": "테이블 야자",
+        "botanyNm": "Chamaedorea elegans"
+    },
+    {
+        "name": "콜레우스",
+        "botanyNm": "Coleus"
+    },
+    {
+        "name": "필로덴드론 글로리오섬",
+        "botanyNm": "Philodendron gloriosum"
+    },
+    {
+        "name": "필로덴드론 콩고",
+        "botanyNm": "Philodendron 'Congo'"
+    },
+    {
+        "name": "아글라오네마",
+        "botanyNm": "Aglaonema commutatum"
+    },
+    {
+        "name": "아라우카리아",
+        "botanyNm": "Araucaria heterophylla"
+    },
+    {
+        "name": "프테리스",
+        "botanyNm": "Pteris cretica  'Albo Lineata'"
+    },
+    {
+        "name": "떡갈잎 고무나무",
+        "botanyNm": "Ficus lyrata"
+    },
+    {
+        "name": "은사초",
+        "botanyNm": "Festuca glauca"
+    },
+    {
+        "name": "백도선",
+        "botanyNm": "Opuntia microdasys"
+    },
+    {
+        "name": "석송",
+        "botanyNm": "Lycopodium clavatum"
+    },
+    {
+        "name": "비단삼나무(블루버드)",
+        "botanyNm": "Chamaecyparis pisifera 'boulevard'"
+    },
+    {
+        "name": "긴잎 아카시아",
+        "botanyNm": "Acacia longifolia"
+    },
+    {
+        "name": "필로덴드론 플로리다뷰티",
+        "botanyNm": "Philodendron florida beauty variegata"
+    },
+    {
+        "name": "호리더스 소철",
+        "botanyNm": "Encephalartos horridus"
+    },
+    {
+        "name": "로즈마리",
+        "botanyNm": "Rosmarinus officinalis"
+    },
+    {
+        "name": "녹탑",
+        "botanyNm": "Crassula muscosa"
+    },
+    {
+        "name": "트리안",
+        "botanyNm": "Muehlenbeckia complexa"
+    },
+    {
+        "name": "제라늄",
+        "botanyNm": "Pelargonium inquinans"
+    },
+    {
+        "name": "펫츠 헤데라",
+        "botanyNm": "x Fatshedera lizei"
+    },
+    {
+        "name": "카네이션",
+        "botanyNm": "Dianthus caryophyllus"
+    },
+    {
+        "name": "녹영",
+        "botanyNm": "Senecio rowleyanus"
+    },
+    {
+        "name": "칼라데아 진저",
+        "botanyNm": "Calathea Ornata Sanderiana"
+    },
+    {
+        "name": "자주 만년초(부자란)",
+        "botanyNm": "Tradescantia spathacea"
+    },
+    {
+        "name": "금청각",
+        "botanyNm": "Pilosocereus pachycladus"
+    },
+    {
+        "name": "장미",
+        "botanyNm": "Rosa hybrida"
+    },
+    {
+        "name": "흑법사",
+        "botanyNm": "Aeonium arboreum 'Zwartkop'"
+    },
+    {
+        "name": "크로톤",
+        "botanyNm": "Codiaeum variegatum"
+    },
+    {
+        "name": "오렌지 자스민",
+        "botanyNm": "Murraya paniculata"
+    },
+    {
+        "name": "바로크 벤자민",
+        "botanyNm": "Ficus benjamina 'barok'"
+    },
+    {
+        "name": "무늬벤자민 고무나무",
+        "botanyNm": "Ficus benjamina 'Variegata'"
+    },
+    {
+        "name": "애니시다",
+        "botanyNm": "Cytisus scoparius"
+    },
+    {
+        "name": "율마 (윌마)",
+        "botanyNm": "Cupressus macrocarpa 'Wilma Goldcrest'"
+    },
+    {
+        "name": "스노우 스파티필름",
+        "botanyNm": "Spathiphyllum 'White Stripe'"
+    },
+    {
+        "name": "사계귤 (유주나무)",
+        "botanyNm": "fortunella japonica var. margarita."
+    },
+    {
+        "name": "무스카리",
+        "botanyNm": "Muscari armeniacum"
+    },
+    {
+        "name": "화이트 고스트",
+        "botanyNm": "Euphorbia lactea 'White Ghost' Haw."
+    },
+    {
+        "name": "휘토니아",
+        "botanyNm": "Fittonia"
+    },
+    {
+        "name": "페페로미아 페퍼스팟",
+        "botanyNm": "Peperomia pepperspot"
+    },
+    {
+        "name": "칼랑코에",
+        "botanyNm": "Kalanchoe blosfeldian"
+    },
+    {
+        "name": "필로덴드론 플로우마니",
+        "botanyNm": "Philodendron plowmanii"
+    },
+    {
+        "name": "피닉스 야자",
+        "botanyNm": "Phoenix roebelenii"
+    },
+    {
+        "name": "칼라디움",
+        "botanyNm": "Caladium spp."
+    },
+    {
+        "name": "켄차 야자",
+        "botanyNm": "Howea forsteriana"
+    },
+    {
+        "name": "박쥐란",
+        "botanyNm": "Platycerium bifurcatum"
+    },
+    {
+        "name": "산세베리아 하니",
+        "botanyNm": "Sansevieria trifasciata 'Hahnii'"
+    },
+    {
+        "name": "수선화",
+        "botanyNm": "Narcissus"
+    },
+    {
+        "name": "필로덴드론 핑크프린세스",
+        "botanyNm": "Philodendron erubescens 'Pink Princess'"
+    },
+    {
+        "name": "필로덴드론 베루코섬 X 멜라노크리섬",
+        "botanyNm": "Philodendron verrucosum x melanochrysum"
+    },
+    {
+        "name": "디지고테카 아랄리아",
+        "botanyNm": "Plerandra elegantissima"
+    },
+    {
+        "name": "라벤더",
+        "botanyNm": "Lavandula"
+    },
+    {
+        "name": "여인초",
+        "botanyNm": "Strelitzia nicolai"
+    },
+    {
+        "name": "몬스테라 알보 바리에가타",
+        "botanyNm": "Monstera deliciosa 'Variegata'"
+    },
+    {
+        "name": "휘카스 움베르타",
+        "botanyNm": "Ficus umbellata"
+    },
+    {
+        "name": "드라세나 마지나타",
+        "botanyNm": "Dracaena marginata"
+    },
+    {
+        "name": "금사철",
+        "botanyNm": "Euonymus japonica for. aureo-variegata"
+    },
+    {
+        "name": "생선뼈 선인장 (피쉬본 선인장)",
+        "botanyNm": "Selenicereus anthonyanus"
+    },
+    {
+        "name": "필로덴드론 베루코섬",
+        "botanyNm": "Philodendron verrucosum"
+    },
+    {
+        "name": "초코리프",
+        "botanyNm": "Euphorbia cotinifolia"
+    },
+    {
+        "name": "백묘국",
+        "botanyNm": "Jacobaea Maritima"
+    },
+    {
+        "name": "인도 고무나무",
+        "botanyNm": "Ficus elastica robusta"
+    },
+    {
+        "name": "헤데라 (아이비)",
+        "botanyNm": "Hedera helix"
+    },
+    {
+        "name": "하월시아 옵투사",
+        "botanyNm": "Haworthia obtusa"
+    },
+    {
+        "name": "디펜바키아 트로픽스노우",
+        "botanyNm": "Dieffenbachia amoena 'Tropic snow'"
+    },
+    {
+        "name": "페페로미아 에덴로소",
+        "botanyNm": "Peperomia carperata rossa"
+    },
+    {
+        "name": "프리지아",
+        "botanyNm": "Freesia"
+    },
+    {
+        "name": "장미허브",
+        "botanyNm": "Plectranthus hadiensis var. tomentosus"
+    },
+    {
+        "name": "산호수",
+        "botanyNm": "Ardisia pusilla"
+    },
+    {
+        "name": "히아신스",
+        "botanyNm": "Hyacinthus"
+    },
+    {
+        "name": "청페페",
+        "botanyNm": "Peperomia obtusifolia"
+    },
+    {
+        "name": "시클라멘",
+        "botanyNm": "Cyclamen"
+    },
+    {
+        "name": "관음죽",
+        "botanyNm": "Rhapis excelsa"
+    },
+    {
+        "name": "파키라",
+        "botanyNm": "Pachira aquatica"
+    },
+    {
+        "name": "티트리",
+        "botanyNm": "Melaleuca alternifolia"
+    },
+    {
+        "name": "개나리 자스민",
+        "botanyNm": "Gelsemium sempervirens"
+    },
+    {
+        "name": "알로카시아 블랙벨벳",
+        "botanyNm": "Alocasia reginula 'Black Velvet'"
+    },
+    {
+        "name": "안스리움 안드레아눔",
+        "botanyNm": "Anthurium andraeanum"
+    },
+    {
+        "name": "금전수 (돈나무)",
+        "botanyNm": "Zamioculcas zamiifolia"
+    },
+    {
+        "name": "썰프레아",
+        "botanyNm": "Cupressus arizonica 'Sulphurea'"
+    },
+    {
+        "name": "호야 카르노사 (무늬 호야)",
+        "botanyNm": "Hoya carnosa"
+    },
+    {
+        "name": "만세 선인장 ",
+        "botanyNm": "Consolea rubescens"
+    },
+    {
+        "name": "디시디아 화이트",
+        "botanyNm": "Dischidia oinantha variegata"
+    },
+    {
+        "name": "마블 선인장",
+        "botanyNm": "Opuntia monacantha"
+    },
+    {
+        "name": "축전",
+        "botanyNm": "Conophytum bilobum"
+    },
+    {
+        "name": "덕구리난",
+        "botanyNm": "Beaucarnea recurvata (Nolina tuberculata)"
+    },
+    {
+        "name": "아프리칸 바이올렛",
+        "botanyNm": "Saintpaulia ionantha"
+    },
+    {
+        "name": "세네시오 칸디칸스 (엔젤윙)",
+        "botanyNm": "Senecio candicans 'Angel wings'"
+    },
+    {
+        "name": "디운에둘레 소철",
+        "botanyNm": "Dioon edule"
+    },
+    {
+        "name": "바질트리",
+        "botanyNm": "ocimum basilicum var. minimum"
+    },
+    {
+        "name": "염자",
+        "botanyNm": "Crassula ovata"
+    },
+    {
+        "name": "보라 사랑초",
+        "botanyNm": "Oxalis triangularis subsp. papilionacea"
+    },
+    {
+        "name": "아라비안 자스민",
+        "botanyNm": "Jasminum sambac"
+    },
+    {
+        "name": "알로카시아 오도라",
+        "botanyNm": "Alocasia odora"
+    },
+    {
+        "name": "안스리움 크리스탈리넘",
+        "botanyNm": "Anthurium crystallinum"
+    },
+    {
+        "name": "비화옥",
+        "botanyNm": "Gymnocalycium baldianum"
+    },
+    {
+        "name": "타라",
+        "botanyNm": "Pilea grauca"
+    },
+    {
+        "name": "녹태고",
+        "botanyNm": "Xerosicyos danguyi"
+    },
+    {
+        "name": "둥근 잎 아카시아",
+        "botanyNm": "Acacia podalyriifolia"
+    },
+    {
+        "name": "접란 (클로로피텀)",
+        "botanyNm": "Chlorophytum comosum"
+    },
+    {
+        "name": "소철",
+        "botanyNm": "Cycas revoluta"
+    },
+    {
+        "name": "학 자스민",
+        "botanyNm": "Jasminum polyanthum Franchet"
+    },
+    {
+        "name": "멜라니 고무나무",
+        "botanyNm": "Ficus elastica 'Robusta'"
+    },
+    {
+        "name": "눈꽃 선인장",
+        "botanyNm": "Mammillaria gracilis cv. Arizona Snowcap"
+    },
+    {
+        "name": "청하각",
+        "botanyNm": "Euphorbia trigona"
+    },
+    {
+        "name": "드라세나 와네키",
+        "botanyNm": "Dracaena deremensis 'Warneckii'"
+    },
+    {
+        "name": "남천",
+        "botanyNm": "Nandina domestica"
+    },
+    {
+        "name": "브레이니아 니보사 (소코라코)",
+        "botanyNm": "Breynia nivosa 'Sokorako'"
+    },
+    {
+        "name": "엑셀런트 포인트(네덜란드 편백)",
+        "botanyNm": "Chamaecyparis thyoides Excellent Point"
+    },
+    {
+        "name": "디시디아 밀리언하트",
+        "botanyNm": "Dischidia ruscifolia"
+    },
+    {
+        "name": "호야 콤팩타 (리본호야)",
+        "botanyNm": "Hoya carnosa 'Compacta'"
+    },
+    {
+        "name": "베고니아",
+        "botanyNm": "Begonia spp"
+    },
+    {
+        "name": "용신목",
+        "botanyNm": "Myrtillocactus geometrizans"
+    },
+    {
+        "name": "미모사",
+        "botanyNm": "Mimosa pudica"
+    },
+    {
+        "name": "원숭이꼬리 선인장",
+        "botanyNm": "Cleistocactus colademononis"
+    },
+    {
+        "name": "렉스 베고니아",
+        "botanyNm": "Begonia rex-cultorum"
+    },
+    {
+        "name": "루카덴드론",
+        "botanyNm": "Leucadendron salignum"
+    },
+    {
+        "name": "러브체인",
+        "botanyNm": "Ceropegia woodii"
+    }
+]
