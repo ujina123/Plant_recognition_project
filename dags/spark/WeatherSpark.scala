@@ -9,7 +9,7 @@ object WeatherSpark {
         val spark = SparkSession.builder.master("yarn").appName("weather").getOrCreate()
         
         var weather = spark.read.option("header", "true").csv("/home/data/weather.csv").select(col("areaNo").cast("long"),
-                                                                                                to_timestamp(col("time"), "yyyy-MM-dd HH:mm") as "time",
+                                                                                                to_timestamp(col("time")) as "time",
                                                                                                 col("condiCode").cast("integer"),
                                                                                                 col("isDay").cast("integer"),
                                                                                                 col("temp").cast("integer"),
@@ -24,23 +24,23 @@ object WeatherSpark {
         val rownum = row_number().over(Window.partitionBy(col("areaNo")).orderBy(col("time")))
         
         weather = weather.join(region, Seq("areaNo")).select(col("areaNo"),
-                                                        col("si"), rownum - 1 as "time", 
-                                                        col("condiCode") as "code", col("isDay"), 
+                                                        col("si"), col("time"), rownum - 1 as "timeRank", 
+                                                        col("condiCode") as "code", col("isDay"),
                                                         col("temp"), col("humidity"), col("rainRatio"),
-                                                        col("snowRatio")).where(col("time") < 24)
+                                                        col("snowRatio"), col("uv")).where(col("timeRank") < 24)
         
-        weather = weather.join(condiCode, Seq("code")).select("areaNo", "si", "time", "condi", "isDay", "temp", "humidity", "rainRatio", "snowRatio")
+        weather = weather.join(condiCode, Seq("code")).select("areaNo", "si", "time", "timeRank", "condi", "isDay", "temp", "humidity", "rainRatio", "snowRatio", "uv")
 
-        val window = Window.orderBy(col("areaNo"), col("time"))
+        val window = Window.orderBy(col("areaNo"), col("timeRank"))
 
         weather = weather.withColumn("weatherId", row_number().over(window))
         
-        weather = weather.select("weatherId", "areaNo", "si", "time", "condi", "isDay", "temp", "humidity", "rainRatio", "snowRatio")
+        weather = weather.select(col("weatherId"), col("areaNo"), col("si"), substring(date_format(col("time"), "yyyyMMddHHmm").cast("string"), 9, 2).cast("integer") as "time", col("condi"), col("isDay"), col("temp"), col("humidity"), col("rainRatio"), col("snowRatio"), col("uv"))
         
         val prop = new Properties()
         prop.put("driver", "com.mysql.cj.jdbc.Driver")
         prop.put("user", "root")
-        prop.put("password", "6047")
+        prop.put("password", "1234")
         
         weather.write.mode("overwrite").option("truncate", "true").jdbc("jdbc:mysql://localhost:3306/finalproject", "weather", prop)
     }

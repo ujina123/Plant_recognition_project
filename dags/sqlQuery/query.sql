@@ -1,4 +1,5 @@
 -- JngMkk
+DROP TABLE IF EXISTS weather;
 CREATE TABLE weather (
     weatherID   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     areaNo      BIGINT NOT NULL,
@@ -9,5 +10,6 @@ CREATE TABLE weather (
     temp        INT NULL,
     humidity    INT NULL,
     rainRatio   INT NULL,
-    snowRatio   INT NULL
+    snowRatio   INT NULL,
+    uv          INT NULL
 );

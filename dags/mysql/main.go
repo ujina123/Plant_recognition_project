@@ -34,7 +34,7 @@ type plants []struct {
 
 func loadJson() plants {
 	var plant plants
-	data, err := os.Open("/home/jngmk/webtest/test_project/plants.json")
+	data, err := os.Open("/home/jngmk/webTest/test_project/plants.json")
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -53,7 +53,7 @@ func loadJson() plants {
 func main() {
 	plants := loadJson()
 
-	db, err := sql.Open("mysql", "root:6047@tcp(127.0.0.1:3306)/finalproject")
+	db, err := sql.Open("mysql", "root:1234@tcp(127.0.0.1:3306)/finalproject")
 	if err != nil {
 		log.Fatalln("a", err)
 	}
