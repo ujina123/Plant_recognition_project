@@ -1,5 +1,6 @@
 -- JngMkk
 CREATE TABLE weather (
+    weatherID   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     areaNo      BIGINT NOT NULL,
     si          VARCHAR(30) NOT NULL,
     time        INT NOT NULL,

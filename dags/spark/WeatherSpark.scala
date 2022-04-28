@@ -30,12 +30,18 @@ object WeatherSpark {
                                                         col("snowRatio")).where(col("time") < 24)
         
         weather = weather.join(condiCode, Seq("code")).select("areaNo", "si", "time", "condi", "isDay", "temp", "humidity", "rainRatio", "snowRatio")
+
+        val window = Window.orderBy(col("areaNo"), col("time"))
+
+        weather = weather.withColumn("weatherId", row_number().over(window))
+        
+        weather = weather.select("weatherId", "areaNo", "si", "time", "condi", "isDay", "temp", "humidity", "rainRatio", "snowRatio")
         
         val prop = new Properties()
         prop.put("driver", "com.mysql.cj.jdbc.Driver")
         prop.put("user", "root")
-        prop.put("password", "1234")
+        prop.put("password", "6047")
         
-        weather.orderBy("areaNo", "time").write.mode("overwrite").jdbc("jdbc:mysql://localhost:3306/finalproject", "weather", prop)
+        weather.write.mode("overwrite").option("truncate", "true").jdbc("jdbc:mysql://localhost:3306/finalproject", "weather", prop)
     }
 }
