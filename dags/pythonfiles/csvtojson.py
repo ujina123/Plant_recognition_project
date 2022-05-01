@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# JngMkk
 import csv
 import json
 
