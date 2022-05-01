@@ -1,3 +1,4 @@
+// JngMkk fuleaf crawling
 package main
 
 import (
@@ -31,45 +32,55 @@ type plants struct {
 	tempExpInfo  string
 }
 
+// newline 삭제
 func trimSpaceNewlineInString(s string) string {
 	re := regexp.MustCompile(`\n+`)
 	return re.ReplaceAllString(s, " ")
 }
 
+// count -> detail
 func replaceHref(s string) string {
 	return strings.ReplaceAll(s, "count", "detail")
 }
 
+// : 기준 오른쪽 string
 func splitC(s string) string {
 	return strings.TrimSpace(strings.Split(s, ":")[1])
 }
 
+// 양 옆 공백 삭제
 func trim(s string) string {
 	return strings.TrimSpace(s)
 }
 
+// strings.Split -> split
 func split(s, sep string) []string {
 	return strings.Split(s, sep)
 }
 
+// strings.Contains -> contains
 func contains(s, sep string) bool {
 	return strings.Contains(s, sep)
 }
 
+// - 삭제
 func deleteMinus(s string) string {
 	return strings.ReplaceAll(s, "-", "")
 }
 
+// [~~~] 구문 삭제
 func deleteString(s string) string {
 	re := regexp.MustCompile(`\[[^)]*\]`)
 	return re.ReplaceAllString(s, "")
 }
 
+// 공백 두 개 이상 삭제
 func trimSpace(s string) string {
 	re := regexp.MustCompile(`\s{2,}`)
 	return re.ReplaceAllString(s, " ")
 }
 
+// 관리 제품 뒤로 제외
 func containString(s string) string {
 	var result string
 	if contains(s, "[관리 제품]") {
@@ -116,6 +127,7 @@ func getHrefs() []string {
 	return hrefs
 }
 
+// info 크롤링
 func getInfo(s *goquery.Selection, c chan<- plants) {
 	nm := s.Find(".simpleinfo-plantname_korean.mainTitle").Text()
 	inf := trimSpace(trim(trimSpaceNewlineInString(s.Find(".simpleinfo-plantname_intro").Text())))
@@ -166,6 +178,7 @@ func getInfo(s *goquery.Selection, c chan<- plants) {
 	}
 }
 
+// 채널 받아주기
 func getTotalInfo(href string, mainC chan<- []plants) {
 	var pls []plants
 	c := make(chan plants)
@@ -192,6 +205,7 @@ func getTotalInfo(href string, mainC chan<- []plants) {
 	mainC <- pls
 }
 
+// csv 파일 만들기
 func writeCsv(p []plants) {
 	file, err := os.Create("./data/fuleaf.csv")
 	checkErr(err)

@@ -13,3 +13,12 @@ CREATE TABLE weather (
     snowRatio   INT NULL,
     uv          INT NULL
 );
+
+DROP TABLE IF EXISTS plantmanage;
+CREATE TABLE plantmanage (
+    username        VARCHAR(150) NOT NULL,
+    plantid         INT NOT NULL,
+    nickname        VARCHAR(50) NULL,
+    meetdate        DATE,
+    waterdate       DATE
+);

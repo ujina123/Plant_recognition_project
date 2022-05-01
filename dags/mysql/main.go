@@ -1,3 +1,4 @@
+// JngMkk data to mysql
 package main
 
 import (
@@ -32,6 +33,7 @@ type plants []struct {
 	TempExpInfo  string `json:"tempExpInfo"`
 }
 
+// Json파일 파싱
 func loadJson() plants {
 	var plant plants
 	data, err := os.Open("/home/jngmk/webTest/test_project/plants.json")
@@ -53,6 +55,7 @@ func loadJson() plants {
 func main() {
 	plants := loadJson()
 
+	// MYSQL 열기
 	db, err := sql.Open("mysql", "root:1234@tcp(127.0.0.1:3306)/finalproject")
 	if err != nil {
 		log.Fatalln("a", err)
@@ -60,16 +63,24 @@ func main() {
 
 	defer db.Close()
 
+	// 테이블 있으면 삭제
+	_, erro := db.Exec("DROP TABLE IF EXISTS plants")
+	if erro != nil {
+		log.Fatalln("drop table", erro)
+	}
+
+	// 테이블 생성
 	_, err2 := db.Exec(
-		"CREATE TABLE plants (URL VARCHAR(255) NOT NULL, name VARCHAR(255) NOT NULL, botanyNm VARCHAR(255) NOT NULL, info TEXT NOT NULL, waterCycle VARCHAR(255) NOT NULL, waterInfo VARCHAR(255) NOT NULL, waterExp VARCHAR(255) NOT NULL, waterExpInfo TEXT NOT NULL, light VARCHAR(255) NOT NULL, lightInfo VARCHAR(255) NOT NULL, lightExp VARCHAR(255) NOT NULL, lightExpInfo TEXT NOT NULL, humidity VARCHAR(255) NOT NULL, humidInfo VARCHAR(255) NOT NULL, humidExp VARCHAR(255) NOT NULL, humidExpInfo TEXT NOT NULL, tempExp VARCHAR(255) NOT NULL, tempExpInfo TEXT NOT NULL) charset = utf8;")
+		"CREATE TABLE plants (plantID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, URL VARCHAR(255) NOT NULL, name VARCHAR(255) NOT NULL, botanyNm VARCHAR(255) NOT NULL, info TEXT NOT NULL, waterCycle VARCHAR(255) NOT NULL, waterInfo VARCHAR(255) NOT NULL, waterExp VARCHAR(255) NOT NULL, waterExpInfo TEXT NOT NULL, light VARCHAR(255) NOT NULL, lightInfo VARCHAR(255) NOT NULL, lightExp VARCHAR(255) NOT NULL, lightExpInfo TEXT NOT NULL, humidity VARCHAR(255) NOT NULL, humidInfo VARCHAR(255) NOT NULL, humidExp VARCHAR(255) NOT NULL, humidExpInfo TEXT NOT NULL, tempExp VARCHAR(255) NOT NULL, tempExpInfo TEXT NOT NULL) charset = utf8;")
 	if err2 != nil {
 		log.Fatalln("b", err2)
 	}
 
+	// JSON 파일 table에 insert
 	var err3 error
 	var res sql.Result
 	for _, v := range plants {
-		res, err3 = db.Exec(fmt.Sprintf("INSERT INTO plants VALUES (%q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q)", v.URL, v.Name, v.BotanyNm, v.Info, v.WaterCycle, v.WaterInfo, v.WaterExp, v.WaterExpInfo, v.Light, v.LightInfo, v.LightExp, v.LightExpInfo, v.Humidity, v.HumidInfo, v.HumidExp, v.HumidExpInfo, v.TempExp, v.TempExpInfo))
+		res, err3 = db.Exec(fmt.Sprintf("INSERT INTO plants(URL, name, botanyNm, info, waterCycle, waterInfo, waterExp, waterExpInfo, light, lightInfo, lightExp, lightExpInfo, humidity, humidInfo, humidExp, humidExpInfo, tempExp, tempExpInfo) VALUES (%q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q, %q)", v.URL, v.Name, v.BotanyNm, v.Info, v.WaterCycle, v.WaterInfo, v.WaterExp, v.WaterExpInfo, v.Light, v.LightInfo, v.LightExp, v.LightExpInfo, v.Humidity, v.HumidInfo, v.HumidExp, v.HumidExpInfo, v.TempExp, v.TempExpInfo))
 
 		if err3 != nil {
 			log.Fatalln("c", err3)

@@ -1,4 +1,4 @@
-//JngMkk
+//JngMkk forecast weather
 package main
 
 import (

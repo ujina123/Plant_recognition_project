@@ -1,4 +1,4 @@
-// JngMkk
+// JngMkk kakao coord to addr
 package main
 
 import (
