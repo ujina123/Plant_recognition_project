@@ -7,6 +7,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('weather_app.urls')),
     path('plantinfo/', views.plantinfo, name="plantinfo"),
+    path('plantdelete/', views.plantdelete, name="plantdelete"),
     path('plantmanage/', views.plantmanage, name="plantmanage"),
     path('plantrecog/', views.plantrecog, name="plantrecog"),
     path('plantdisease/', views.plantdisease, name="plantdisease"),

@@ -10,15 +10,19 @@ def plantinfo(request):
         return render(request, 'plantinfo.html', {"obj": obj})
     # 여기 아래로 아직 미완성
     elif request.method == "POST":
-        if "waterplant" in request.POST:
-            now = dateformat.format(timezone.localtime(), 'Y-m-d')
-            pid = request.POST["waterplant"]
-            Plantmanage.objects.filter(id=pid).update(waterdate=now)
-            return redirect("/plantinfo")
-        elif "deleteplant" in request.POST:
-            pid = request.POST["deleteplant"]
-            Plantmanage.objects.get(id=pid).delete()
-            return redirect("/plantinfo")
+        now = dateformat.format(timezone.localtime(), 'Y-m-d')
+        pid = request.POST["waterplant"]
+        Plantmanage.objects.filter(id=pid).update(waterdate=now)
+        return redirect("/plantinfo")
+    return redirect("/plantinfo")
+
+def plantdelete(request):
+    if request.method == "GET":
+        return redirect("/plantinfo")
+    elif request.method == "POST":
+        pid = request.POST["deleteplant"]
+        Plantmanage.objects.get(id=pid).delete()
+        return redirect("/plantinfo")
     return redirect("/plantinfo")
 
 def plantmanage(request):

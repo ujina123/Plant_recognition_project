@@ -85,7 +85,7 @@
                 <button type="submit" class="file-upload-btn">물주기</button>
             </form>
             <button class="file-upload-btn" onclick="location.href='/search/info/?id={{o.plant.plantid}}'">더보기</button>
-            <form action="/plantinfo/" method="post">{% csrf_token %}
+            <form action="/plantdelete/" method="post">{% csrf_token %}
                 <input type="hidden" value="{{o.id}}" name="deleteplant">
                 <button type="submit" class="file-upload-btn">삭제</button>
             </form>
