@@ -29,7 +29,6 @@ def plantmanage(request):
         user = AuthUser.objects.get(username=user)
         pmanage = Plantmanage(username=user, plant=plant_id, nickname=plant_nickname, meetdate=meet_date, waterdate=water_date)
         pmanage.save()
-
         return redirect("/plantinfo")
 
     return redirect("/plantinfo")
