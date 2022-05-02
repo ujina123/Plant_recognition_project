@@ -6,13 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>식물 도감 설명</title>
-
     <!--한글 폰트 -->
 	<link rel="preconnect" href="https://fonts.googleapis.com"> 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 	<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gamja+Flower&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
-
-
     <style>
         .plant_image{
             width: 240px;
@@ -22,42 +19,27 @@
             background-repeat: no-repeat;
             border-radius: 5pt;
         }
-        
         div{
             width: 75%;
             margin-left: 5%;
-
             background-color: #f8f8f8;
             padding: 7%;
             font-family: 'Noto Sans KR', sans-serif;
-            
-        
         }
-        
         a {
             font-size: 15pt;
             font-weight:900;
             font-family: 'Noto Sans KR', sans-serif;
         }
-
         .plant_info_top {
             border-radius: 5pt 5pt 0 0;
-
         }
-
         .plant_info {
             border-radius: 5pt;
         }
-
-        .plant_info_center {
-
-        }
-
         .plant_info_bottom{
             border-radius: 0 0 5pt 5pt;
         }
-
-
     </style>
 </head>
 <body>
@@ -78,7 +60,7 @@
     <div class="plant_info"><a>정보</a> <br><br> {{data.info}}</div>
     <br><br>
 
-    <div style="font-size: 20pt; background-color:rgb(227, 242, 249); font-weight:900; border-radius: 5pt;">어떻게 키우나요?</div>
+    <div style="font-size: 20pt; background-color:#86ed93; font-weight:900; border-radius: 5pt;">어떻게 키우나요?</div>
     <br><br>
     <!-- 물 주는 주기 -->
     <div class="plant_info_top"><a>물 주는 주기</a> <br><br> {{data.watercycle}} <br><br> <a>-</a> {{data.waterinfo}} </div>
