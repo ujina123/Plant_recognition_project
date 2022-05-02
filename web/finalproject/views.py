@@ -5,34 +5,44 @@ from finalproject.models import *
 import datetime
 
 def plantinfo(request):
+    """ 회원 식물 정보 """
     if request.method == "GET":
+        # 현재 세션 유저
         user = request.user
+        # userid 불러오기
         userid = AuthUser.objects.filter(username=user).values("id")[0]["id"]
-        obj = Plantmanage.objects.filter(username=userid)
+        # D-day 짧은 순으로
+        obj = Plantmanage.objects.filter(username=userid).order_by("nextdate")
+
         return render(request, 'plantinfo.html', {"obj": obj})
 
     elif request.method == "POST":
         pid = request.POST["waterplant"]
         obj = Plantmanage.objects.get(id=pid)
         now = datetime.datetime.strptime(dateformat.format(timezone.localtime(), 'Y-m-d'), "%Y-%m-%d")
+        # 다음 주기 날짜
         next_date = now + datetime.timedelta(days=obj.cycle)
+        # db 업데이트
         Plantmanage.objects.filter(id=pid).update(waterdate=now, nextdate=next_date)
         return redirect("/plantinfo")
 
     return redirect("/plantinfo")
 
 def plantdelete(request):
+    """ 회원 식물 삭제 """
     if request.method == "GET":
         return redirect("/plantinfo")
 
     elif request.method == "POST":
         pid = request.POST["deleteplant"]
+        # db에서 삭제
         Plantmanage.objects.get(id=pid).delete()
         return redirect("/plantinfo")
 
     return redirect("/plantinfo")
 
 def plantmanage(request):
+    """ 직접 등록 """ 
     if request.method == "GET":
         return render(request, "plantmanage.html")
     elif request.method == "POST":
@@ -70,6 +80,7 @@ def plantmanage(request):
             next_date = water_date + datetime.timedelta(days=day)
 
         user = AuthUser.objects.get(username=user)
+        # 새로운 식물 등록 db 저장
         pmanage = Plantmanage(username=user, plant=plant_id, nickname=plant_nickname, meetdate=meet_date, waterdate=water_date, cycle=day, nextdate=next_date)
         pmanage.save()
         return redirect("/plantinfo")
