@@ -80,7 +80,6 @@
             <label>종 : {{o.plant.name}}</label>
             <label>처음 만난 날 : {{o.meetdate}}</label>
             <label>물주기 D{{o.nextdate|datedelta}}</label>
-            <!-- 여기 아래로 아직 미완성 -->
             <form action="/plantinfo/" method="post">{% csrf_token %}
                 <input type="hidden" value="{{o.id}}" name="waterplant">
                 <button type="submit" class="file-upload-btn">물주기</button>
