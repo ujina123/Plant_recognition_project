@@ -18,14 +18,17 @@ def scroll() :
             break
         last_page_height = new_page_height
 
-name = []
-eng_name = []
-dir_name = []
-quote_name = []
+name = []           # 한글검색
+eng_name = []       # 영어검색
+dir_name = []       # 폴더이름
+quote_name = []     # 한글 url quote
+
 for n, dir in zip(name, dir_name):
     os.system(f"mkdir ./image/{dir}")
     quote_name.append(urllib.parse.quote(n))
+
 for x, y, z in zip(eng_name, quote_name, dir_name):
+    # 구글 영어검색
     url = f"https://www.google.com/search?q={x}"
     driver.get(url)
     time.sleep(5)
@@ -49,6 +52,8 @@ for x, y, z in zip(eng_name, quote_name, dir_name):
             srcs.append(item.select_one("img")['data-src'])
         else:
             continue
+    
+    # 구글 한국어검색
     url = f"https://www.google.com/search?q={y}"
     driver.get(url)
     time.sleep(5)
@@ -79,6 +84,8 @@ for x, y, z in zip(eng_name, quote_name, dir_name):
                 srcs.append(src)
         else:
             continue
+    
+    # 네이버 한글 검색
     url = f"https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query={y}"
     driver.get(url)
     time.sleep(5)
