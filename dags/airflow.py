@@ -1,5 +1,5 @@
 # JngMkk
-from mod.slackbot import Slack
+from pythonfiles.slackbot import Slack
 import pendulum
 import pandas as pd
 from datetime import datetime, timedelta

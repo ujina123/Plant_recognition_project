@@ -143,7 +143,7 @@ func GetDryInfo(key string, list []DryPlantList) []DryPlInfo {
 }
 
 func DryPlListToCsv(p []DryPlantList) {
-	file, err := os.Create("./data/dryPlantList.csv")
+	file, err := os.Create("/home/ubuntu/finalproject/dags/data/dryPlantList.csv")
 	check.CheckErr(err)
 
 	w := csv.NewWriter(file)
@@ -162,7 +162,7 @@ func DryPlListToCsv(p []DryPlantList) {
 }
 
 func DryPlInfoToCsv(key string) {
-	file, err := os.Create("./data/dryPlantInfo.csv")
+	file, err := os.Create("/home/ubuntu/finalproject/dags/data/dryPlantInfo.csv")
 	check.CheckErr(err)
 
 	w := csv.NewWriter(file)

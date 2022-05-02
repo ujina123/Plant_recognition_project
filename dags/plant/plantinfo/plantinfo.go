@@ -87,7 +87,7 @@ func GetPlantList(key string) []PlantList {
 }
 
 func PlantListToCsv(p []PlantList) {
-	file, err := os.Create("./data/plantList.csv")
+	file, err := os.Create("/home/ubuntu/finalproject/dags/data/plantList.csv")
 	check.CheckErr(err)
 
 	w := csv.NewWriter(file)
@@ -192,7 +192,7 @@ func makeSlice(v PlantInfo, mainC chan<- []string) {
 
 func PlantInfoToCsv(key string) {
 	c := make(chan []string)
-	file, err := os.Create("./data/plantInfo.csv")
+	file, err := os.Create("/home/ubuntu/finalproject/dags/data/plantInfo.csv")
 	check.CheckErr(err)
 
 	w := csv.NewWriter(file)

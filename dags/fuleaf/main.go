@@ -207,7 +207,7 @@ func getTotalInfo(href string, mainC chan<- []plants) {
 
 // csv 파일 만들기
 func writeCsv(p []plants) {
-	file, err := os.Create("./data/fuleaf.csv")
+	file, err := os.Create("/home/ubuntu/finalproject/dags/data/fuleaf.csv")
 	checkErr(err)
 
 	w := csv.NewWriter(file)

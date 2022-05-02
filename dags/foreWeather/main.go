@@ -125,7 +125,7 @@ func getWeather(lat, lng, aN string, c chan<- []weather.Weather) {
 }
 
 func writeCsv(weathers []weather.Weather) {
-	file, err := os.Create("/home/ubuntu/go/src/github.com/JngMkk/foreWeather/data/weather.csv")
+	file, err := os.Create("/home/ubuntu/finalproject/dags/data/weather.csv")
 	check.CheckError(err)
 
 	w := csv.NewWriter(file)
@@ -144,7 +144,7 @@ func writeCsv(weathers []weather.Weather) {
 }
 
 func main() {
-	region := weather.GetRegion("/home/ubuntu/go/src/github.com/JngMkk/foreWeather/data/region.csv")
+	region := weather.GetRegion("/home/ubuntu/finalproject/dags/data/region.csv")
 	c := make(chan []weather.Weather)
 	var weathers []weather.Weather
 
