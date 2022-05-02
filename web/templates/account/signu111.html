@@ -35,8 +35,7 @@
 
 <!-- <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p> -->
 <div style="text-align: center; margin-top: 8%;" >
-    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-        {% csrf_token %}
+    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">{% csrf_token %}
         <label for="id_username">아이디</label>
         <br>
         <input type="text" class="form-control" id="id_username" placeholder="입력해주세요" name="username" style="margin-bottom: 10%;">

@@ -79,7 +79,7 @@
         <br>
         <h1 style="text-align: center;">촬영으로 정보 조회</h1>
         <br>
-        <center><img src="{% static 'img/plantrecog.jpeg' %}" style="width: 80%; border-radius: 5pt;"></center>
+        <center><img src="{% static 'img/plantrecog.jpeg' %}" style="width: 80%; border-radius: 5pt; height: 28vh;"></center>
         <br>
         
         <div style="text-align: center; font-size: 13pt; margin-bottom: 7%; font-family: 'Noto Sans KR', sans-serif;">식물의 이미지 데이터를 분석해<br>어떤 식물인지 알아내고<br> 관련된 정보 제공를 통해<br> 식물을 더 잘 관리할 수 있어요.</div>
@@ -101,7 +101,7 @@
     <div class="icon-bar">
         <a href="{% url 'main' %}"><i class="fa fa-home"></i></a> 
         <a href="{% url 'plantrecog' %}" class="active"><i class="fa fa-pagelines"></i></a> 
-        <a href="{% url 'plantdisease' %}"><i class="fa fa-hospital-o"></i></a> 
+        <a href="{% url 'plantdisease' %}"><i class="fa fa-medkit" aria-hidden="true"></i></a> 
         <a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
     </div>
 </body>

@@ -11,15 +11,36 @@
     <!-- 상단바 링크 -->
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--한글 폰트 -->
-	  <link rel="preconnect" href="https://fonts.googleapis.com"> 
-	  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-	  <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gamja+Flower&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gamja+Flower&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
     <title>plus myplant</title>
     <style>
         div {
             font-family: 'Noto Sans KR', sans-serif;
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        onload = function() {
+            const inputTag = document.getElementsByClassName("today_date")
+            const today = toStringByFormatting(new Date(), "-")
+            inputTag[0].value = today
+            inputTag[1].value = today
+        }
+        function leftPad(value) {
+            if (value >= 10){
+                return value
+            }
+            return `0${value}`
+        }
+        function toStringByFormatting(source, delimiter = '-') {
+            const year = source.getFullYear()
+            const month = leftPad(source.getMonth() + 1)
+            const day = leftPad(source.getDate())
+            return [year, month, day].join(delimiter)
+        }
+    </script>
 </head>
 <body style="font-size: 13pt;">
     <script>
@@ -62,19 +83,19 @@
         <div style="font-size: 17pt; margin-left: 25%; font-weight: bold; margin-bottom: 7%">나의 식물 추가</div>
         <form action="/plantmanage/" method="POST">{% csrf_token %}
             <div>
-                <label>식물 종류<input id="id" type="text" style="width:95%" name="plant_name"></label>
+                <label>식물 종류<input type="text" style="width:95%" name="plant_name"></label>
             </div>
             <br>
             <div>
-                <label>식물 애칭 <input id="id" type="text" style="width:95%" name="plant_nickname"></label>
+                <label>식물 애칭<input type="text" style="width:95%" name="plant_nickname"></label>
             </div>
             <br>
             <div>
-                <label>처음 만난 날<p style="border: black 2px; width: 95%;"><input type="date" value="2022-04-30" min="2000-01-01" max="2040-12-31" style="background-color:white;" name="plant_date"></p></label>
+                <label>처음 만난 날<p style="border: black 2px; width: 95%;"><input class="today_date" type="date" value="" min="2000-01-01" max="2040-12-31" style="background-color:white;" name="plant_date"></p></label>
             </div>
             <br>
             <div>
-                <label>최근 물준 날<p style="border: black 2px; width: 95%;"><input type="date" value="2022-04-30" min="2000-01-01" max="2040-12-31" style="background-color:white;" name="water_date"></p></label>
+                <label>최근 물준 날<p style="border: black 2px; width: 95%;"><input class="today_date" type="date" value="" min="2000-01-01" max="2040-12-31" style="background-color:white;" name="water_date"></p></label>
             </div>
             <br>
             <br>

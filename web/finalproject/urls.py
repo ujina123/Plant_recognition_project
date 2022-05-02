@@ -5,7 +5,8 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('', include('weather_app.urls')),
+    path('', views.main, name="main"),
+    path("weather/", views.weather, name="weather"),
     path('plantinfo/', views.plantinfo, name="plantinfo"),
     path('plantdelete/', views.plantdelete, name="plantdelete"),
     path('plantmanage/', views.plantmanage, name="plantmanage"),

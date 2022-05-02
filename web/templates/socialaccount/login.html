@@ -1,0 +1,33 @@
+{% extends "socialaccount/base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% if process == "connect" %}
+<h1>{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h1>
+
+<p>{% blocktrans with provider.name as provider %}You are about to connect a new third party account from {{ provider }}.{% endblocktrans %}</p>
+{% else %}
+<br><br><br><br>
+<h1 style="text-align: center;">{% blocktrans with provider.name as provider %}{{ provider }}로 로그인{% endblocktrans %}</h1>
+
+<p style="text-align: center;">{% blocktrans with provider.name as provider %}카카오를 통해 간편하게 로그인할수 있습니다.{% endblocktrans %}</p>
+{% endif %}
+
+<form method="post">{% csrf_token %}
+    <button type="submit" style="width: 65.5%;
+    height: 7vh;
+    color: black;
+    background: #f6e213;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #b8ab25;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-size: 12pt;
+    font-weight: 700;
+    margin-left: 17%; 
+    ">{% trans "로그인" %}</button>
+</form>
+{% endblock %}

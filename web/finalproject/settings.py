@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     "search_app",
 
     'rest_framework',
-    "weather_app",
 ]
 SITE_ID = 1
 MIDDLEWARE = [

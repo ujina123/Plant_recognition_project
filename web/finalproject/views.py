@@ -1,8 +1,27 @@
 # JngMkk
 from django.shortcuts import render, redirect
 from django.utils import timezone, dateformat
+from django.http import JsonResponse
 from finalproject.models import *
 import datetime
+
+def main(request):
+    """ 메인 페이지 """
+    # 로그인 상태라면
+    if request.user.is_authenticated:
+        user = request.user
+        userid = AuthUser.objects.filter(username=user).values("id")[0]["id"]
+        obj = Plantmanage.objects.filter(username=userid).order_by("nextdate")
+        return render(request, "main.html", {"obj": obj})
+    else:
+        return render(request, "main.html")
+
+def weather(request):
+    """ 날씨 정보 REST """
+    loc = request.GET.get("loc")
+    weather = Weather.objects.filter(si=loc).values("si", "time", "condi", "temp", "humidity", "rainratio", "uv")
+
+    return JsonResponse(list(weather), safe=False, json_dumps_params={"ensure_ascii": False})
 
 def plantinfo(request):
     """ 회원 식물 정보 """
@@ -42,7 +61,7 @@ def plantdelete(request):
     return redirect("/plantinfo")
 
 def plantmanage(request):
-    """ 직접 등록 """ 
+    """ 식물 직접 등록 """ 
     if request.method == "GET":
         return render(request, "plantmanage.html")
     elif request.method == "POST":
@@ -50,13 +69,9 @@ def plantmanage(request):
         plant_nickname = request.POST["plant_nickname"]
         meet_date = request.POST["plant_date"]
         water_date = request.POST["water_date"]
-        water_date = datetime.datetime.strptime(water_date, "%Y-%m-%d")
-
-        user = request.user
-
+        water_date = datetime.datetime.strptime(water_date, "%Y-%m-%d").date()
         plant_id = Plants.objects.get(name=plant_name)
         cycle = plant_id.watercycle
-
         if cycle == "주 1~2회":
             day=5
             next_date = water_date + datetime.timedelta(days=day)
@@ -79,6 +94,7 @@ def plantmanage(request):
             day=10
             next_date = water_date + datetime.timedelta(days=day)
 
+        user = request.user
         user = AuthUser.objects.get(username=user)
         # 새로운 식물 등록 db 저장
         pmanage = Plantmanage(username=user, plant=plant_id, nickname=plant_nickname, meetdate=meet_date, waterdate=water_date, cycle=day, nextdate=next_date)

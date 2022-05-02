@@ -20,10 +20,20 @@
         div{
             font-family: 'Noto Sans KR', sans-serif;
             font-size: 20pt;
-          }
+        }
         button {
             font-family: 'Noto Sans KR', sans-serif;
-          }
+        }
+        label {
+            font-size: 12pt;
+            text-align: center;
+            float: right;
+            margin-bottom: 1%;
+            margin-right: 5%;
+        }
+        fieldset {
+            background-color: #f9f9f9; padding: 5%; border-radius: 5pt; border:0.5px solid #ccc;
+        }
     </style>
 </head>
 <body>
@@ -36,10 +46,10 @@
                     $('.file-upload-image').attr('src', e.target.result);
                     $('.file-upload-content').show();
                     $('.image-title').html(input.files[0].name);
-                  };
+                };
                 reader.readAsDataURL(input.files[0]);
-              }else {
-                  removeUpload();
+            }else {
+                removeUpload();
             }
         }
         function removeUpload() {
@@ -63,11 +73,11 @@
         </div>
         
         <div style="float: left; text-align: center; width: 70%;">
-            <div style="font-family: 'Noto Sans KR', sans-serif;">나의식물</div>
+            <div style="font-family: 'Noto Sans KR', sans-serif; font-size: 20pt;">나의 식물</div>
         </div>
         
         <div onclick="location.href='{% url 'plantmanage' %}'" style="margin-left: 0%; float: left;  width: 15%;" >
-            <img src="{% static 'img/add.png' %}">
+            <img src="{% static 'img/plus.jpeg' %}" style="width: 86%;">
         </div>
         
         <div style="text-align: center; background-color: antiquewhite;"></div>
@@ -78,7 +88,7 @@
             <img src="{{o.plant.url}}">
             <label>{{o.nickname}}</label>
             <label>종 : {{o.plant.name}}</label>
-            <label>처음 만난 날 : {{o.meetdate}}</label>
+            <label>함께한 지 {{o.meetdate|howmanyday}}일째</label>
             <label>물주기 D{{o.nextdate|datedelta}}</label>
             <form action="/plantinfo/" method="post">{% csrf_token %}
                 <input type="hidden" value="{{o.id}}" name="waterplant">
