@@ -1,4 +1,5 @@
 {% load static %}
+{% load custom_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -247,33 +248,52 @@
 
 		<!-- 내식물 관리하기 회원 비회원 기능 구분 -->
 		{% if not user.is_authenticated %}
-		<div class="myplant" style="padding: 4%; font-family: 'Noto Sans KR', sans-serif;">
+		<div class="myplant" style="padding: 5%; font-family: 'Noto Sans KR', sans-serif; background-color: #f4f4f4;">
 			<div onclick="location.href='{% url 'account_login' %}'"  style=" margin-top: 2%; margin-left: 2%; font-size: 16pt;">
-				<i class="fa fa-plus"></i>
+				<img src="{% static 'img/plant_cute.jpeg' %}" style="width: 32%; margin-bottom: 5%;">
+				<div style="font-size: 13pt; font-weight: bold;">식물을 추가해주세요</div>
+				<i class="fa fa-plus-circle" aria-hidden="true"></i>
 			</div>
 		</div>
+
 		{% else %}
-		<div class="myplant" style="padding: 4%; font-family: 'Noto Sans KR', sans-serif;">
-			<div style=" margin-top: 2%; margin-left: 5%; font-size: 16pt;">나의 식물</div>
-			<a>
-				<img src="{% static 'img/sansevieria.jpg' %}" style="width: 37%; background-color: antiquewhite; border-radius: 50%;  margin: 5%;">
-			</a>	
-			<a style="font-size: 14pt;">산세베리아</a>
-			<button onclick="location.href='{% url 'plantinfo' %}'" style="border-radius: 5pt; background-color: #04AA6D; color: cornsilk;">나의 식물 관리</button>
+		<div class="myplant" 
+			onclick="location.href='{% url 'plantinfo' %}'"
+			style="padding: 5%; font-family: 'Noto Sans KR', sans-serif;
+				/* 투명도 css */
+				opacity : 0.6;
+				filter: alpha(opacity=60);
+				-moz-opacity:0.6;
+				-khtml-opacity: 0.6;
+		">
+			<button style="border-radius: 5pt; background-color: #04AA6D; color: cornsilk; padding: 2%;">나의 식물 관리</button>
+			<div class="a">
+				<div id="z">
+					{% for o in obj %}
+					<ul id="i">
+						<span>
+							<b>{{o.plant.url}}</b>
+							<b>{{o.nickname}}</b>
+							<b>물주기 D{{o.nextdate|datedelta}}</b>
+						</span>
+					{% endfor %}
+					</ul>
+				</div>
+			</div>
 		</div>
+
 		{% endif %}
 		<div class="file-upload-content">
 			<img class="file-upload-image" src="#" alt="your image" />
 			<div class="image-title-wrap">
-				<button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+			<button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
 			</div>
 		</div>
-		<br>
-	</div>
+	
 	<div class="icon-bar">
-		<a class="active" href="{% url 'main' %}"><i class="fa fa-home"></i></a> 
-		<a href="{% url 'plantrecog' %}"><i class="fa fa-pagelines"></i></a> 
-		<a href="{% url 'plantdisease' %}"><i class="fa fa-hospital-o"></i></a> 
+		<a class="active" href="{% url 'main' %}"><i class="fa fa-home"></i></a>
+		<a href="{% url 'plantrecog' %}"><i class="fa fa-pagelines"></i></a>
+		<a href="{% url 'plantdisease' %}"><i class="fa fa-hospital-o"></i></a>
 		<a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
 	</div>
 </body>

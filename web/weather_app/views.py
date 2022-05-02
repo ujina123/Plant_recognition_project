@@ -1,10 +1,14 @@
 # JngMkk
 from django.shortcuts import render
 from django.http import JsonResponse
-from .models import Weather
+from weather_app.models import Weather, AuthUser
+from finalproject.models import Plantmanage
 
 def index(request):
-    return render(request, "main.html")
+    user = request.user
+    userid = AuthUser.objects.filter(username=user).values("id")[0]["id"]
+    obj = Plantmanage.objects.filter(id=userid).order_by("nextdate")
+    return render(request, "main.html", {"obj": obj})
 
 def weather(request):
     loc = request.GET.get("loc")
