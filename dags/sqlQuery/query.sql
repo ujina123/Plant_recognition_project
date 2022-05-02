@@ -14,11 +14,25 @@ CREATE TABLE weather (
     uv          INT NULL
 );
 
-DROP TABLE IF EXISTS plantmanage;
-CREATE TABLE plantmanage (
-    username        VARCHAR(150) NOT NULL,
-    plantid         INT NOT NULL,
-    nickname        VARCHAR(50) NULL,
-    meetdate        DATE,
-    waterdate       DATE
-);
+DROP TABLE IF EXISTS plants;
+CREATE TABLE plants (
+    plantID         INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    URL             VARCHAR(255) NOT NULL,
+    name            VARCHAR(255) NOT NULL,
+    botanyNm        VARCHAR(255) NOT NULL,
+    info            TEXT NOT NULL,
+    waterCycle      VARCHAR(255) NOT NULL,
+    waterInfo       VARCHAR(255) NOT NULL,
+    waterExp        VARCHAR(255) NOT NULL,
+    waterExpInfo    TEXT NOT NULL,
+    light           VARCHAR(255) NOT NULL,
+    lightInfo       VARCHAR(255) NOT NULL,
+    lightExp        VARCHAR(255) NOT NULL,
+    lightExpInfo    TEXT NOT NULL,
+    humidity        VARCHAR(255) NOT NULL,
+    humidInfo       VARCHAR(255) NOT NULL,
+    humidExp        VARCHAR(255) NOT NULL,
+    humidExpInfo    TEXT NOT NULL,
+    tempExp         VARCHAR(255) NOT NULL,
+    tempExpInfo     TEXT NOT NULL
+    ) charset = utf8;

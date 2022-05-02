@@ -1,4 +1,6 @@
 /image
 *.log
 *.out
-test*
+test.ipynb
+.DS_Store
+__pycache__/

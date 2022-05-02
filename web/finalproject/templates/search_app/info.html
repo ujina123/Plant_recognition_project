@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>식물 도감 설명</title>
+
+    <!--한글 폰트 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gamja+Flower&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+
+
+    <style>
+        .plant_image{
+            width: 240px;
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 5pt;
+        }
+        
+        div{
+            width: 75%;
+            margin-left: 5%;
+
+            background-color: #f8f8f8;
+            padding: 7%;
+            font-family: 'Noto Sans KR', sans-serif;
+            
+        
+        }
+        
+        a {
+            font-size: 15pt;
+            font-weight:900;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .plant_info_top {
+            border-radius: 5pt 5pt 0 0;
+
+        }
+
+        .plant_info {
+            border-radius: 5pt;
+        }
+
+        .plant_info_center {
+
+        }
+
+        .plant_info_bottom{
+            border-radius: 0 0 5pt 5pt;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div onclick="location.href='{% url 'search' %}'" style="width: 15%; float: left; background-color: white;">
+        <img src="{% static 'img/go-back-left-arrow.png' %}" style="width: 50%;">
+    </div> 
+    <br><br><br><br>
+    <!-- 식물 설명 이미지 -->
+    <!-- <div class="plant_image" style="background-image: url({{data.url}})"></div> -->
+    <br>
+    <!-- 이름 -->
+    <div class="plant_info"><a>이름</a> <br><br> {{data.name}}</div>
+    <br><br>
+    <!-- 학명 -->
+    <div class="plant_info"><a>학명</a> <br><br> {{data.botanynm}}</div>
+    <br><br>
+    <!-- 정보 -->
+    <div class="plant_info"><a>정보</a> <br><br> {{data.info}}</div>
+    <br><br>
+
+    <div style="font-size: 20pt; background-color:rgb(227, 242, 249); font-weight:900; border-radius: 5pt;">어떻게 키우나요?</div>
+    <br><br>
+    <!-- 물 주는 주기 -->
+    <div class="plant_info_top"><a>물 주는 주기</a> <br><br> {{data.watercycle}} <br><br> <a>-</a> {{data.waterinfo}} </div>
+    <!-- 물주는 법 -->
+    <div class="plant_info_center" ><a>물주는 법: </a> {{data.waterexp}}</div>
+
+    <!-- 물주는 법3 -->
+    <div class="plant_info_bottom"><a>물 주기 TIP</a> <br><br> {{data.waterexpinfo}}</div>
+
+    <br><br>
+    <!-- 햇빛 -->
+    <div class="plant_info_top"><a>빛: </a>{{data.lightexp}} </div>
+    <!-- 햇빛 3 -->
+    <div><a>-</a> {{data.light}} </div>
+    <!-- 햇빛 2 -->
+    <div><a>-</a> {{data.lightinfo}}</div>
+
+    <!-- 햇빛 설명 -->
+    <div class="plant_info_bottom"><a>빛 관리 Tip</a> <br><br> {{data.lightexpinfo}}</div>
+    <br><br>
+    <!-- 습도 % -->
+    <div class="plant_info_top"><a>습도: </a> {{data.humidexp}} </div>
+    <!-- 습도 1 -->
+    <div><a>-</a> 적정: {{data.humidity}}</div>
+    <!-- 습도 2 -->
+    <div><a>-</a>{{data.humidinfo}}</div>
+    <!-- 습도 설명 -->
+    <div class="plant_info_bottom"><a>습도 관리 Tip</a> <br><br>{{data.humidexpinfo}}</div>
+    <br><br>
+
+    <!-- 온도 -->
+    <div class="plant_info_top"><a>온도</a> <br><br>{{data.tempexp}}</div>
+    <!-- 온도 설명 -->
+    <div class="plant_info_bottom"><a>온도 관리 Tip</a> <br><br>{{data.tempexpinfo}}</div>
+</body>
+</html>

@@ -20,7 +20,7 @@ for row in csv_data:
         (row[8]) = None
         (row[9]) = None
     sql = """
-            INSERT INTO weather2(areaNo, si, time, condi, isDay, temp, humidity, rainRatio, snowRatio, uv)
+            INSERT INTO weather(areaNo, si, time, condi, isDay, temp, humidity, rainRatio, snowRatio, uv)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
           """
     cursor.execute(sql, ((row[1]), (row[2]), (row[3]), (row[4]), (row[5]), (row[6]), (row[7]), (row[8]), (row[9]), (row[10]) ))
