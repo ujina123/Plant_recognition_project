@@ -49,6 +49,8 @@ class Plantmanage(models.Model):
     nickname = models.CharField(max_length=50)
     meetdate = models.DateField()
     waterdate = models.DateField()
+    cycle = models.IntegerField()
+    nextdate = models.DateField()
 
     class Meta:
         db_table = "plantmanage"
@@ -60,6 +62,8 @@ class Plantmanage(models.Model):
                 "plant": self.plant,
                 "nickname": self.nickname,
                 "meetdate": self.meetdate,
-                "waterdate": self.waterdate
+                "waterdate": self.waterdate,
+                "cycle": self.cycle,
+                "nextdate": self.nextdate
             }
         )
