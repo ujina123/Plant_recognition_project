@@ -57,7 +57,7 @@ class Plantmanage(models.Model):
         return str(
             {
                 "username": self.username,
-                "plantid": self.plantid,
+                "plant": self.plant,
                 "nickname": self.nickname,
                 "meetdate": self.meetdate,
                 "waterdate": self.waterdate
