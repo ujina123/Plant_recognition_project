@@ -8,11 +8,17 @@ def plantinfo(request):
         userid = AuthUser.objects.filter(username=user).values("id")[0]["id"]
         obj = Plantmanage.objects.filter(username=userid)
         return render(request, 'plantinfo.html', {"obj": obj})
+    # 여기 아래로 아직 미완성
     elif request.method == "POST":
-        now = dateformat.format(timezone.localtime(), 'Y-m-d')
-        pid = request.POST["userplantid"]
-        obj = Plantmanage.objects.filter(id=pid).update(waterdate=now)
-        return redirect("/plantinfo")
+        if "waterplant" in request.POST:
+            now = dateformat.format(timezone.localtime(), 'Y-m-d')
+            pid = request.POST["waterplant"]
+            Plantmanage.objects.filter(id=pid).update(waterdate=now)
+            return redirect("/plantinfo")
+        elif "deleteplant" in request.POST:
+            pid = request.POST["deleteplant"]
+            Plantmanage.objects.get(id=pid).delete()
+            return redirect("/plantinfo")
     return redirect("/plantinfo")
 
 def plantmanage(request):

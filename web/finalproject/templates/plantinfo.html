@@ -79,11 +79,16 @@
             <label>종 : {{o.plant.name}}</label>
             <label>처음 만난 날 : {{o.meetdate}}</label>
             <label>물주기 : {{o.waterdate}}</label>
+            <!-- 여기 아래로 아직 미완성 -->
             <form action="/plantinfo/" method="post">{% csrf_token %}
-                <input type="hidden" value="{{o.id}}" name="userplantid">
-                <button type="submit" class="file-upload-btn" name="water">물주기</button>
+                <input type="hidden" value="{{o.id}}" name="waterplant">
+                <button type="submit" class="file-upload-btn">물주기</button>
             </form>
             <button class="file-upload-btn" onclick="location.href='/search/info/?id={{o.plant.plantid}}'">더보기</button>
+            <form action="/plantinfo/" method="post">{% csrf_token %}
+                <input type="hidden" value="{{o.id}}" name="deleteplant">
+                <button type="submit" class="file-upload-btn">삭제</button>
+            </form>
         </fieldset>
         {% endfor %}
     </div>
