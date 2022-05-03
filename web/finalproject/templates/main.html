@@ -130,6 +130,10 @@
 		$('.image-upload-wrap').bind('dragleave', function () {
 			$('.image-upload-wrap').removeClass('image-dropping');
 		});
+
+		function history_back() {
+		history.back();
+		}
 	</script>
 	<!-- 부트스트랩 script -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -164,7 +168,7 @@
 		}
 		/* 상단바 css */
 		.icon-bar {
-			width: 100%; /* Full-width */
+			width: 105%; /* Full-width */
 			background-color: #555; /* Dark-grey background */
 			overflow: auto; /* Overflow due to float */
 			position: sticky;
@@ -195,7 +199,7 @@
 			background-color:#04AA6D;
 			border-radius: 5pt;
 			color: cornsilk;
-			width: 25%;
+			width: 26%;
 			font-size: 9pt;
 		}
 		.weather {
@@ -203,10 +207,12 @@
 			margin-right: 7%;
 			font-weight: bold;
 		}
-		* {margin:0; padding:0;}
+
+		/* sliderbar css */
+
 		ul {list-style:none;}
 		b {text-decoration:none; color:inherit; margin-right: 7%; font-size: 11pt;}
-		.box{max-width:960px; width:100%; height:67px; border:0.5px solid #ccc; margin:0 auto; border-radius: 5pt;}
+		.box {max-width:960px; width:100%; height:67px; border:0.5px solid #ccc; margin:0 auto; border-radius: 5pt;}
 		#tab {
 			height: 65px;
 		}
@@ -214,10 +220,29 @@
 			height: 65px;
 			border-radius: 5pt;
 			white-space: pre-line;
-			width: 30%;
+			width: 25%;
 		}
 		#tab ul{white-space:nowrap; overflow-x: auto; text-align:center; background:#f9f9f9;}
 		#tab ul span{display:inline-block; padding: 5px 5px; background:#f9f9f9;}
+
+		/* 물주기 slider css */
+		.swiper {
+        white-space: nowrap;
+        overflow-x: scroll;
+        padding: 24px;
+        padding-bottom: 7px;
+      	}
+
+      .swiper li {
+        width: 136px;
+        height: 80px;
+        background-size: cover;
+        background-position: center;
+        display: inline-block;
+        border-radius: 5px;
+        margin-right: 2%;
+      	}
+
     </style>
 </head>
 <body>
@@ -270,24 +295,25 @@
 		</div>
 
 		{% else %}
-		<div class="myplant" 
-			onclick="location.href='{% url 'plantinfo' %}'"
-			style="padding: 5%; font-family: 'Noto Sans KR', sans-serif; opacity : 0.6; filter: alpha(opacity=60); -moz-opacity:0.6; -khtml-opacity: 0.6;">
-			<button style="border-radius: 5pt; background-color: #04AA6D; color: cornsilk; padding: 2%;">나의 식물 관리</button>
-			<div>
-				<div>
-					<ul>
-						{% for o in obj %}
-						<span>
-							<img src="{{o.plant.url}}">
-							<b>{{o.nickname}}</b>
-							<b>물주기 D{{o.nextdate|datedelta}}</b>
-						</span>
-						{% endfor %}
-					</ul>
-				</div>
-			</div>
+		
+		<div class="myplant" style="padding: 6%;">
+			<div style="font-size: 15pt; float: left; margin-right: 10%; font-weight: bold;">언제 물줬지?</div>
+			<button onclick="location.href='{% url 'plantinfo' %}'" style="border-radius: 5pt; background-color: #04AA6D; color: cornsilk; padding: 2%;">나의 식물 관리</button>
+		
+			<ul class="swiper">
+				{% for o in obj %}
+				<li>
+					<img src="{{o.plant.url}}" style="width: 50%; text-decoration:none; color:inherit; margin-right: 7%; border-radius: 50%; border:0.5px solid #ccc;">
+					<b style="color: rgba(11, 97, 50, 0.571);">{{o.nickname}}</b>
+					<br>
+					<b>D{{o.nextdate|datedelta}}</b>
+				</li>
+				{% endfor %}
+			</ul>
+
 		</div>
+
+
 
 		{% endif %}
 		<div class="file-upload-content">
@@ -297,12 +323,11 @@
 			</div>
 		</div>
 		<br>
-	
-	<div class="icon-bar">
-		<a class="active" href="{% url 'main' %}"><i class="fa fa-home"></i></a>
-		<a href="{% url 'plantrecog' %}"><i class="fa fa-pagelines"></i></a>
-		<a href="{% url 'plantdisease' %}"><i class="fa fa-medkit" aria-hidden="true"></i></a>
-		<a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
-	</div>
 </body>
+<div class="icon-bar">
+	<a class="active" href="{% url 'main' %}"><i class="fa fa-home"></i></a>
+	<a href="{% url 'plantrecog' %}"><i class="fa fa-pagelines"></i></a>
+	<a href="{% url 'plantdisease' %}"><i class="fa fa-medkit" aria-hidden="true"></i></a>
+	<a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
+</div>
 </html>

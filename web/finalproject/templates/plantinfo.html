@@ -27,13 +27,20 @@
         label {
             font-size: 12pt;
             text-align: center;
-            float: right;
+            float: left;
             margin-bottom: 1%;
-            margin-right: 5%;
+            margin-left: 3%;
+            font-weight: bold;
+
+
         }
         fieldset {
             background-color: #f9f9f9; padding: 5%; border-radius: 5pt; border:0.5px solid #ccc;
         }
+        .img {
+            width: 100%;
+        }
+
     </style>
 </head>
 <body>
@@ -85,19 +92,23 @@
         <br><br>
         {% for o in obj %}
         <fieldset>
-            <img src="{{o.plant.url}}">
-            <label>{{o.nickname}}</label>
-            <label>종 : {{o.plant.name}}</label>
+            <img src="{{o.plant.url}}" class="img" style="margin-bottom: 10%;">
+            <label style="font-size: 16pt; color:rgb(15, 116, 82)">{{o.nickname}}</label>
+            <br><br>
+            <label>{{o.plant.name}}</label>
+            <br>
             <label>함께한 지 {{o.meetdate|howmanyday}}일째</label>
-            <label>물주기 D{{o.nextdate|datedelta}}</label>
+            <br>
+            <label>D{{o.nextdate|datedelta}}</label>
+            <br>
             <form action="/plantinfo/" method="post">{% csrf_token %}
                 <input type="hidden" value="{{o.id}}" name="waterplant">
-                <button type="submit" class="file-upload-btn">물주기</button>
+                <button type="submit" class="file-upload-btn" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">물주기</button>
             </form>
-            <button class="file-upload-btn" onclick="location.href='/search/info/?id={{o.plant.plantid}}'">더보기</button>
+            <button class="file-upload-btn" onclick="location.href='/search/info/?id={{o.plant.plantid}}'" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">더보기</button>
             <form action="/plantdelete/" method="post">{% csrf_token %}
                 <input type="hidden" value="{{o.id}}" name="deleteplant">
-                <button type="submit" class="file-upload-btn">삭제</button>
+                <button type="submit" class="file-upload-btn" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">삭제</button>
             </form>
         </fieldset>
         {% endfor %}

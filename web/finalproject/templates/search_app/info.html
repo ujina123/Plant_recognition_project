@@ -12,7 +12,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gamja+Flower&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
     <style>
         .plant_image{
-            width: 240px;
+            width: 74%;
             height: 240px;
             background-size: cover;
             background-position: center;
@@ -41,14 +41,21 @@
             border-radius: 0 0 5pt 5pt;
         }
     </style>
+
+    <script>
+
+
+    </script>
+
 </head>
 <body>
-    <div onclick="location.href='{% url 'search' %}'" style="width: 15%; float: left; background-color: white;">
-        <img src="{% static 'img/go-back-left-arrow.png' %}" style="width: 50%;">
-    </div> 
-    <br><br><br><br>
+    <a href="javascript:history.back();" style=" background-color: white; float: left; margin-left: 8%; margin-bottom: 10vh;">
+        <img src="{% static 'img/go-back-left-arrow.png' %}" style="width: 10%;">
+    </a>
+        
+    <br><br><br>
     <!-- 식물 설명 이미지 -->
-    <!-- <div class="plant_image" style="background-image: url({{data.url}})"></div> -->
+    <div class="plant_image" style="background-image: url({{data.url}})"></div>
     <br>
     <!-- 이름 -->
     <div class="plant_info"><a>이름</a> <br><br> {{data.name}}</div>
