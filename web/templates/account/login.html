@@ -86,11 +86,11 @@
                 <div style="margin-top: 3%;">카카오로 간편 로그인</div>
             </a>
             <br><br>
-            <a class="button secondaryAction" href="{% url 'account_reset_password' %}" style="font-family: 'Noto Sans KR', sans-serif;">{% trans "비밀번호를 잊어버리셨나요?" %}</a>
+            <!-- <a class="button secondaryAction" href="{% url 'account_reset_password' %}" style="font-family: 'Noto Sans KR', sans-serif;">{% trans "비밀번호를 잊어버리셨나요?" %}</a> -->
             <div class="login-or">{% trans '' %}</div>
     </div>
         <div style="margin-bottom: 8%;">
-            <p>{% blocktrans %}계정이 없으시다면,
+            <p>{% blocktrans %}계정이 없으시면,
                 <a href="{{ signup_url }}">회원가입</a>을 먼저해주세요.{% endblocktrans %}</p>    
         </div>
         </form>

@@ -78,9 +78,7 @@
             <img src="{% static 'img/go-back-left-arrow.png' %}" style="width: 50%;">
         </div>
         
-        <br>
-        <br>
-        <div style="font-size: 17pt; margin-left: 25%; font-weight: bold; margin-bottom: 7%">나의 식물 추가</div>
+        <div style="margin-top: -2%; font-size: 17pt; margin-left: 22%; font-weight: bold; margin-bottom: 7%">나의 식물 추가</div>
         <form action="/plantmanage/" method="POST">{% csrf_token %}
             <div>
                 <label>식물 종류<input type="text" style="width:95%" name="plant_name"></label>
@@ -97,7 +95,6 @@
             <div>
                 <label>최근 물준 날<p style="border: black 2px; width: 95%;"><input class="today_date" type="date" value="" min="2000-01-01" max="2040-12-31" style="background-color:white;" name="water_date"></p></label>
             </div>
-            <br>
             <br>
             <button class="file-upload-btn" type="submit">내 식물로 등록</button>
         </form>
