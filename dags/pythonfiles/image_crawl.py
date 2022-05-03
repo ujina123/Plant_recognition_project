@@ -6,7 +6,7 @@ from selenium import webdriver
 import time
 import os
 
-driver = webdriver.Firefox(executable_path="")
+driver = webdriver.Firefox(executable_path="../../geckodriver")
 
 def scroll() :
     last_page_height = driver.execute_script("return document.documentElement.scrollHeight")
@@ -85,10 +85,8 @@ for x, y, z in zip(eng_name, quote_name, dir_name):
         else:
             continue
     
-    url = f"https://www.bing.com/search?q={x}"
+    url = f"https://www.bing.com/images/search?q={x}"
     driver.get(url)
-    time.sleep(5)
-    driver.find_element_by_css_selector("#b-scopeListItem-images").click()
     time.sleep(5)
     while True:
         scroll()
@@ -102,15 +100,14 @@ for x, y, z in zip(eng_name, quote_name, dir_name):
     items = soup.select("div.img_cont.hoff")
     for item in items:
         src = item.select_one("img")["src"]
+        print(src)
         if src in srcs:
             continue
         else:
             srcs.append(src)
     
-    url = f"https://www.bing.com/search?q={y}"
+    url = f"https://www.bing.com/images/search?q={y}"
     driver.get(url)
-    time.sleep(5)
-    driver.find_element_by_css_selector("#b-scopeListItem-images").click()
     time.sleep(5)
     while True:
         scroll()
@@ -130,10 +127,13 @@ for x, y, z in zip(eng_name, quote_name, dir_name):
             srcs.append(src)
     
     # 네이버 한글 검색
-    url = f"https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query={y}"
+    url = f"https://search.naver.com/search.naver?where=nexearch&ie=utf8&query={y}"
     driver.get(url)
     time.sleep(5)
-    driver.find_element_by_css_selector("ul.base > li:nth-child(2)").click()
+    if driver.find_element_by_css_selector("ul.base > li:nth-child(2) > a").text == "이미지":
+        driver.find_element_by_css_selector("ul.base > li:nth-child(2)").click()
+    else:
+        driver.find_element_by_css_selector("ul.base > li:nth-child(3)").click()
     time.sleep(5)
     scroll()
     html = driver.page_source
@@ -149,5 +149,9 @@ for x, y, z in zip(eng_name, quote_name, dir_name):
             continue
     cnt = 1
     for s in srcs:
-        req.urlretrieve(s, f"./image/{z}/{z}{cnt}.png")
-        cnt += 1
+        try:
+            req.urlretrieve(s, f"./image/{z}/{z}{cnt}.png")
+            cnt += 1
+        except Exception as e:
+            print(e)
+            continue

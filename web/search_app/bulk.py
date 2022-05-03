@@ -8,11 +8,32 @@ es.indices.create(
     body={
         "settings": {
             "index": {
+                "number_of_shards": 1,
+                "number_of_replicas": 1,
+                "max_ngram_diff": 30,
                 "analysis": {
+                    "filter": {
+                        "ngram_filter": {
+                            "type": "edge_ngram",
+                            "min_gram": 1,
+                            "max_gram": 30
+                        }
+                    },
                     "analyzer": {
-                        "my_analyzer": {
+                        "ngram_analyzer": {
                             "type": "custom",
-                            "tokenizer": "nori_tokenizer"
+                            "tokenizer": "ngram_tokenizer"
+                        },
+                        "search_analyzer": {
+                            "type": "custom",
+                            "tokenizer": "jaso_search_tokenizer",
+                        },
+                        "index_analyzer": {
+                            "type": "custom",
+                            "tokenizer": "jaso_index_tokenizer",
+                            "filter": [
+                                "ngram_filter"
+                            ]
                         },
                         "english" : {
                             "type": "custom",
@@ -20,6 +41,23 @@ es.indices.create(
                             "filter" : [
                                 "lowercase"
                             ]
+                        }
+                    },
+                    "tokenizer": {
+                        "jaso_search_tokenizer": {
+                            "type": "jaso_tokenizer",
+                            "mistype": True,
+                            "chosung": False
+                        },
+                        "jaso_index_tokenizer": {
+                            "type": "jaso_tokenizer",
+                            "mistype": True,
+                            "chosung": True
+                        },
+                        "ngram_tokenizer": {
+                            "type": "ngram",
+                            "min_gram": 1,
+                            "max_gram": 10
                         }
                     }
                 }
@@ -32,7 +70,16 @@ es.indices.create(
                 },
                 "name": {
                     "type": "text",
-                    "analyzer": "my_analyzer"
+                    "fields": {
+                        "ngram": {
+                            "type": "text",
+                            "analyzer": "ngram_analyzer"
+                        },
+                        "jaso": {
+                            "type": "text",
+                            "analyzer": "index_analyzer"                            
+                        }
+                    }
                 },
                 "botanyNm": {
                     "type": "text",
@@ -43,7 +90,7 @@ es.indices.create(
     }
 )
 
-file = "/Users/younwoo/Downloads/plantName.json"
+file = "/home/jngmk/workspace/finalproject/dags/data/plantName.json"
 with open(file, encoding="utf-8") as file:
     json_data = json.loads(file.read())
 
