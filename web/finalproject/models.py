@@ -55,19 +55,6 @@ class Plantmanage(models.Model):
     class Meta:
         db_table = "plantmanage"
 
-    def str(self):
-        return str(
-            {
-                "username": self.username,
-                "plant": self.plant,
-                "nickname": self.nickname,
-                "meetdate": self.meetdate,
-                "waterdate": self.waterdate,
-                "cycle": self.cycle,
-                "nextdate": self.nextdate
-            }
-        )
-
 class Weather(models.Model):
     weatherid = models.AutoField(db_column='weatherID', primary_key=True)  # Field name made lowercase.
     areano = models.BigIntegerField(db_column='areaNo')  # Field name made lowercase.

@@ -84,24 +84,34 @@
         <br>
         
         <div style="text-align: center; font-size: 13pt; margin-bottom: 7%; font-family: 'Noto Sans KR', sans-serif;">식물의 이미지 데이터를 분석해<br>어떤 식물인지 알아내고<br> 관련된 정보 제공를 통해<br> 식물을 더 잘 관리할 수 있어요.</div>
-        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )" style="font-family: 'Noto Sans KR', sans-serif;">나의 식물 가져오기</button>
+
+        <!-- <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )" style="font-family: 'Noto Sans KR', sans-serif;">나의 식물 가져오기</button> -->
         <br>
         
-        <div class="image-upload-wrap">
-            <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
-        </div>
-        
-        <div class="file-upload-content">
-            <img class="file-upload-image" src="#" alt="your image"/>
-            <div class="image-title-wrap">
-                <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+        <form action="" enctype="multipart/form-data" method="POST"> {% csrf_token %}
+            <input type="file" name="plant_img" accept="image/*">
+            <input type="submit" value="SUBMIT">
+            <!-- <div class="file-upload-content">
+                <label for="file__input">
+                    <img class="file-upload-image" src="#">
+                </label>
+                <div class="image-title-wrap">
+                    <button type="button" onclick="removeUpload()" class="remove-image">이미지 삭제</button>
+                </div>
             </div>
-        </div>
+            {% csrf_token %}
+            <div class="image-upload-wrap">
+                <input id="file__input" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*">
+            </div>
+            <button type="submit">SUBMIT</button> -->
+        </form>
+        <img src="{{inference_img}}">
     </div>
+
     
     <div class="icon-bar">
         <a href="{% url 'main' %}"><i class="fa fa-home"></i></a> 
-        <a href="{% url 'plantrecog' %}" class="active"><i class="fa fa-pagelines"></i></a> 
+        <a href="{% url 'plantimage:plantimage' %}" class="active"><i class="fa fa-pagelines"></i></a> 
         <a href="{% url 'plantdisease' %}"><i class="fa fa-medkit" aria-hidden="true"></i></a> 
         <a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
     </div>

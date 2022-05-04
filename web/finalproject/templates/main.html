@@ -312,21 +312,12 @@
 			</ul>
 
 		</div>
-
-
-
 		{% endif %}
-		<div class="file-upload-content">
-			<img class="file-upload-image" src="#" alt="your image" />
-			<div class="image-title-wrap">
-			<button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
-			</div>
-		</div>
 		<br>
 </body>
 <div class="icon-bar">
 	<a class="active" href="{% url 'main' %}"><i class="fa fa-home"></i></a>
-	<a href="{% url 'plantrecog' %}"><i class="fa fa-pagelines"></i></a>
+	<a href="{% url 'plantimage:plantimage' %}"><i class="fa fa-pagelines"></i></a>
 	<a href="{% url 'plantdisease' %}"><i class="fa fa-medkit" aria-hidden="true"></i></a>
 	<a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
 </div>

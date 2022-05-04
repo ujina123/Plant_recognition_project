@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     "search_app",
 
     'rest_framework',
+    "plantimage",
 ]
 SITE_ID = 1
 MIDDLEWARE = [
@@ -141,7 +143,7 @@ TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -163,3 +165,6 @@ LOGIN_REDIRECT_URL = '/'
 #카카오톡 소셜 로그인 리다이렉트 설정
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'  # 로그인 후 리다이렉트 될 경로
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

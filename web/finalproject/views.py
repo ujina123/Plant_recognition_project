@@ -38,7 +38,7 @@ def plantinfo(request):
     elif request.method == "POST":
         pid = request.POST["waterplant"]
         obj = Plantmanage.objects.get(id=pid)
-        now = datetime.datetime.strptime(dateformat.format(timezone.localtime(), 'Y-m-d'), "%Y-%m-%d")
+        now = datetime.date.today()
         # 다음 주기 날짜
         next_date = now + datetime.timedelta(days=obj.cycle)
         # db 업데이트
