@@ -10,11 +10,33 @@ def search(request):
         docs = es.search(index="dictionary",
                 body= {
                     "_source": ["URL", "name"],
-                    # "_source": ["name"],
                     "query": {
-                        "multi_match": {
-                            "query": search_word,
-                            "fields": ["name", "botanyNm"]
+                        "bool": {
+                        "must": [
+                            {
+                            "match": {
+                                "name.jaso": {
+                                "query": search_word,
+                                "analyzer": "search_analyzer"
+                                }
+                            }
+                            }
+                        ],
+                        "should": [
+                            {
+                            "match": {
+                                "name.ngram": {
+                                "query": search_word,
+                                "analyzer": "ngram_analyzer"
+                                }
+                            }
+                            }
+                        ]
+                        }
+                    },
+                    "highlight": {
+                        "fields": {
+                        "name.ngram": {}
                         }
                     }
                 })
@@ -22,7 +44,6 @@ def search(request):
         result = []
         for d in data:
             result.append([d["_id"], d["_source"]["URL"], d["_source"]["name"]])
-            #result.append([d["_id"], d["_source"]["name"]])
         return render(request, "search_app/search.html", {"result" : result})
     else:
         return render(request, 'search_app/search.html')
