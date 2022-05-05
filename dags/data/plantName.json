@@ -1,0 +1,1232 @@
+[
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_1.jpg",
+        "name": "몬스테라 델리시오사",
+        "botanyNm": "Monstera deliciosa"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_2.jpg",
+        "name": "극락조화",
+        "botanyNm": "Strelitzia reginae"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_3.jpg",
+        "name": "아스파라거스 나누스",
+        "botanyNm": "Asparagus setaceus"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_4.jpg",
+        "name": "워터 코인",
+        "botanyNm": "Hydrocotyle verticillata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_5.jpg",
+        "name": "블루 아이스",
+        "botanyNm": "Cupressus arizonica var. glabra 'Blue ice'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_6.jpg",
+        "name": "청산호(연필선인장)",
+        "botanyNm": "Euphorbia tirucalli"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_7.jpg",
+        "name": "틸란드시아 카풋 메두사",
+        "botanyNm": "Tillandsia caput medusae"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_8.jpg",
+        "name": "수염 틸란드시아",
+        "botanyNm": "Tillandsia usneoides"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_9.jpg",
+        "name": "틸란드시아 휴스톤",
+        "botanyNm": "Tillandsia houston"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_10.jpg",
+        "name": "머틀허브나무",
+        "botanyNm": "Myrtus communis"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_11.jpg",
+        "name": "틸란드시아 푼키아나",
+        "botanyNm": "Tillandsia funckiana"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_12.jpg",
+        "name": "틸란드시아 바일레이",
+        "botanyNm": "Tillandisia baileyi"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_13.jpg",
+        "name": "틸란드시아 드루이드",
+        "botanyNm": "Tillandsia ionantha druid"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_14.jpg",
+        "name": "틸란시아 세로그라피카",
+        "botanyNm": "Tillandsia xerographica"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_15.jpg",
+        "name": "틸란드시아 아르젠티아",
+        "botanyNm": "Tillandsia argentea"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_16.jpg",
+        "name": "틸란드시아 애란토스",
+        "botanyNm": "Tillandisa aeranthos"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_17.jpg",
+        "name": "틸란드시아 쉬데이아나",
+        "botanyNm": "Tillandsia schiedeana"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_18.jpg",
+        "name": "틸란드시아 스트릭타",
+        "botanyNm": "Tillandsia stricta"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_19.jpg",
+        "name": "드라세나 드라코 (용혈수)",
+        "botanyNm": "Dracaena draco"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_20.jpg",
+        "name": "엽란",
+        "botanyNm": "Aspidistra elatior"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_21.jpg",
+        "name": "디펜바키아 마리안느",
+        "botanyNm": "Dieffenbachia 'Marianne'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_22.jpg",
+        "name": "팔손이 나무",
+        "botanyNm": "Fatsia japonica"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_23.jpg",
+        "name": "무늬 라벤더(황금 라벤더)",
+        "botanyNm": "Lavandula allardii 'Meerlo'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_24.jpg",
+        "name": "드라세나 맛상게아나 (행운목)",
+        "botanyNm": "Dracaena fragrans 'Massangeana'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_25.jpg",
+        "name": "수박 페페로미아",
+        "botanyNm": "Peperomia sandersii"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_26.jpg",
+        "name": "올리브 나무",
+        "botanyNm": "Olea europaea"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_27.jpg",
+        "name": "디바오 소철",
+        "botanyNm": "Cycas debaoensis"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_28.jpg",
+        "name": "아스플레니움 코브라",
+        "botanyNm": "Asplenium nidus 'Cobra'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_29.jpg",
+        "name": "비스마르크 야자",
+        "botanyNm": "Bismarckia nobilis"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_30.jpg",
+        "name": "개운죽",
+        "botanyNm": "Dracaena sanderiana"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_31.jpg",
+        "name": "알로에 베라",
+        "botanyNm": "Aloe barbadens"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_32.jpg",
+        "name": "싱고니움",
+        "botanyNm": "Syngonium podophyllum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_33.jpg",
+        "name": "디시디아 메론",
+        "botanyNm": "Dischidia ovata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_34.jpg",
+        "name": "페페로미아 프로스트라타",
+        "botanyNm": "Peperomia prostrata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_35.jpg",
+        "name": "스투키",
+        "botanyNm": "Sansevieria cylindrica"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_36.jpg",
+        "name": "다바나 고사리",
+        "botanyNm": "Phlebodium aureum 'Davana'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_37.jpg",
+        "name": "칼라데아 프레디",
+        "botanyNm": "Calathea Concinna 'Freddie'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_38.jpg",
+        "name": "필레아 페페로미오데스",
+        "botanyNm": "Pilea peperomioides"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_39.jpg",
+        "name": "체리 세이지",
+        "botanyNm": "Salvia greggii"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_40.jpg",
+        "name": "슈퍼바 산세베리아",
+        "botanyNm": "Sansevieria 'Superba'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_41.jpg",
+        "name": "틸란드시아 셀레리아나",
+        "botanyNm": "Tillandsia seleriana"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_42.jpg",
+        "name": "마오리 코로키아",
+        "botanyNm": "Corokia cotoneaster"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_43.jpg",
+        "name": "천냥금",
+        "botanyNm": "Ardisia japonica"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_44.jpg",
+        "name": "무늬 산호수",
+        "botanyNm": "Ardisia pusilla Variegata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_45.jpg",
+        "name": "레몬밤",
+        "botanyNm": "Melissa officinalis"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_46.jpg",
+        "name": "아데니움(석화)",
+        "botanyNm": "Adenium obesum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_47.jpg",
+        "name": "줄리아 페페",
+        "botanyNm": "Peperomia puteolata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_48.jpg",
+        "name": "알로카시아 프라이덱",
+        "botanyNm": "Alocasia frydek"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_49.jpg",
+        "name": "페퍼민트",
+        "botanyNm": "Mentha x piperita"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_50.jpg",
+        "name": "산세베리아 문샤인",
+        "botanyNm": "Sansevieria trifasciata 'Moonshine'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_51.jpg",
+        "name": "필로덴드론 레몬라임",
+        "botanyNm": "Philodendron 'Lemon Lime'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_52.jpg",
+        "name": "은엽 아카시아",
+        "botanyNm": "Acacia Dealbata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_53.jpg",
+        "name": "필로덴드론 마메이",
+        "botanyNm": "Philodendron mamei"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_54.jpg",
+        "name": "오색 마삭줄 (초설 마삭줄)",
+        "botanyNm": "Trachelospermum asiaticum var. intermedium"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_55.jpg",
+        "name": "스파티필름",
+        "botanyNm": "Spathiphylum sp."
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_56.jpg",
+        "name": "스위트 바질",
+        "botanyNm": "Ocimum Basilicum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_57.jpg",
+        "name": "산세베리아",
+        "botanyNm": "Sansevieria trifasciata var. laurentii"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_58.jpg",
+        "name": "필로덴드론 버킨 (무늬콩고)",
+        "botanyNm": "Philodendron Birkin"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_59.jpg",
+        "name": "드라세나 콤팩타",
+        "botanyNm": "Dracaena deremensis 'Virens Compacta'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_60.jpg",
+        "name": "유칼립투스 슈가검",
+        "botanyNm": "Eucalyptus cladocalyx"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_61.jpg",
+        "name": "왜성 바나나",
+        "botanyNm": "Musa cavendish"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_62.jpg",
+        "name": "유카",
+        "botanyNm": "Yucca recurvifolia"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_63.jpg",
+        "name": "호주매화 (마누카)",
+        "botanyNm": "Leptospermum scoparium"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_64.jpg",
+        "name": "오로라 페페",
+        "botanyNm": "Iresine herbstii 'Aureoreticulata'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_65.jpg",
+        "name": "히메 몬스테라(미니 몬스테라)",
+        "botanyNm": "Rhaphidophora tetrasperma"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_66.jpg",
+        "name": "해피트리",
+        "botanyNm": "Heteropanax fragrans"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_67.jpg",
+        "name": "아비스",
+        "botanyNm": "Asplenium nidus 'avis'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_68.jpg",
+        "name": "몬스테라 아단소니",
+        "botanyNm": "Monstera adansonii"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_69.jpg",
+        "name": "십이지권",
+        "botanyNm": "Haworthia fasciata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_70.jpg",
+        "name": "디시디아 애플",
+        "botanyNm": "Dischidia oiantha apple leaf"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_71.jpg",
+        "name": "스킨답서스",
+        "botanyNm": "Epipremnum aureum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_72.jpg",
+        "name": "아프리칸 바이올렛",
+        "botanyNm": "Saintpaulia ionantha"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_73.jpg",
+        "name": "립살리스 트리고나",
+        "botanyNm": "Rhipsalis trigona"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_74.jpg",
+        "name": "사랑초 옵투사",
+        "botanyNm": "Oxalis obtusa"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_75.jpg",
+        "name": "더피 고사리",
+        "botanyNm": "Nephrolepis cordifolia 'Duffi'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_76.jpg",
+        "name": "필로덴드론 옥시카르디움 '브라질'",
+        "botanyNm": "Philodendron hederaceum var. oxycardium 'Brasil'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_77.jpg",
+        "name": "마오리 소포라",
+        "botanyNm": "Sophora prostrata 'Little Baby'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_78.jpg",
+        "name": "율리치아나 스프랄리스",
+        "botanyNm": "Eulychnia castanea var. varispiralis"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_79.jpg",
+        "name": "필로덴드론 셀로움",
+        "botanyNm": "Philodendron selloum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_80.jpg",
+        "name": "마란타 레우코네우라",
+        "botanyNm": "Maranta leuconeura var. kerchoveana"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_81.jpg",
+        "name": "지바시스 펠루치다 (실달개비, 엘레강스)",
+        "botanyNm": "Gibasis geniculata (Jacq.) Rohw"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_82.jpg",
+        "name": "아레카야자",
+        "botanyNm": "Chrysalidocarpus lutescens"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_83.jpg",
+        "name": "에크메아 파시아타",
+        "botanyNm": "Aechmea Fasciata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_84.jpg",
+        "name": "알로카시아 사리안",
+        "botanyNm": "Alocasia Sarian"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_85.jpg",
+        "name": "필로덴드론 파스타짜넘",
+        "botanyNm": "Philodendron pastazanum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_86.jpg",
+        "name": "필로덴드론 멜라노크리섬",
+        "botanyNm": "Philodendron melanocrhysum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_87.jpg",
+        "name": "홍공작(무늬 백량금)",
+        "botanyNm": "Ardisia crenata 'Beni Kujaku'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_88.jpg",
+        "name": "유칼립투스 구니",
+        "botanyNm": "Eucalyptus gunnii"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_89.jpg",
+        "name": "무늬 푸미라",
+        "botanyNm": "Ficus pumila Variegata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_90.jpg",
+        "name": "괴마옥",
+        "botanyNm": "Euphorbia hypogaea"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_91.jpg",
+        "name": "휘카스 페티올라리스",
+        "botanyNm": "Ficus petiolaris"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_92.jpg",
+        "name": "코코스 야자 (코코넛 야자)",
+        "botanyNm": "Cocos Nucifera"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_93.jpg",
+        "name": "백운각",
+        "botanyNm": "Cereus hildmannianus"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_94.jpg",
+        "name": "보스턴 고사리",
+        "botanyNm": "Nephrolepis exaltata 'Bostoniensis'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_95.jpg",
+        "name": "귀면각",
+        "botanyNm": "Cereus jamacaru"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_96.jpg",
+        "name": "안스리움 리갈레",
+        "botanyNm": "Anthurium regale"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_97.jpg",
+        "name": "칼라데아 세토사",
+        "botanyNm": "Calathea 'Compactstar'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_98.jpg",
+        "name": "안스리움 클라리너비움",
+        "botanyNm": "Anthurium clarinervium"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_99.jpg",
+        "name": "튤립",
+        "botanyNm": "Tulipa gesneriana"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_100.jpg",
+        "name": "유칼립투스 폴리안",
+        "botanyNm": "Eucalyptus polyanthemos"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_101.jpg",
+        "name": "후마타 고사리",
+        "botanyNm": "Humata tyermannii(Davallia grffithiana)"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_102.jpg",
+        "name": "쿠션부쉬",
+        "botanyNm": "Leucophyta Brownii"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_103.jpg",
+        "name": "무늬 아이비",
+        "botanyNm": "Hedera helix 'Glacier'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_104.jpg",
+        "name": "틸란드시아 필리폴리아",
+        "botanyNm": "Tillandsia filifolia"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_105.jpg",
+        "name": "미니 알로에",
+        "botanyNm": "Aloe arborescens"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_106.jpg",
+        "name": "틸란드시아 준세아",
+        "botanyNm": "Tillandsia juncea"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_107.jpg",
+        "name": "틸란드시아 시아네아",
+        "botanyNm": "Tillandsia Cyanea (Wallisia cyanea)"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_108.jpg",
+        "name": "틸란드시아 이오난사",
+        "botanyNm": "Tillandsia ionantha"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_109.jpg",
+        "name": "수채화 고무나무",
+        "botanyNm": "Ficus elastica 'Tineke'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_110.jpg",
+        "name": "마리모",
+        "botanyNm": "Aegagropila linnaei"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_111.jpg",
+        "name": "틸란드시아 이오난사 푸에고",
+        "botanyNm": "Tillandsia Ionantha Fuego"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_112.jpg",
+        "name": "크루시아",
+        "botanyNm": "Clusia rosea"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_113.jpg",
+        "name": "목마가렛",
+        "botanyNm": "Argyranthemum frutescens"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_114.jpg",
+        "name": "아가베 아테누아타",
+        "botanyNm": "Agave attenuata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_115.jpg",
+        "name": "산토소마 린드니",
+        "botanyNm": "Xanthosoma lindenii"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_116.jpg",
+        "name": "칼라데아 아마그리스",
+        "botanyNm": "Ctenanthe burle-marxii 'Amagris'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_117.jpg",
+        "name": "블루스타 고사리",
+        "botanyNm": "Phlebodium aureum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_118.jpg",
+        "name": "시기지움 (피어리스)",
+        "botanyNm": "Syzygium australe"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_119.jpg",
+        "name": "홍콩 야자 (쉐프렐라 홍콩)",
+        "botanyNm": "Schefflera arboricola"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_120.jpg",
+        "name": "연화죽",
+        "botanyNm": "Dracaena sanderiana"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_121.jpg",
+        "name": "동백나무",
+        "botanyNm": "Camellia japonica"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_122.jpg",
+        "name": "멕시코 소철",
+        "botanyNm": "Zamia furfuracea"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_123.jpg",
+        "name": "칼라데아 오르비폴리아",
+        "botanyNm": "Calathea Orbifolia"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_124.jpg",
+        "name": "알리 고무나무",
+        "botanyNm": "Ficus binnendijk 'Alii'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_125.jpg",
+        "name": "안스리움 포게티",
+        "botanyNm": "Anthurium forgetii"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_126.jpg",
+        "name": "무레이 소철",
+        "botanyNm": "Macrozamia moorei"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_127.jpg",
+        "name": "디시디아 넘초크",
+        "botanyNm": "Dischidia imbricata X vidalii"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_128.jpg",
+        "name": "알로카시아 아마조니카",
+        "botanyNm": "Alocasia amazonica"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_129.jpg",
+        "name": "왁스 플라워",
+        "botanyNm": "Chamelaucium uncinatum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_130.jpg",
+        "name": "벵갈 고무나무",
+        "botanyNm": "Ficus benghalensis"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_131.jpg",
+        "name": "테이블 야자",
+        "botanyNm": "Chamaedorea elegans"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_132.jpg",
+        "name": "콜레우스",
+        "botanyNm": "Coleus"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_133.jpg",
+        "name": "필로덴드론 글로리오섬",
+        "botanyNm": "Philodendron gloriosum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_134.jpg",
+        "name": "필로덴드론 콩고",
+        "botanyNm": "Philodendron 'Congo'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_135.jpg",
+        "name": "아글라오네마",
+        "botanyNm": "Aglaonema commutatum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_136.jpg",
+        "name": "아라우카리아",
+        "botanyNm": "Araucaria heterophylla"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_137.jpg",
+        "name": "프테리스",
+        "botanyNm": "Pteris cretica 'Albo Lineata'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_138.jpg",
+        "name": "떡갈잎 고무나무",
+        "botanyNm": "Ficus lyrata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_139.jpg",
+        "name": "은사초",
+        "botanyNm": "Festuca glauca"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_140.jpg",
+        "name": "백도선",
+        "botanyNm": "Opuntia microdasys"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_141.jpg",
+        "name": "석송",
+        "botanyNm": "Lycopodium clavatum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_142.jpg",
+        "name": "비단삼나무(블루버드)",
+        "botanyNm": "Chamaecyparis pisifera 'boulevard'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_143.jpg",
+        "name": "긴잎 아카시아",
+        "botanyNm": "Acacia longifolia"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_144.jpg",
+        "name": "필로덴드론 플로리다뷰티",
+        "botanyNm": "Philodendron florida beauty variegata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_145.jpg",
+        "name": "호리더스 소철",
+        "botanyNm": "Encephalartos horridus"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_146.jpg",
+        "name": "로즈마리",
+        "botanyNm": "Rosmarinus officinalis"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_147.jpg",
+        "name": "녹탑",
+        "botanyNm": "Crassula muscosa"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_148.jpg",
+        "name": "트리안",
+        "botanyNm": "Muehlenbeckia complexa"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_149.jpg",
+        "name": "제라늄",
+        "botanyNm": "Pelargonium inquinans"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_150.jpg",
+        "name": "펫츠 헤데라",
+        "botanyNm": "x Fatshedera lizei"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_151.jpg",
+        "name": "카네이션",
+        "botanyNm": "Dianthus caryophyllus"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_152.jpg",
+        "name": "녹영",
+        "botanyNm": "Senecio rowleyanus"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_153.jpg",
+        "name": "칼라데아 진저",
+        "botanyNm": "Calathea Ornata Sanderiana"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_154.jpg",
+        "name": "자주 만년초(부자란)",
+        "botanyNm": "Tradescantia spathacea"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_155.jpg",
+        "name": "금청각",
+        "botanyNm": "Pilosocereus pachycladus"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_156.jpg",
+        "name": "장미",
+        "botanyNm": "Rosa hybrida"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_157.jpg",
+        "name": "흑법사",
+        "botanyNm": "Aeonium arboreum 'Zwartkop'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_158.jpg",
+        "name": "크로톤",
+        "botanyNm": "Codiaeum variegatum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_159.jpg",
+        "name": "오렌지 자스민",
+        "botanyNm": "Murraya paniculata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_160.jpg",
+        "name": "바로크 벤자민",
+        "botanyNm": "Ficus benjamina 'barok'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_161.jpg",
+        "name": "무늬벤자민 고무나무",
+        "botanyNm": "Ficus benjamina 'Variegata'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_162.jpg",
+        "name": "애니시다",
+        "botanyNm": "Cytisus scoparius"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_163.jpg",
+        "name": "율마 (윌마)",
+        "botanyNm": "Cupressus macrocarpa 'Wilma Goldcrest'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_164.jpg",
+        "name": "스노우 스파티필름",
+        "botanyNm": "Spathiphyllum 'White Stripe'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_165.jpg",
+        "name": "사계귤 (유주나무)",
+        "botanyNm": "fortunella japonica var. margarita."
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_166.jpg",
+        "name": "무스카리",
+        "botanyNm": "Muscari armeniacum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_167.jpg",
+        "name": "화이트 고스트",
+        "botanyNm": "Euphorbia lactea 'White Ghost' Haw."
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_168.jpg",
+        "name": "휘토니아",
+        "botanyNm": "Fittonia"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_169.jpg",
+        "name": "페페로미아 페퍼스팟",
+        "botanyNm": "Peperomia pepperspot"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_170.jpg",
+        "name": "칼랑코에",
+        "botanyNm": "Kalanchoe blosfeldian"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_171.jpg",
+        "name": "필로덴드론 플로우마니",
+        "botanyNm": "Philodendron plowmanii"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_172.jpg",
+        "name": "피닉스 야자",
+        "botanyNm": "Phoenix roebelenii"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_173.jpg",
+        "name": "칼라디움",
+        "botanyNm": "Caladium spp."
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_174.jpg",
+        "name": "켄차 야자",
+        "botanyNm": "Howea forsteriana"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_175.jpg",
+        "name": "박쥐란",
+        "botanyNm": "Platycerium bifurcatum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_176.jpg",
+        "name": "산세베리아 하니",
+        "botanyNm": "Sansevieria trifasciata 'Hahnii'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_177.jpg",
+        "name": "수선화",
+        "botanyNm": "Narcissus"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_178.jpg",
+        "name": "필로덴드론 핑크프린세스",
+        "botanyNm": "Philodendron erubescens 'Pink Princess'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_179.jpg",
+        "name": "필로덴드론 베루코섬 X 멜라노크리섬",
+        "botanyNm": "Philodendron verrucosum x melanochrysum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_180.jpg",
+        "name": "디지고테카 아랄리아",
+        "botanyNm": "Plerandra elegantissima"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_181.jpg",
+        "name": "라벤더",
+        "botanyNm": "Lavandula"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_182.jpg",
+        "name": "여인초",
+        "botanyNm": "Strelitzia nicolai"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_183.jpg",
+        "name": "몬스테라 알보 바리에가타",
+        "botanyNm": "Monstera deliciosa 'Variegata'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_184.jpg",
+        "name": "휘카스 움베르타",
+        "botanyNm": "Ficus umbellata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_185.jpg",
+        "name": "드라세나 마지나타",
+        "botanyNm": "Dracaena marginata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_186.jpg",
+        "name": "금사철",
+        "botanyNm": "Euonymus japonica for. aureo-variegata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_187.jpg",
+        "name": "생선뼈 선인장 (피쉬본 선인장)",
+        "botanyNm": "Selenicereus anthonyanus"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_188.jpg",
+        "name": "필로덴드론 베루코섬",
+        "botanyNm": "Philodendron verrucosum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_189.jpg",
+        "name": "초코리프",
+        "botanyNm": "Euphorbia cotinifolia"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_190.jpg",
+        "name": "백묘국",
+        "botanyNm": "Jacobaea Maritima"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_191.jpg",
+        "name": "인도 고무나무",
+        "botanyNm": "Ficus elastica robusta"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_192.jpg",
+        "name": "헤데라 (아이비)",
+        "botanyNm": "Hedera helix"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_193.jpg",
+        "name": "하월시아 옵투사",
+        "botanyNm": "Haworthia obtusa"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_194.jpg",
+        "name": "디펜바키아 트로픽스노우",
+        "botanyNm": "Dieffenbachia amoena 'Tropic snow'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_195.jpg",
+        "name": "페페로미아 에덴로소",
+        "botanyNm": "Peperomia caperata rossa"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_196.jpg",
+        "name": "프리지아",
+        "botanyNm": "Freesia"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_197.jpg",
+        "name": "장미허브",
+        "botanyNm": "Plectranthus hadiensis var. tomentosus"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_198.jpg",
+        "name": "산호수",
+        "botanyNm": "Ardisia pusilla"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_199.jpg",
+        "name": "히아신스",
+        "botanyNm": "Hyacinthus"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_200.jpg",
+        "name": "청페페",
+        "botanyNm": "Peperomia obtusifolia"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_201.jpg",
+        "name": "시클라멘",
+        "botanyNm": "Cyclamen"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_202.jpg",
+        "name": "관음죽",
+        "botanyNm": "Rhapis excelsa"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_203.jpg",
+        "name": "파키라",
+        "botanyNm": "Pachira aquatica"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_204.jpg",
+        "name": "티트리",
+        "botanyNm": "Melaleuca alternifolia"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_205.jpg",
+        "name": "개나리 자스민",
+        "botanyNm": "Gelsemium sempervirens"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_206.jpg",
+        "name": "알로카시아 블랙벨벳",
+        "botanyNm": "Alocasia reginula 'Black Velvet'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_207.jpg",
+        "name": "안스리움 안드레아눔",
+        "botanyNm": "Anthurium andraeanum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_208.jpg",
+        "name": "금전수 (돈나무)",
+        "botanyNm": "Zamioculcas zamiifolia"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_209.jpg",
+        "name": "썰프레아",
+        "botanyNm": "Cupressus arizonica 'Sulphurea'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_210.jpg",
+        "name": "호야 카르노사 (무늬 호야)",
+        "botanyNm": "Hoya carnosa"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_211.jpg",
+        "name": "만세 선인장 ",
+        "botanyNm": "Consolea rubescens"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_212.jpg",
+        "name": "디시디아 화이트",
+        "botanyNm": "Dischidia oinantha variegata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_213.jpg",
+        "name": "마블 선인장",
+        "botanyNm": "Opuntia monacantha"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_214.jpg",
+        "name": "축전",
+        "botanyNm": "Conophytum bilobum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_215.jpg",
+        "name": "덕구리난",
+        "botanyNm": "Beaucarnea recurvata (Nolina tuberculata)"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_216.jpg",
+        "name": "세네시오 칸디칸스 (엔젤윙)",
+        "botanyNm": "Senecio candicans 'Angel wings'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_217.jpg",
+        "name": "디운에둘레 소철",
+        "botanyNm": "Dioon edule"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_218.jpg",
+        "name": "바질트리",
+        "botanyNm": "ocimum basilicum var. minimum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_219.jpg",
+        "name": "염자",
+        "botanyNm": "Crassula ovata"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_220.jpg",
+        "name": "보라 사랑초",
+        "botanyNm": "Oxalis triangularis subsp. papilionacea"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_221.jpg",
+        "name": "아라비안 자스민",
+        "botanyNm": "Jasminum sambac"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_222.jpg",
+        "name": "알로카시아 오도라",
+        "botanyNm": "Alocasia odora"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_223.jpg",
+        "name": "안스리움 크리스탈리넘",
+        "botanyNm": "Anthurium crystallinum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_224.jpg",
+        "name": "비화옥",
+        "botanyNm": "Gymnocalycium baldianum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_225.jpg",
+        "name": "타라",
+        "botanyNm": "Pilea grauca"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_226.jpg",
+        "name": "녹태고",
+        "botanyNm": "Xerosicyos danguyi"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_227.jpg",
+        "name": "둥근 잎 아카시아",
+        "botanyNm": "Acacia podalyriifolia"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_228.jpg",
+        "name": "접란 (클로로피텀)",
+        "botanyNm": "Chlorophytum comosum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_229.jpg",
+        "name": "소철",
+        "botanyNm": "Cycas revoluta"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_230.jpg",
+        "name": "학 자스민",
+        "botanyNm": "Jasminum polyanthum Franchet"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_231.jpg",
+        "name": "멜라니 고무나무",
+        "botanyNm": "Ficus elastica 'Robusta'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_232.jpg",
+        "name": "눈꽃 선인장",
+        "botanyNm": "Mammillaria gracilis cv. Arizona Snowcap"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_233.jpg",
+        "name": "청하각",
+        "botanyNm": "Euphorbia trigona"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_234.jpg",
+        "name": "드라세나 와네키",
+        "botanyNm": "Dracaena deremensis 'Warneckii'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_235.jpg",
+        "name": "남천",
+        "botanyNm": "Nandina domestica"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_236.jpg",
+        "name": "브레이니아 니보사 (소코라코)",
+        "botanyNm": "Breynia nivosa 'Sokorako'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_237.jpg",
+        "name": "엑셀런트 포인트(네덜란드 편백)",
+        "botanyNm": "Chamaecyparis thyoides Excellent Point"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_238.jpg",
+        "name": "디시디아 밀리언하트",
+        "botanyNm": "Dischidia ruscifolia"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_239.jpg",
+        "name": "호야 콤팩타 (리본호야)",
+        "botanyNm": "Hoya carnosa 'Compacta'"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_240.jpg",
+        "name": "베고니아",
+        "botanyNm": "Begonia spp"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_241.jpg",
+        "name": "용신목",
+        "botanyNm": "Myrtillocactus geometrizans"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_242.jpg",
+        "name": "미모사",
+        "botanyNm": "Mimosa pudica"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_243.jpg",
+        "name": "원숭이꼬리 선인장",
+        "botanyNm": "Cleistocactus colademononis"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_244.jpg",
+        "name": "렉스 베고니아",
+        "botanyNm": "Begonia rex-cultorum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_245.jpg",
+        "name": "루카덴드론",
+        "botanyNm": "Leucadendron salignum"
+    },
+    {
+        "URL": "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/images/image_246.jpg",
+        "name": "러브체인",
+        "botanyNm": "Ceropegia woodii"
+    }
+]

@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+    <!-- 기존 css -->
+    <link rel="stylesheet" type="text/css" href = "{% static 'css/plantrecog.css' %}">
+    <!-- 상단바 링크 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--한글 폰트 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gamja+Flower&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <title>plant search</title>
+    <style>
+        div {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        /* 상단바 css */
+        .icon-bar {
+            width: 100%; /* Full-width */
+		    background-color: #555; /* Dark-grey background */
+		    overflow: auto; /* Overflow due to float */
+            position: sticky;
+		}
+		.icon-bar a {
+		    float: left; /* Float links side by side */
+		    text-align: center; /* Center-align text */
+		    width: 25%; /* Equal width (5 icons with 20% width each = 100%) */
+		    padding: 12px 0; /* Some top and bottom padding */
+		    transition: all 0.3s ease; /* Add transition for hover effects */
+		    color: white; /* White text color */
+		    font-size: 36px; /* Increased font size */
+		}
+		.icon-bar a:hover {
+		    background-color: #000; /* Add a hover color */
+		}
+		.active {
+		    background-color: #04AA6D; /* Add an active/current color */
+		}
+        div{
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .plant_image{
+            width: 90%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .searchbar {
+            width: 70%;
+            border: 1px solid #04AA6D;
+            padding: 5px;
+            height: 20px;
+            border-radius: 5px;
+            outline: none;
+            color:green;
+            font-size: 10.5pt;
+            margin-top: 1%;
+        }
+        .searchbutton {
+            background-color: #04AA6D;
+            height: 32px;
+        }
+    </style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="file-upload" style= "max-width: 100%;"> 
+        <form action="/search/" method="GET">
+            <input type="text" placeholder="식물 이름을 검색해주세요" name="term" class="searchbar">
+            <input type="submit" value="검색" class="searchbutton">
+        </form>
+        <ul class="plant_items" style="background-color: white;">
+            {% for r in result %}
+            <div class="plant_item" style="background-color: white; width: 90%; text-align: center; margin-bottom: 8%;">
+                <!-- 정보로 넘어가게하는 코드 -->
+                <a href="/search/info/?id={{r.0}}">
+                    <div class="plant_image" style="background-image: url({{r.1}})"></div>
+                    <div>
+                        <!-- 식물이름 글씨 -->
+                        <div style="font-size: 13pt;">{{r.2}}</div>
+                        <!-- <h3>{{r.1}}</h3> -->
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </ul>
+        <br><br><br><br>
+    </div>
+    <div class="icon-bar">
+        <a href="{% url 'main' %}"><i class="fa fa-home"></i></a> 
+        <a href="{% url 'plantimage:plantimage' %}"><i class="fa fa-pagelines"></i></a> 
+        <a href="{% url 'plantdisease' %}"><i class="fa fa-medkit" aria-hidden="true"></i></a> 
+        <a href="{% url 'search' %}" class="active"><i class="fa fa-search"></i></a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+{% block content %}
+<!-- <h1>{% trans "로그아웃" %}</h1> -->
+<br><br><br><br><br>
+<p style="text-align: center; font-size: 15pt;">{% trans '로그아웃 하시겠습니까?' %}</p>
+
+<form method="post" action="{% url 'account_logout' %}">{% csrf_token %}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+    {% endif %}
+    <button type="submit" style= "background-color: #04AA6D; border-radius: 5pt; width: 40%; height: 2em; font-size: 10pt; font-family: 'Noto Sans KR', sans-serif; margin-left: 30%;">{% trans '로그아웃' %}</button>
+</form>
+{% endblock %}
