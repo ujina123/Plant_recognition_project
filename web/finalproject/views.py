@@ -70,7 +70,10 @@ def plantmanage(request):
         meet_date = request.POST["plant_date"]
         water_date = request.POST["water_date"]
         water_date = datetime.datetime.strptime(water_date, "%Y-%m-%d").date()
-        plant_id = Plants.objects.get(name=plant_name)
+        try:
+            plant_id = Plants.objects.get(name=plant_name)
+        except:
+            return redirect("/plantmanage")
         cycle = plant_id.watercycle
         if cycle == "주 1~2회":
             day=5

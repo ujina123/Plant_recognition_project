@@ -6,7 +6,7 @@ from selenium import webdriver
 import time
 import os
 
-driver = webdriver.Firefox(executable_path="../../geckodriver")
+driver = webdriver.Firefox(executable_path="../geckodriver")
 
 def scroll() :
     last_page_height = driver.execute_script("return document.documentElement.scrollHeight")
@@ -18,9 +18,9 @@ def scroll() :
             break
         last_page_height = new_page_height
 
-name = ["오렌지 자스민", "로즈마리"]           # 한글검색
-eng_name = ["Murraya paniculata", "Rosmarinus officinalis"]       # 영어검색
-dir_name = ["orangejasmin", "rosmari"]       # 폴더이름
+name = ["벵갈 고무나무", "산호수"]           # 한글검색
+eng_name = ["Ficus benghalensis", "Ardisia pusilla"]       # 영어검색
+dir_name = ["benghaltree", "sanhosoo"]       # 폴더이름
 quote_name = []     # 한글 url quote
 
 for n, dir in zip(name, dir_name):
