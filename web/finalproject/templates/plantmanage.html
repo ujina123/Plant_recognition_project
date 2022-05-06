@@ -68,11 +68,12 @@
             </div>
             <br>
             {% for message in messages %}
-                <div id="message" class="alert {{ message.tags }} alert-auto-dismissible alert-dismissible notification-container text-center" role="alert">
-                    {{ message }}
-                </div>
+	    	{% if message.tags == 'alert-warning' %}
+	                <div id="message" class="alert {{ message.tags }} alert-auto-dismissible alert-dismissible notification-container text-center" role="alert">
+        	            {{ message }}
+			</div>
+		{% endif %}
             {% endfor %}
-            <br>
             <div>
                 <label>식물 애칭<input type="text" style="width:95%" name="plant_nickname"></label>
             </div>
