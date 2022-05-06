@@ -36,7 +36,7 @@ type plants []struct {
 // Json파일 파싱
 func loadJson() plants {
 	var plant plants
-	data, err := os.Open("/home/jngmk/finalproject/dags/data/plants.json")
+	data, err := os.Open("/home/ubuntu/finalproject/dags/data/plants.json")
 	if err != nil {
 		log.Fatalln(err)
 	}

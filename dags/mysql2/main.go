@@ -24,7 +24,7 @@ type disease []struct {
 // Json파일 파싱
 func loadJson() disease {
 	var disea disease
-	data, err := os.Open("/home/jngmk/finalproject/dags/data/plantdisease.json")
+	data, err := os.Open("/home/ubuntu/finalproject/dags/data/plantdisease.json")
 	if err != nil {
 		log.Fatalln(err)
 	}
