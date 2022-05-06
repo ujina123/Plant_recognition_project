@@ -35,7 +35,7 @@ def getImage(request):
         # print('--'*10)
         # print('pred_name: ',result_name, '\nconfidence: ' , result_confidence)
         
-        # results.render()
+        results.render()
         
         for img in results.imgs:
             img_base64 = im.fromarray(img)
