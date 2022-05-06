@@ -94,7 +94,7 @@ es.indices.create(
     }
 )
 
-file = "/home/jngmk/finalproject/dags/data/plantName.json"
+file = "/home/ubuntu/finalproject/dags/data/plantName.json"
 with open(file, encoding="utf-8") as file:
     json_data = json.loads(file.read())
 

@@ -23,7 +23,7 @@ def getImage(request):
         img_bytes = uploaded_img_qs.image.read()
         img = im.open(io.BytesIO(img_bytes))
 
-        path_hubconfig = "/home/jngmk/finalproject/web/yolov5_code"
+        path_hubconfig = "/home/ubuntu/finalproject/web/yolov5_code"
         path_weightfile = "yolov5_code/runs/train/yolov5s_results20/weights/best.pt"  
 
         model = torch.hub.load(path_hubconfig, 'custom', path=path_weightfile, source='local')
