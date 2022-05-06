@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from finalproject.models import *
-from finalproject.form import PlantForm
+from finalproject.forms import PlantForm
 from django.contrib import messages
 import datetime
 
