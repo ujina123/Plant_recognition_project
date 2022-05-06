@@ -81,7 +81,7 @@
 </head>
 <body>
     <div class="file-upload" style= "max-width: 100%;"> 
-        <form action="/search/" method="GET">
+        <form action="/search/" method="GET" autocomplete="off">
             <input type="text" placeholder="식물 이름을 검색해주세요" name="term" class="searchbar">
             <input type="submit" value="검색" class="searchbutton">
         </form>
@@ -89,13 +89,10 @@
         {% if result|length != 0 %}
             {% for r in result %}
             <div class="plant_item" style="background-color: white; width: 90%; text-align: center; margin-bottom: 8%;">
-                <!-- 정보로 넘어가게하는 코드 -->
                 <a href="/search/info/?id={{r.0}}">
                     <div class="plant_image" style="background-image: url({{r.1}})"></div>
                     <div>
-                        <!-- 식물이름 글씨 -->
                         <div style="font-size: 13pt;">{{r.2}}</div>
-                        <!-- <h3>{{r.1}}</h3> -->
                     </div>
                 </a>
             </div>

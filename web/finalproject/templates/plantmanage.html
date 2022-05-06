@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,32 +25,24 @@
             width: 50%;
             height: 50%;
         }
+        input {
+            width:95%;
+        }
+        .today_date {
+            background-color: white;
+        }
+        p {
+            border: black 2px;
+            width: 95%;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        onload = function() {
-            const inputTag = document.getElementsByClassName("today_date")
-            const today = toStringByFormatting(new Date(), "-")
-            inputTag[0].value = today
-            inputTag[1].value = today
-        }
-        function leftPad(value) {
-            if (value >= 10){
-                return value
-            }
-            return `0${value}`
-        }
-        function toStringByFormatting(source, delimiter = '-') {
-            const year = source.getFullYear()
-            const month = leftPad(source.getMonth() + 1)
-            const day = leftPad(source.getDate())
-            return [year, month, day].join(delimiter)
-        }
-        window.setTimeout(function() {
-            $(".alert-auto-dismissible").fadeTo(500, 0).slideUp(500, function(){
-                $(this).remove();
-            });
-        }, 4000);
+        // window.setTimeout(function() {
+        //     $("#message").fadeTo(500, 0).slideUp(500, function(){
+        //         $(this).remove();
+        //     });
+        // }, 5000);
     </script>
 </head>
 <body style="font-size: 13pt;">
@@ -62,30 +55,69 @@
         </div>
         
         <div style="margin-top: -2%; font-size: 17pt; margin-left: 22%; font-weight: bold; margin-bottom: 7%">나의 식물 추가</div>
-        <form action="/plantmanage/" method="POST">{% csrf_token %}
+        <form action="/plantmanage/" method="POST" autocomplete="off">{% csrf_token %}
             <div>
-                <label>식물 종류<input type="text" style="width:95%" name="plant_name"></label>
+                <label>식물 종류
+                    {% if data %}
+                        {% render_field form.plant_name value=data.name readonly=true %}
+                    {% endif %}
+                    {{form.plant_name}}
+                </label>
             </div>
             <br>
+            <div>
+                <label>식물 애칭
+                    {{form.plant_nickname}}
+                </label>
+            </div>
+            <br>
+            <div>
+                <label>처음 만난 날
+                    <p>
+                        {{form.plant_date}}
+                    </p>
+                </label>
+            </div>
+            <br>
+            <div>
+                <label>최근 물준 날
+                    <p>
+                        {{form.water_date}}
+                    </p>
+                </label>
+            </div>
+            <br>
+
+            <!-- {% if d %}
+                <div>
+                    <label>식물 종류<input type="text" value="{{d.name}}" style="width:95%" name="plant_name" readonly></label>
+                </div>
+            {% else %}
+                <div>
+                    <label>식물 종류<input type="text" style="width:95%" name="plant_name"></label>
+            {% endif %}
             {% for message in messages %}
-	    	    {% if message.tags == 'alert-warning' %}
-	                <div id="message" class="alert {{ message.tags }} alert-auto-dismissible alert-dismissible notification-container text-center" role="alert">
-        	            {{ message }}
-			        </div>
-		        {% endif %}
+                {% if message.tags == 'alert-warning' or "alert-error" %}
+                    <b id="message" role="alert">{{ message }}</b>
+                {% endif %}
             {% endfor %}
+                </div>
+            <br>
             <div>
                 <label>식물 애칭<input type="text" style="width:95%" name="plant_nickname"></label>
             </div>
             <br>
             <div>
-                <label>처음 만난 날<p style="border: black 2px; width: 95%;"><input class="today_date" type="date" value="" min="2000-01-01" max="2040-12-31" style="background-color:white;" name="plant_date"></p></label>
+                <label>처음 만난 날<p style="border: black 2px; width: 95%;"><input class="today_date" type="date" value="" min="2000-01-01" max="" style="background-color:white;" name="plant_date"></p></label>
             </div>
-            <br>
-            <div>
-                <label>최근 물준 날<p style="border: black 2px; width: 95%;"><input class="today_date" type="date" value="" min="2000-01-01" max="2040-12-31" style="background-color:white;" name="water_date"></p></label>
+                <label>최근 물준 날<p style="border: black 2px; width: 95%;"><input class="today_date" type="date" value="" min="2000-01-01" max="" style="background-color:white;" name="water_date"></p></label>
+                {% for message in messages %}
+                    {% if message.tags == "alert-error" %}
+                        <b>{{ message }}</b>
+                    {% endif %}
+                {% endfor %}
             </div>
-            <br>
+            <br> -->
             <button class="file-upload-btn" type="submit">내 식물로 등록</button>
         </form>
     </div>

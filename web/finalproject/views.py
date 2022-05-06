@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from finalproject.models import *
+from finalproject.form import PlantForm
 from django.contrib import messages
 import datetime
 
@@ -28,12 +29,14 @@ def plantinfo(request):
     if request.method == "GET":
         # 현재 세션 유저
         user = request.user
-        # userid 불러오기
-        userid = AuthUser.objects.filter(username=user).values("id")[0]["id"]
-        # D-day 짧은 순으로
-        obj = Plantmanage.objects.filter(username=userid).order_by("nextdate")
-
-        return render(request, 'plantinfo.html', {"obj": obj})
+        try:
+            # userid 불러오기
+            userid = AuthUser.objects.filter(username=user).values("id")[0]["id"]
+            # D-day 짧은 순으로
+            obj = Plantmanage.objects.filter(username=userid).order_by("nextdate")
+            return render(request, 'plantinfo.html', {"obj": obj})
+        except:
+            return render(request, "account/login.html")
 
     elif request.method == "POST":
         pid = request.POST["waterplant"]
@@ -62,13 +65,20 @@ def plantdelete(request):
 
 def plantmanage(request):
     """ 식물 직접 등록 """ 
-    if request.method == "GET":
-        return render(request, "plantmanage.html")
-    elif request.method == "POST":
+    if request.method == "POST":
         plant_name = request.POST["plant_name"]
         plant_nickname = request.POST["plant_nickname"]
+        if len(plant_nickname) == 0:
+            messages.error(request, "양식에 맞게 기입해주세요")
+            return redirect("/plantmanage")
         meet_date = request.POST["plant_date"]
+        if meet_date == "":
+            messages.error(request, "양식에 맞게 기입해주세요")
+            return redirect("/plantmanage")
         water_date = request.POST["water_date"]
+        if water_date == "":
+            messages.error(request, "양식에 맞게 기입해주세요")
+            return redirect("/plantmanage")
         water_date = datetime.datetime.strptime(water_date, "%Y-%m-%d").date()
         try:
             plant_id = Plants.objects.get(name=plant_name)
@@ -104,8 +114,8 @@ def plantmanage(request):
         pmanage = Plantmanage(username=user, plant=plant_id, nickname=plant_nickname, meetdate=meet_date, waterdate=water_date, cycle=day, nextdate=next_date)
         pmanage.save()
         return redirect("/plantinfo")
-
-    return redirect("/plantinfo")
+    else:
+        return render(request, "plantmanage.html", {"form": PlantForm()})
 
 def plantrecog(request):
     return render(request, 'plantrecog.html')

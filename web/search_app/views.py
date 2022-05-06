@@ -49,6 +49,11 @@ def search(request):
         return render(request, 'search_app/search.html')
 
 def info(request):
-    _id = request.GET.get("id")
-    q = Plants.objects.get(plantid=int(_id))
-    return render(request, 'search_app/info.html', {"data": q})
+    if request.method == "GET":
+        _id = request.GET.get("id")
+        q = Plants.objects.get(plantid=int(_id))
+        return render(request, 'search_app/info.html', {"data": q})
+    elif request.method == "POST":
+        id = request.POST["plant"]
+        q = Plants.objects.filter(plantid=id).values("name")
+        return render(request, "plantmanage.html", {"data": q})

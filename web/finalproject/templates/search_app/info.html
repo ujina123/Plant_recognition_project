@@ -46,6 +46,18 @@
     <a href="javascript:history.back();" style=" background-color: white; float: left; margin-left: 8%; margin-bottom: 10vh;">
         <img src="{% static 'img/go-back-left-arrow.png' %}" style="width: 10%;">
     </a>
+    {% if not user.is_authenticated %}
+        <div>
+            <button onclick="location.href='{% url 'account_login' %}'">내 식물로 등록하기</button>
+        </div>
+    {% else %}
+        <div>
+            <form action="/plantmanage/" method="post" autocomplete="off">{% csrf_token %}
+                <input type="hidden" value="{{data.plantid}}" name="plant">
+                <button type="submit" class="file-upload-btn">내 식물로 등록하기</button>
+            </form>
+        </div>
+    {% endif %}
         
     <br><br><br>
     <!-- 식물 설명 이미지 -->
