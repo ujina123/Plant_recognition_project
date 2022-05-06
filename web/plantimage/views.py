@@ -2,9 +2,9 @@ import io
 from PIL import Image as im
 import torch
 from django.shortcuts import render
-from finalproject.models import AuthUser
+from finalproject.models import AuthUser, Plants
 from plantimage.models import ImageModel
-from .forms import ImageUploadForm
+# from .forms import ImageUploadForm
 
 def getImage(request):
     if request.method == "GET":
@@ -32,10 +32,10 @@ def getImage(request):
         result_confidence = results.pandas().xyxy[0]['confidence'].values[0]
         result_name = results.pandas().xyxy[0]['name'].values[0]
         
-        print('--'*10)
-        print('pred_name: ',result_name, '\nconfidence: ' , result_confidence)
+        # print('--'*10)
+        # print('pred_name: ',result_name, '\nconfidence: ' , result_confidence)
         
-        results.render()
+        # results.render()
         
         for img in results.imgs:
             img_base64 = im.fromarray(img)
@@ -43,9 +43,9 @@ def getImage(request):
 
         inference_img = "/media/yolo_out/image0.jpg"
 
-        form = ImageUploadForm()
+        # form = ImageUploadForm()
         context = {
-            "form": form,
+            # "form": form,
             "inference_img": inference_img,
             "result_name": result_name,
             "result_confidence": result_confidence

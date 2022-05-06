@@ -1,8 +1,8 @@
 # JngMkk
 from django.shortcuts import render, redirect
-from django.utils import timezone, dateformat
 from django.http import JsonResponse
 from finalproject.models import *
+from django.contrib import messages
 import datetime
 
 def main(request):
@@ -73,6 +73,7 @@ def plantmanage(request):
         try:
             plant_id = Plants.objects.get(name=plant_name)
         except:
+            messages.info(request, "아직 지원하지 않는 식물이에요 ㅠㅠ")
             return redirect("/plantmanage")
         cycle = plant_id.watercycle
         if cycle == "주 1~2회":

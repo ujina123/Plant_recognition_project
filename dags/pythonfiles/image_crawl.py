@@ -18,9 +18,9 @@ def scroll() :
             break
         last_page_height = new_page_height
 
-name = ["벵갈 고무나무", "산호수"]           # 한글검색
-eng_name = ["Ficus benghalensis", "Ardisia pusilla"]       # 영어검색
-dir_name = ["benghaltree", "sanhosoo"]       # 폴더이름
+name = []           # 한글검색
+eng_name = []       # 영어검색
+dir_name = []       # 폴더이름
 quote_name = []     # 한글 url quote
 
 for n, dir in zip(name, dir_name):
