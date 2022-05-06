@@ -86,6 +86,7 @@
             <input type="submit" value="검색" class="searchbutton">
         </form>
         <ul class="plant_items" style="background-color: white;">
+        {% if result|length != 0 %}
             {% for r in result %}
             <div class="plant_item" style="background-color: white; width: 90%; text-align: center; margin-bottom: 8%;">
                 <!-- 정보로 넘어가게하는 코드 -->
@@ -99,7 +100,15 @@
                 </a>
             </div>
             {% endfor %}
-        </ul>
+        {% else %}
+            <div class="plant_item" style="background-color: white; width: 90%; text-align: center; margin-bottom: 8%;">
+                <div>
+                    <p>저희가 모르는 식물이에요 ㅠ</p>
+                    <button>알려주기!</button>
+                </div>
+            </div>
+        {% endif %}
+       </ul>
         <br><br><br><br>
     </div>
     <div class="icon-bar">
