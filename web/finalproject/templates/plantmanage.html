@@ -58,7 +58,7 @@
                 {% if messages %}
                     <b>
                         {% for message in messages %}
-                            {% if messeage.message == "아직 저희가 모르는 식물이에요 ㅠㅠ" %}
+                            {% if messeage.tags == ERROR %}
                                 {{ message.message }}
                             {% endif %}
                         {% endfor %}
