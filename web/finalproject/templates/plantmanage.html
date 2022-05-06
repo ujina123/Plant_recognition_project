@@ -58,7 +58,9 @@
                 {% if messages %}
                     <b>
                         {% for message in messages %}
-                            {{ message.message }}
+                            {% if messeage.tags == SUCCESS %}
+                                {{ message.message }}
+                            {% endif %}
                         {% endfor %}
                     </b>
                 {% endif %}

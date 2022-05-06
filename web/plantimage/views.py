@@ -4,7 +4,49 @@ import torch
 from django.shortcuts import render
 from finalproject.models import AuthUser, Plants
 from plantimage.models import ImageModel
+from elasticsearch import Elasticsearch
 # from .forms import ImageUploadForm
+
+def search(word):
+    es = Elasticsearch(hosts="localhost", port=9200)
+    docs = es.search(index="dictionary",
+            body= {
+                "_source": ["URL", "name"],
+                "query": {
+                    "bool": {
+                    "must": [
+                        {
+                        "match": {
+                            "name.jaso": {
+                            "query": word,
+                            "analyzer": "search_analyzer"
+                            }
+                        }
+                        }
+                    ],
+                    "should": [
+                        {
+                        "match": {
+                            "name.ngram": {
+                            "query": word,
+                            "analyzer": "ngram_analyzer"
+                            }
+                        }
+                        }
+                    ]
+                    }
+                },
+                "highlight": {
+                    "fields": {
+                    "name.ngram": {}
+                    }
+                }
+            })
+    data = docs["hits"]["hits"]
+    result = []
+    for d in data:
+        result.append([d["_id"], d["_source"]["URL"], d["_source"]["name"]])
+    return result
 
 def getImage(request):
     if request.method == "GET":
@@ -41,15 +83,12 @@ def getImage(request):
             img_base64 = im.fromarray(img)
             img_base64.save("media/yolo_out/image0.jpg", format="JPEG")
 
-        inference_img = "/media/yolo_out/image0.jpg"
-
         # form = ImageUploadForm()
+        ImageModel.objects.filter(id=uploaded_img_qs.id).update(name=result_name, accuracy=result_confidence)
+        plants = search(result_name)
         context = {
             # "form": form,
-            "inference_img": inference_img,
-            "result_name": result_name,
-            "result_confidence": result_confidence
+            "plants": plants
         }
-        ImageModel.objects.filter(id=uploaded_img_qs.id).update(name=result_name, accuracy=result_confidence)
         return render(request, "plantimage/plantrecog.html", context)
     return render(request, "plantimage/plantrecog.html")
