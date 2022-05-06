@@ -73,7 +73,7 @@ def plantmanage(request):
         try:
             plant_id = Plants.objects.get(name=plant_name)
         except:
-            messages.add_message(request, messages.ERROR, "아직 저희가 모르는 식물이에요 ㅠㅠ")
+            messages.warning(request, "아직 저희가 모르는 식물이에요 ㅠ")
             return redirect("/plantmanage")
         cycle = plant_id.watercycle
         if cycle == "주 1~2회":
