@@ -26,9 +26,9 @@ print(BASE_DIR)
 SECRET_KEY = 'django-insecure-7+_3gwb@iz3vktv18i79(zfsu+5j1jk6tr!mam)$s7(2=%ha)g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     "plantimage",
+    "diseaseimage",
 ]
 SITE_ID = 1
 MIDDLEWARE = [
