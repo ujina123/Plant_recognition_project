@@ -51,7 +51,7 @@
 
     <div class="file-upload" style= "max-width: 100%; font-family: 'Noto Sans KR', sans-serif;">
         <br>
-        <h1 style="text-align: center;">촬영으로 정보 조회</h1>
+        <h1 style="margin-left: 10%;">촬영으로 정보 조회</h1>
         <br>
         <center><img src="{% static 'img/plantrecog.jpeg' %}" style="width: 80%; border-radius: 5pt; height: 28vh;"></center>
         <br>
@@ -60,8 +60,8 @@
         <br>
         
         <form action="" enctype="multipart/form-data" method="POST" autocomplete="off"> {% csrf_token %}
-            <input type="file" name="plant_img" accept="image/*">
-            <input type="submit" value="SUBMIT">
+            <input type="file" name="plant_img" accept="image/*" style="color:rgb(69, 152, 69);">
+            <input type="submit" value="SUBMIT" style="background-color: #04AA6D;">
         </form>
             {% for p in plants %}
                 <div class="plant_item" style="background-color: white; width: 90%; text-align: center; margin-bottom: 8%;">

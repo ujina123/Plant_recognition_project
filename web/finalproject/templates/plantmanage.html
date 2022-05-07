@@ -53,12 +53,8 @@
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
     <div class="file-upload" style="max-width: 100%;">
-        <div onclick="location.href='{% url 'plantinfo' %}'" style="width: 15%; float: left; ">
-            <img src="{% static 'img/go-back-left-arrow.png' %}" style="width: 50%;">
-        </div>
-        <!-- <button>식물 추가 요청하기!</button> -->
         
-        <div style="margin-top: -2%; font-size: 17pt; margin-left: 22%; font-weight: bold; margin-bottom: 7%">나의 식물 추가</div>
+        <div style="margin-top: -2%; font-size: 17pt; margin-left: 2%; font-weight: bold; margin-bottom: 7%; margin-right: 14%; float: left;">나의 식물 추가</div>
 
         <form action="" method="POST" autocomplete="off">{% csrf_token %}
             <div>
@@ -101,6 +97,7 @@
             </div>
             <br>
             <button class="file-upload-btn" type="submit">내 식물로 등록</button>
+            <br><br>
         </form>
     </div>
 </body>

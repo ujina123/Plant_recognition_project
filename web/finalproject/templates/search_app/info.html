@@ -43,9 +43,6 @@
     </style>
 </head>
 <body>
-    <a href="javascript:history.back();" style=" background-color: white; float: left; margin-left: 8%; margin-bottom: 10vh;">
-        <img src="{% static 'img/go-back-left-arrow.png' %}" style="width: 10%;">
-    </a>
     {% if not user.is_authenticated %}
         <div>
             <button onclick="location.href='{% url 'account_login' %}'">내 식물로 등록하기</button>
