@@ -49,7 +49,8 @@
         </div>
     {% else %}
         <div>
-            <form action="" method="get" autocomplete="off">
+            <form action="/plantmanage/" method="get" autocomplete="off">
+                <input type="hidden" name="plant" value="{{data.plantid}}">
                 <button type="submit" class="file-upload-btn">내 식물로 등록하기</button>
             </form>
         </div>
