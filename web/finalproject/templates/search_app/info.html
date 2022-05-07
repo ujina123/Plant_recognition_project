@@ -52,8 +52,7 @@
         </div>
     {% else %}
         <div>
-            <form action="/plantmanage/" method="post" autocomplete="off">{% csrf_token %}
-                <input type="hidden" value="{{data.plantid}}" name="plant">
+            <form action="" method="get" autocomplete="off">
                 <button type="submit" class="file-upload-btn">내 식물로 등록하기</button>
             </form>
         </div>

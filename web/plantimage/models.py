@@ -1,5 +1,3 @@
-import os
-from re import M
 from django.db import models
 from finalproject.models import AuthUser
 from django.utils.translation import gettext_lazy

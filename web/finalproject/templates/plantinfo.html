@@ -72,7 +72,7 @@
             <br>
             <label>함께한 지 {{o.meetdate|howmanyday}}일째</label>
             <br>
-            <label>D{{o.nextdate|datedelta}}</label>
+            <label>다음 물주기까지 D{{o.nextdate|datedelta}}</label>
             <br>
             <form action="/plantinfo/" method="post">{% csrf_token %}
                 <input type="hidden" value="{{o.id}}" name="waterplant">

@@ -66,54 +66,46 @@ def plantdelete(request):
 def plantmanage(request):
     """ 식물 직접 등록 """ 
     if request.method == "POST":
-        plant_name = request.POST["plant_name"]
-        plant_nickname = request.POST["plant_nickname"]
-        if len(plant_nickname) == 0:
-            messages.error(request, "양식에 맞게 기입해주세요")
-            return redirect("/plantmanage")
-        meet_date = request.POST["plant_date"]
-        if meet_date == "":
-            messages.error(request, "양식에 맞게 기입해주세요")
-            return redirect("/plantmanage")
-        water_date = request.POST["water_date"]
-        if water_date == "":
-            messages.error(request, "양식에 맞게 기입해주세요")
-            return redirect("/plantmanage")
-        water_date = datetime.datetime.strptime(water_date, "%Y-%m-%d").date()
-        try:
+        form = PlantForm(request.POST)
+        if form.is_valid():
+            plant_name = request.POST["plant_name"]
+            plant_nickname = request.POST["plant_nickname"]
+            meet_date = request.POST["plant_date"]
+            water_date = request.POST["water_date"]
+            water_date = datetime.datetime.strptime(water_date, "%Y-%m-%d").date()
             plant_id = Plants.objects.get(name=plant_name)
-        except:
-            messages.warning(request, "아직 저희가 모르는 식물이에요 ㅠ")
-            return redirect("/plantmanage")
-        cycle = plant_id.watercycle
-        if cycle == "주 1~2회":
-            day=5
-            next_date = water_date + datetime.timedelta(days=day)
-        elif cycle == "주 1회":
-            day=7
-            next_date = water_date + datetime.timedelta(days=day)
-        elif cycle == "2주 1회":
-            day=14
-            next_date = water_date + datetime.timedelta(days=day)
-        elif cycle == "주 2회":
-            day=3
-            next_date = water_date + datetime.timedelta(days=day)
-        elif cycle == "3주 1회":
-            day=21
-            next_date = water_date + datetime.timedelta(days=day)
-        elif cycle == "월 1회":
-            day=30
-            next_date = water_date + datetime.timedelta(days=day)
-        else:
-            day=10
-            next_date = water_date + datetime.timedelta(days=day)
+            cycle = plant_id.watercycle
+            if cycle == "주 1~2회":
+                day=5
+                next_date = water_date + datetime.timedelta(days=day)
+            elif cycle == "주 1회":
+                day=7
+                next_date = water_date + datetime.timedelta(days=day)
+            elif cycle == "2주 1회":
+                day=14
+                next_date = water_date + datetime.timedelta(days=day)
+            elif cycle == "주 2회":
+                day=3
+                next_date = water_date + datetime.timedelta(days=day)
+            elif cycle == "3주 1회":
+                day=21
+                next_date = water_date + datetime.timedelta(days=day)
+            elif cycle == "월 1회":
+                day=30
+                next_date = water_date + datetime.timedelta(days=day)
+            else:
+                day=10
+                next_date = water_date + datetime.timedelta(days=day)
 
-        user = request.user
-        user = AuthUser.objects.get(username=user)
-        # 새로운 식물 등록 db 저장
-        pmanage = Plantmanage(username=user, plant=plant_id, nickname=plant_nickname, meetdate=meet_date, waterdate=water_date, cycle=day, nextdate=next_date)
-        pmanage.save()
-        return redirect("/plantinfo")
+            user = request.user
+            user = AuthUser.objects.get(username=user)
+            # 새로운 식물 등록 db 저장
+            pmanage = Plantmanage(username=user, plant=plant_id, nickname=plant_nickname, meetdate=meet_date, waterdate=water_date, cycle=day, nextdate=next_date)
+            pmanage.save()
+            return redirect("/plantinfo")
+        else:
+            messages.error(request, form.non_field_errors())
+            return redirect("/plantmanage")
     else:
         return render(request, "plantmanage.html", {"form": PlantForm()})
 

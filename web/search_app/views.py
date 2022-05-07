@@ -1,6 +1,6 @@
 # JngMkk
-from django.shortcuts import render
-from .models import Plants
+from django.shortcuts import render, redirect
+from search_app.models import Plants
 from elasticsearch import Elasticsearch
 
 def search(request):
@@ -49,11 +49,8 @@ def search(request):
         return render(request, 'search_app/search.html')
 
 def info(request):
-    if request.method == "GET":
+    if request.GET.get("id"):
         _id = request.GET.get("id")
         q = Plants.objects.get(plantid=int(_id))
         return render(request, 'search_app/info.html', {"data": q})
-    elif request.method == "POST":
-        id = request.POST["plant"]
-        q = Plants.objects.filter(plantid=id).values("name")
-        return render(request, "plantmanage.html", {"data": q})
+    return redirect("search")
