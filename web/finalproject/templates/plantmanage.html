@@ -59,10 +59,13 @@
         <form action="" method="POST" autocomplete="off">{% csrf_token %}
             <div>
                 <label>식물 종류
-                    {% if q %}
-                        {% render_field form.plant_name value=q.name readonly=true %}
+                    {% if plant %}
+                        {% for p in plant %}
+                            {% render_field form.plant_name value=p.name %}
+                        {% endfor %}
+                    {% else %}
+                        {{form.plant_name}}
                     {% endif %}
-                    {{form.plant_name}}
                 </label>
             </div>
             <br>

@@ -107,6 +107,10 @@ def plantmanage(request):
             messages.error(request, form.non_field_errors())
             return redirect("/plantmanage")
     else:
+        if request.GET.get("plant"):
+            id = request.GET.get("plant")
+            plant = Plants.objects.filter(plantid=id).values("name")
+            return render(request, "plantmanage.html", {"form": PlantForm(), "plant": plant})
         return render(request, "plantmanage.html", {"form": PlantForm()})
 
 def plantrecog(request):
