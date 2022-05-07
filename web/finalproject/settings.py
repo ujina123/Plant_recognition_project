@@ -171,6 +171,8 @@ LOGIN_REDIRECT_URL = '/'  # 로그인 후 리다이렉트 될 경로
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+ACCOUNT_LOGOUT_ON_GET = True
+
 MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: "alert-error",
