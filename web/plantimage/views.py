@@ -3,51 +3,9 @@ from PIL import Image as im
 import torch
 from django.shortcuts import render
 from finalproject.models import AuthUser
-from plantimage.models import ImageModel
-from elasticsearch import Elasticsearch
-from django.contrib import messages
+from plantimage.models import PlantModel
+from search_app.views import search
 # from .forms import ImageUploadForm
-
-def search(word):
-    es = Elasticsearch(hosts="localhost", port=9200)
-    docs = es.search(index="dictionary",
-            body= {
-                "_source": ["URL", "name"],
-                "query": {
-                    "bool": {
-                    "must": [
-                        {
-                        "match": {
-                            "name.jaso": {
-                            "query": word,
-                            "analyzer": "search_analyzer"
-                            }
-                        }
-                        }
-                    ],
-                    "should": [
-                        {
-                        "match": {
-                            "name.ngram": {
-                            "query": word,
-                            "analyzer": "ngram_analyzer"
-                            }
-                        }
-                        }
-                    ]
-                    }
-                },
-                "highlight": {
-                    "fields": {
-                    "name.ngram": {}
-                    }
-                }
-            })
-    data = docs["hits"]["hits"]
-    result = []
-    for d in data:
-        result.append([d["_id"], d["_source"]["URL"], d["_source"]["name"]])
-    return result
 
 def getImage(request):
     if request.method == "GET":
@@ -59,10 +17,10 @@ def getImage(request):
             userid = AuthUser.objects.get(username=user)
         except:
             userid = None
-        img_instance = ImageModel(username=userid, image=img)
+        img_instance = PlantModel(username=userid, image=img)
         img_instance.save()
         
-        uploaded_img_qs = ImageModel.objects.filter().last()
+        uploaded_img_qs = PlantModel.objects.filter().last()
         img_bytes = uploaded_img_qs.image.read()
         img = im.open(io.BytesIO(img_bytes))
 
@@ -89,7 +47,7 @@ def getImage(request):
             img_base64.save("media/yolo_out/image0.jpg", format="JPEG")
 
         # form = ImageUploadForm()
-        ImageModel.objects.filter(id=uploaded_img_qs.id).update(name=result_name, accuracy=result_confidence)
+        PlantModel.objects.filter(id=uploaded_img_qs.id).update(name=result_name, accuracy=result_confidence)
         if result_name == "monstera":
             result_name = "몬스테라"
         plants = search(result_name)

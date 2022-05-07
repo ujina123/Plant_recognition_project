@@ -2,7 +2,7 @@ from django.db import models
 from finalproject.models import AuthUser
 from django.utils.translation import gettext_lazy
 
-class ImageModel(models.Model):
+class PlantModel(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.ForeignKey(AuthUser, null=True, on_delete=models.CASCADE, db_column="username")
     created = models.DateTimeField(auto_now_add=True)

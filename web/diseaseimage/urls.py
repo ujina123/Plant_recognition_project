@@ -4,5 +4,6 @@ from . import views
 app_name = "diseaseimage"
 
 urlpatterns = [
-    path("", views.getImage, name="diseaseimage")
+    path("", views.getImage, name="diseaseimage"),
+    path("info/", views.info, name="diseaseinfo")
 ]

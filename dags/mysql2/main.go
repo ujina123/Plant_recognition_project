@@ -60,7 +60,7 @@ func main() {
 
 	// 테이블 생성
 	_, err2 := db.Exec(
-		"CREATE TABLE plantdisease (diseaseId CHAR(3), diseaseName VARCHAR(30), englishName VARCHAR(30), symptom TEXT, environment TEXT, precaution TEXT) charset = utf8;")
+		"CREATE TABLE plantdisease (diseaseId VARCHAR(3), diseaseName VARCHAR(30), englishName VARCHAR(30), symptom TEXT, environment TEXT, precaution TEXT, PRIMARY KEY(diseaseId)) charset = utf8;")
 	if err2 != nil {
 		log.Fatalln("b", err2)
 	}
