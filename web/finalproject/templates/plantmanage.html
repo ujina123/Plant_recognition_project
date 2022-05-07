@@ -100,37 +100,6 @@
                 {% endfor %}
             </div>
             <br>
-
-            <!-- {% if d %}
-                <div>
-                    <label>식물 종류<input type="text" value="{{d.name}}" style="width:95%" name="plant_name" readonly></label>
-                </div>
-            {% else %}
-                <div>
-                    <label>식물 종류<input type="text" style="width:95%" name="plant_name"></label>
-            {% endif %}
-            {% for message in messages %}
-                {% if message.tags == 'alert-warning' or "alert-error" %}
-                    <b id="message" role="alert">{{ message }}</b>
-                {% endif %}
-            {% endfor %}
-                </div>
-            <br>
-            <div>
-                <label>식물 애칭<input type="text" style="width:95%" name="plant_nickname"></label>
-            </div>
-            <br>
-            <div>
-                <label>처음 만난 날<p style="border: black 2px; width: 95%;"><input class="today_date" type="date" value="" min="2000-01-01" max="" style="background-color:white;" name="plant_date"></p></label>
-            </div>
-                <label>최근 물준 날<p style="border: black 2px; width: 95%;"><input class="today_date" type="date" value="" min="2000-01-01" max="" style="background-color:white;" name="water_date"></p></label>
-                {% for message in messages %}
-                    {% if message.tags == "alert-error" %}
-                        <b>{{ message }}</b>
-                    {% endif %}
-                {% endfor %}
-            </div>
-            <br> -->
             <button class="file-upload-btn" type="submit">내 식물로 등록</button>
         </form>
     </div>
