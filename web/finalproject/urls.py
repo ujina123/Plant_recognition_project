@@ -13,7 +13,7 @@ urlpatterns = [
     path('plantdelete/', views.plantdelete, name="plantdelete"),
     path('plantmanage/', views.plantmanage, name="plantmanage"),
     path('plantrecog/', include("plantimage.urls")),
-    path('plantdisease/', views.plantdisease, name="plantdisease"),
+    path('plantdisease/', include("diseaseimage.urls")),
     path('search/', include('search_app.urls')),
     path('accounts/login', include('allauth.urls')),
     path('accounts/signup', include('allauth.urls')),
