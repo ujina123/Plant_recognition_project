@@ -45,17 +45,15 @@ def plantinfo(request):
         Plantmanage.objects.filter(id=pid).update(waterdate=now, nextdate=next_date)
         return redirect("/plantinfo")
 
-    # POST 요청이 아닐 때
-    else:
-        # 로그인 상태라면
-        if request.user.is_authenticated:
-            # userid 불러오기
-            userid = AuthUser.objects.filter(username=request.user).values("id")[0]["id"]
-            # D-day 짧은 순으로 정렬
-            obj = Plantmanage.objects.filter(username=userid).order_by("nextdate")
-            return render(request, 'plantinfo.html', {"obj": obj})
+    # 로그인 상태라면
+    if request.user.is_authenticated:
+        # userid 불러오기
+        userid = AuthUser.objects.filter(username=request.user).values("id")[0]["id"]
+        # D-day 짧은 순으로 정렬
+        obj = Plantmanage.objects.filter(username=userid).order_by("nextdate")
+        return render(request, 'plantinfo.html', {"obj": obj})
 
-        return render(request, "account/login.html")
+    return render(request, "account/login.html")
 
 def plantdelete(request):
     """ 회원 식물 삭제 """
@@ -102,17 +100,8 @@ def plantmanage(request):
             id = request.GET.get("plant")
             plant = Plants.objects.filter(plantid=id).values("name")
             return render(request, "plantmanage.html", {"form": PlantForm(), "plant": plant})
+        
+        if request.user.is_authenticated:
+            return render(request, "plantmanage.html", {"form": PlantForm()})
 
-        return render(request, "plantmanage.html", {"form": PlantForm()})
-
-def plantrecog(request):
-    return render(request, 'plantrecog.html')
-
-def plantdisease(request):
-    return render(request, 'plantdisease.html')
-
-def plantrecog(request):
-    return render(request, 'plantrecog.html')
-
-def test(request):
-    return render(request, "test.html", {"form": PlantRequestForm()})
+        return render(request, "account/login.html")

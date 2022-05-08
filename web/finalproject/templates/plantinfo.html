@@ -18,21 +18,18 @@
     <title>나의 식물 관리하기</title>
     <style>
         div{
-            font-family: 'Noto Sans KR', sans-serif;
             font-size: 20pt;
         }
         button {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'EliceDigitalBaeum-Bd';
         }
         label {
-            font-size: 12pt;
-            text-align: center;
+            font-size: 14pt;
             float: left;
             margin-bottom: 1%;
             margin-left: 3%;
-            font-weight: bold;
-
-
+            font-weight: 900;
+            font-family: 'ACCchildrenheartOTF-Regular';
         }
         fieldset {
             background-color: #f9f9f9; padding: 5%; border-radius: 5pt; border:0.5px solid #ccc;
@@ -40,7 +37,23 @@
         .img {
             width: 100%;
         }
-
+        /* 엘리스디지털배움체 */
+        @font-face {
+            font-family: 'EliceDigitalBaeum-Bd';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        /* ACC 어린이 마음고운체 */
+		@font-face {
+    		font-family: 'ACCchildrenheartOTF-Regular';
+    		src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112-2@1.0/ACCchildrenheartOTF-Regular.woff') format('woff');
+    		font-weight: normal;
+    		font-style: normal;
+		}
+        body {
+			height: 80vh;
+		}
     </style>
 </head>
 <body>
@@ -50,35 +63,35 @@
     <div class="file-upload" style="max-width: 100%; ">
         
         <div style="float: left; width: 70%;">
-            <div style="font-family: 'Noto Sans KR', sans-serif; font-size: 20pt;">나의 식물</div>
+            <div style="font-family: 'EliceDigitalBaeum-Bd'; font-size: 20pt; margin-left: 5%;">나의 식물</div>
         </div>
         
         <div class="file-upload-btn" onclick="location.href='{% url 'plantmanage' %}'" 
-            style="width: 28%; font-size: 10pt; text-align: center; float: left;" >식물 추가
+            style="width: 28%; font-size: 10pt; text-align: center; float: left; font-family: 'EliceDigitalBaeum-Bd';">식물 추가
         </div>
         
         <br><br>
         {% for o in obj %}
-        <fieldset>
-            <img src="{{o.plant.url}}" class="img" style="margin-bottom: 10%;">
-            <label style="font-size: 16pt; color:rgb(15, 116, 82)">{{o.nickname}}</label>
-            <br><br>
-            <label>{{o.plant.name}}</label>
-            <br>
-            <label>함께한 지 {{o.meetdate|howmanyday}}일째</label>
-            <br>
-            <label>물주기 D{{o.nextdate|datedelta}}</label>
-            <br>
-            <form action="/plantinfo/" method="post">{% csrf_token %}
-                <input type="hidden" value="{{o.id}}" name="plantid">
-                <button type="submit" class="file-upload-btn" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">물주기</button>
-            </form>
-            <button class="file-upload-btn" onclick="location.href='/search/info/?id={{o.plant.plantid}}'" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">식물 정보</button>
-            <form action="/plantdelete/" method="post">{% csrf_token %}
-                <input type="hidden" value="{{o.id}}" name="deleteplant">
-                <button type="submit" class="file-upload-btn" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">삭제</button>
-            </form>
-        </fieldset>
+            <fieldset>
+                <img src="{{o.plant.url}}" class="img" style="margin-bottom: 10%;">
+                <label style="font-family: 'ACCchildrenheartOTF-Regular'; font-weight: bold; font-size: 22pt; color:rgb(15, 116, 82);">{{o.nickname}}</label>
+                <br><br><br>
+                <label>{{o.plant.name}}</label>
+                <br>
+                <label>함께한 지 {{o.meetdate|howmanyday}}일째</label>
+                <br>
+                <label style="margin-bottom: 10%;">물주기 D{{o.nextdate|datedelta}}</label>
+
+                <form action="/plantinfo/" method="post">{% csrf_token %}
+                    <input type="hidden" value="{{o.id}}" name="plantid">
+                    <button type="submit" class="file-upload-btn" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">물주기</button>
+                </form>
+                <button class="file-upload-btn" onclick="location.href='/search/info/?id={{o.plant.plantid}}'" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">식물 정보</button>
+                <form action="/plantdelete/" method="post">{% csrf_token %}
+                    <input type="hidden" value="{{o.id}}" name="deleteplant">
+                    <button type="submit" class="file-upload-btn" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">삭제</button>
+                </form>
+            </fieldset>
         {% endfor %}
     </div>
 </body>

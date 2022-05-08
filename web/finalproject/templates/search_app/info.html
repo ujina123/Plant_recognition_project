@@ -24,34 +24,55 @@
             margin-left: 5%;
             background-color: #f8f8f8;
             padding: 7%;
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'EliceDigitalBaeum-Bd'; font-weight:lighter;
         }
         a {
             font-size: 15pt;
-            font-weight:900;
-            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: lighter;
+            font-family: 'EliceDigitalBaeum-Bd';
         }
         .plant_info_top {
             border-radius: 5pt 5pt 0 0;
+            font-family: 'ACCchildrenheartOTF-Regular';
+            font-size: 14pt;
         }
         .plant_info {
             border-radius: 5pt;
+            font-family: 'ACCchildrenheartOTF-Regular';
+            font-size: 14pt;
         }
         .plant_info_bottom{
             border-radius: 0 0 5pt 5pt;
+            font-family: 'ACCchildrenheartOTF-Regular';
+            font-size: 14pt;
         }
+        /* 엘리스디지털배움체 */
+        @font-face {
+            font-family: 'EliceDigitalBaeum-Bd';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        /* ACC 어린이 마음고운체 */
+		@font-face {
+    		font-family: 'ACCchildrenheartOTF-Regular';
+    		src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112-2@1.0/ACCchildrenheartOTF-Regular.woff') format('woff');
+    		font-weight: normal;
+    		font-style: normal;
+		}
     </style>
 </head>
 <body>
+    <div>식물 정보</div>
     {% if not user.is_authenticated %}
         <div style="background-color: white;">
-            <button onclick="location.href='{% url 'account_login' %}'" style="background-color: #04AA6D; font-size: 12pt;">내 식물로 등록하기</button>
+            <button onclick="location.href='{% url 'account_login' %}'" style="background-color: #04AA6D; font-size: 12pt; font-family: 'EliceDigitalBaeum-Bd';">내 식물로 등록하기</button>
         </div>
     {% else %}
         <div style="background-color: white;">
             <form action="/plantmanage/" method="get" autocomplete="off">
                 <input type="hidden" name="plant" value="{{data.plantid}}">
-                <button type="submit" class="file-upload-btn" style="background-color: #04AA6D; border-radius: 5pt; font-size: 12pt;">내 식물로 등록하기</button>
+                <button type="submit" class="file-upload-btn" style="background-color: #04AA6D; border-radius: 5pt; font-size: 12pt; font-family: 'EliceDigitalBaeum-Bd';">내 식물로 등록하기</button>
             </form>
         </div>
     {% endif %}
@@ -61,7 +82,7 @@
     <div class="plant_image" style="background-image: url({{data.url}})"></div>
     <br><br>
     <!-- 이름 -->
-    <div class="plant_info"><a>이름</a> <br><br> {{data.name}}</div>
+    <div class="plant_info"<a style="font-family: 'EliceDigitalBaeum-Bd'; font-weight:lighter;">이름</a> <br><br> {{data.name}}</div>
     <br><br>
     <!-- 학명 -->
     <div class="plant_info"><a>학명</a> <br><br> {{data.botanynm}}</div>

@@ -14,7 +14,7 @@
         width: 75%;
         height: 3em;
         font-size: 12pt;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;  
+        font-family: 'EliceDigitalBaeum-Bd';
     }
     .font {
         margin-bottom: 10%;
@@ -29,13 +29,22 @@
         float: left;
         margin-left: 14%;
     }
+    /* 엘리스디지털배움체 */
+    @font-face {
+        font-family: 'EliceDigitalBaeum-Bd';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
 </style>
 
 <a href="{% url 'main' %}" style="margin-left: 15%; margin-top: 35%;"><img src="{% static 'img/website_logo.png' %}" style="width: 70%; margin-bottom: 10%;"></a>
 
 <!-- <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p> -->
 <div style="text-align: center; margin-top: 8%;" >
-    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">{% csrf_token %}
+    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}"
+     style="font-family: 'EliceDigitalBaeum-Bd';">
+        {% csrf_token %}
         <label for="id_username">아이디</label>
         <br>
         <input type="text" class="form-control" id="id_username" placeholder="입력해주세요" name="username" style="margin-bottom: 10%;">

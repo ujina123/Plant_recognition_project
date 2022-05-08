@@ -38,14 +38,29 @@
         b {
             font-size: 10pt;
         }
-
-        .logout{
+        .request{
 			background-color:#04AA6D;
 			border-radius: 5pt;
 			color: cornsilk;
 			width: 32%;
 			font-size: 11pt;
+            font-family: 'EliceDigitalBaeum-Bd';
 		}
+        @font-face {
+            font-family: 'EliceDigitalBaeum-Bd';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+		@font-face {
+    		font-family: 'ACCchildrenheartOTF-Regular';
+    		src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112-2@1.0/ACCchildrenheartOTF-Regular.woff') format('woff');
+    		font-weight: normal;
+    		font-style: normal;
+		}
+        .plant_manage {
+            font-family: 'EliceDigitalBaeum-Bd';
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -62,12 +77,12 @@
 
     <div class="file-upload" style="max-width: 100%;">
         
-        <div style="margin-top: -2%; font-size: 17pt; margin-left: 2%; font-weight: bold; margin-bottom: 7%; margin-right: 13%; float: left;">나의 식물 추가</div>
-        <button class="logout">식물 요청</button>
+        <div style="font-family: 'EliceDigitalBaeum-Bd'; margin-top: -2%; font-size: 17pt; margin-left: 2%; font-weight: bold; margin-bottom: 7%; margin-right: 19%; float: left;">나의 식물 추가</div>
+        <button class="request">식물 추가 요청</button>
         <br><br><br>
         <form action="" method="POST" autocomplete="off">{% csrf_token %}
             <div>
-                <label>식물 종류
+                <label class="plant_manage">식물 종류
                     {% if plant %}
                         {% for p in plant %}
                             {% render_field form.plant_name value=p.name %}
@@ -79,13 +94,13 @@
             </div>
             <br>
             <div>
-                <label>식물 애칭
+                <label class="plant_manage">식물 애칭
                     {{form.plant_nickname}}
                 </label>
             </div>
             <br>
             <div>
-                <label>처음 만난 날
+                <label class="plant_manage">처음 만난 날
                     <p>
                         {{form.plant_date}}
                     </p>
@@ -93,7 +108,7 @@
             </div>
             <br>
             <div>
-                <label>최근 물준 날
+                <label class="plant_manage">최근 물준 날
                     <p>
                         {{form.water_date}}
                     </p>
@@ -108,7 +123,7 @@
                 {% endfor %}
             </div>
             <br>
-            <button class="file-upload-btn" type="submit">내 식물로 등록</button>
+            <button class="file-upload-btn" type="submit" style="font-family: 'EliceDigitalBaeum-Bd';">내 식물로 등록</button>
             <br><br>
         </form>
     </div>

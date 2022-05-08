@@ -2,17 +2,26 @@
 {% load i18n %}
 
 {% block content %}
+<style>
+    /* 엘리스디지털배움체 */
+    @font-face {
+        font-family: 'EliceDigitalBaeum-Bd';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+</style>
 {% if process == "connect" %}
+
 <h1>{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h1>
 
 <p>{% blocktrans with provider.name as provider %}You are about to connect a new third party account from {{ provider }}.{% endblocktrans %}</p>
 {% else %}
 <br><br><br><br>
-<h1 style="text-align: center;">{% blocktrans with provider.name as provider %}{{ provider }}로 로그인{% endblocktrans %}</h1>
-
-<p style="text-align: center;">{% blocktrans with provider.name as provider %}카카오를 통해 간편하게 로그인할수 있습니다.{% endblocktrans %}</p>
+<h1 style="text-align: center; font-family: 'EliceDigitalBaeum-Bd';">{% blocktrans with provider.name as provider %}{{ provider }}로 로그인{% endblocktrans %}</h1>
+<p style="text-align: center; font-family: 'EliceDigitalBaeum-Bd';">{% blocktrans with provider.name as provider %}카카오를 통해 간편하게 로그인할수 있습니다.{% endblocktrans %}</p>
 {% endif %}
-
 <form method="post">{% csrf_token %}
     <button type="submit" style="width: 65.5%;
     height: 7vh;
@@ -27,7 +36,8 @@
     text-transform: uppercase;
     font-size: 12pt;
     font-weight: 700;
-    margin-left: 17%; 
+    margin-left: 17%;
+    font-family: 'EliceDigitalBaeum-Bd'; 
     ">{% trans "로그인" %}</button>
 </form>
 {% endblock %}

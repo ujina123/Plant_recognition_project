@@ -12,7 +12,7 @@ conn = pymysql.connect(
 
 cursor = conn.cursor()
 
-f = open(r"D:\DataScience\Multi_Project3\Final_project\plants.csv", "r", encoding="utf-8")
+f = open("", "r", encoding="utf-8")
 csv_data = csv.reader(f)
 
 for row in csv_data:

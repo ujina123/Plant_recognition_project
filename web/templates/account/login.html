@@ -24,6 +24,7 @@
         text-transform: uppercase;
         font-size: 12pt;
         font-weight: 700;
+        font-family: 'EliceDigitalBaeum-Bd';
     }
     .kakao_login_button {
         /* a 태그 밑줄 없애기 */
@@ -46,8 +47,15 @@
     }
     .kakao_logo{
         width:15%;
-        float: left; 
+        float: left;
     }
+    /* 엘리스디지털배움체 */
+    @font-face {
+        font-family: 'EliceDigitalBaeum-Bd';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+        }
 </style>
 
 <div style="text-align: center; margin-top: 40%; font-family: 'Noto Sans KR', sans-serif; font-size: 13pt;">
@@ -83,13 +91,13 @@
             <br><br>
             <a href="{% provider_login_url 'kakao' %}" class="kakao_login_button">
                 <img src="{% static 'img/kakao_logo.png' %}" class="kakao_logo">
-                <div style="margin-top: 3%;">카카오로 간편 로그인</div>
+                <div style="margin-top: 1.5%; font-family: 'EliceDigitalBaeum-Bd'; margin-right: 7%;">카카오로 간편 로그인</div>
             </a>
             <br><br>
             <!-- <a class="button secondaryAction" href="{% url 'account_reset_password' %}" style="font-family: 'Noto Sans KR', sans-serif;">{% trans "비밀번호를 잊어버리셨나요?" %}</a> -->
             <div class="login-or">{% trans '' %}</div>
     </div>
-        <div style="margin-bottom: 8%;">
+        <div style="font-family: 'EliceDigitalBaeum-Bd';">
             <p>{% blocktrans %}계정이 없으시면,
                 <a href="{{ signup_url }}">회원가입</a>을 먼저해주세요.{% endblocktrans %}</p>    
         </div>

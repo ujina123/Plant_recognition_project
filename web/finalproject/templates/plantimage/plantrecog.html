@@ -48,9 +48,18 @@
     		font-weight: normal;
     		font-style: normal;
 		}
+        /* 엘리스디지털배움체 */
+        @font-face {
+            font-family: 'EliceDigitalBaeum-Bd';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
         #image_file {
             color:rgb(69, 152, 69);
             margin-bottom: 5%;
+            font-size: 14pt;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -59,26 +68,29 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
-    <div class="file-upload" style= "max-width: 100%; margin-top: -9%">
-        <br><br>
-        <h1 style="margin-left: 10%; font-weight: 600;">촬영으로 정보 조회</h1>
+    <div class="file-upload" style= "max-width: 100%;">
+        <h1 style="text-align: center; font-family: 'EliceDigitalBaeum-Bd';">촬영으로 정보 조회</h1>
         <br>
         <center><img src="{% static 'img/plantrecog.jpeg' %}" style="width: 80%; border-radius: 5pt; height: 26vh;"></center>
         <br>
         
-        <div style="text-align: center; font-size: 14pt; margin-bottom: 10%; font-weight: bold;">식물의 이미지 데이터를 분석해<br>어떤 식물인지 알아내고<br> 관련된 정보 제공를 통해<br> 식물을 더 잘 관리할 수 있어요.</div>
-        <br>
+        <div style="text-align: center; font-size: 16pt; margin-bottom: 10%; font-weight: bold;">식물의 이미지 데이터를 분석해<br>어떤 식물인지 알아내고<br> 관련된 정보 제공를 통해<br> 식물을 더 잘 관리할 수 있어요.</div>
         
         <form action="" enctype="multipart/form-data" method="POST" autocomplete="off" style="margin-left: 12%;"> {% csrf_token %}
             {{ form.image }}
-            <input type="submit" value="식물 인식하기" style="width: 90%; border-radius: 10pt; font-size: 14pt;">
+            <input type="submit" value="식물 인식하기" class="file-upload-btn" style="width: 92%; border-radius: 10pt; font-size:16pt; margin-left: -3%;">
         </form>
         {% if plants %}
-            
+            {% for p in plants %}
                 <div class="plant_item" style="background-color: white; width: 90%; text-align: center; margin-bottom: 8%;">
-                    {{ plants }}
+                    <a href="/search/info/?id={{p.0}}">
+                        <div class="plant_image" style="background-image: url({{p.1}})"></div>
+                        <div>
+                            <div style="font-size: 13pt;">{{p.2}}</div>
+                        </div>
+                    </a>
                 </div>
-            
+            {% endfor %}
         {% else %}
             {% for m in messages %}
                 {% if m.tags == "alert-warning" %}

@@ -1,3 +1,4 @@
+# JngMkk
 from django.shortcuts import render, redirect
 from diseaseimage.models import Plantdisease, DiseaseModel
 from finalproject.models import AuthUser

@@ -1,5 +1,5 @@
+# JngMkk
 import io
-import re
 from PIL import Image as im
 import torch
 from django.shortcuts import render, redirect
@@ -83,15 +83,14 @@ def getImage(request):
             PlantModel.objects.filter(id=uploaded_img_qs.id).update(name=result_name, accuracy=result_confidence, outimage=f"plant_out/{uploaded_img_str}_out.jpg")
             
             # 이름 None일 경우 메시지
-            ## yujin ##
             if result_name is None:
                 messages.warning(request, "식물을 인식하지 못했어요")
                 messages.warning(request, "식물이 잘 보이게 찍어주세요!")
                 return redirect("/plantrecog")
             
             # 이름 None 아닐 경우 elasticsearch 검색
-            # plants = search(result_name)
+            plants = search(result_name)
 
-            return render(request, "plantimage/plantrecog.html", {"form": ImageUpload(), "plants": result_name})
+            return render(request, "plantimage/plantrecog.html", {"form": ImageUpload(), "plants": plants})
         return redirect("/plantrecog")
     return render(request, "plantimage/plantrecog.html", {"form": ImageUpload()})

@@ -1,3 +1,4 @@
+# JngMkk
 from django.db import models
 
 class Plants(models.Model):
@@ -74,6 +75,9 @@ class Weather(models.Model):
 
 class PlantRequest(models.Model):
     id = models.AutoField(primary_key=True)
-    username = models.ForeignKey(AuthUser, null=True, on_delete=models.CASCADE, db_column="username")
-    requestname = models.CharField(max_length=255, null=False, db_column="requestname")
+    username = models.ForeignKey(AuthUser, on_delete=models.CASCADE, db_column="username")
+    requestname = models.CharField(max_length=255, db_column="requestname")
     submitdate = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "plantrequest"
