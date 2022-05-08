@@ -19,7 +19,7 @@ es.indices.create(
                     "filter": {
                         "ngram_filter": {
                             "type": "edge_ngram",
-                            "min_gram": 1,
+                            "min_gram": 5,
                             "max_gram": 30
                         }
                     },
@@ -39,13 +39,6 @@ es.indices.create(
                                 "ngram_filter"
                             ]
                         },
-                        "english" : {
-                            "type": "custom",
-                            "tokenizer": "standard",
-                            "filter" : [
-                                "lowercase"
-                            ]
-                        }
                     },
                     "tokenizer": {
                         "jaso_search_tokenizer": {
@@ -60,7 +53,7 @@ es.indices.create(
                         },
                         "ngram_tokenizer": {
                             "type": "ngram",
-                            "min_gram": 1,
+                            "min_gram": 2,
                             "max_gram": 10
                         }
                     }
@@ -85,16 +78,12 @@ es.indices.create(
                         }
                     }
                 },
-                "botanyNm": {
-                    "type": "text",
-                    "analyzer": "english"
-                }
             }
         }
     }
 )
 
-file = "/home/ubuntu/finalproject/dags/data/plantName.json"
+file = "/home/jngmk/workspace/finalproject/dags/data/plantName.json"
 with open(file, encoding="utf-8") as file:
     json_data = json.loads(file.read())
 

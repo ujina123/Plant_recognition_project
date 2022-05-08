@@ -10,52 +10,56 @@ def main(request):
     """ 메인 페이지 """
     # 로그인 상태라면
     if request.user.is_authenticated:
-        user = request.user
-        userid = AuthUser.objects.filter(username=user).values("id")[0]["id"]
+        # 유저 id 가져오기
+        userid = AuthUser.objects.filter(username=request.user).values("id")[0]["id"]
+        # 물을 줘야할 시기가 많이 남지 않은 순으로 정렬
         obj = Plantmanage.objects.filter(username=userid).order_by("nextdate")
         return render(request, "main.html", {"obj": obj})
+
+    # 비로그인 상태라면
     else:
         return render(request, "main.html")
 
 def weather(request):
     """ 날씨 정보 REST """
+    # 위치 정보 받아서
     loc = request.GET.get("loc")
+    # 위치에 맞게 날씨 보여줌
     weather = Weather.objects.filter(si=loc).values("si", "time", "condi", "temp", "humidity", "rainratio", "uv")
-
+    # Json으로 반환
     return JsonResponse(list(weather), safe=False, json_dumps_params={"ensure_ascii": False})
 
 def plantinfo(request):
-    """ 회원 식물 정보 """
-    if request.method == "GET":
-        # 현재 세션 유저
-        user = request.user
-        try:
-            # userid 불러오기
-            userid = AuthUser.objects.filter(username=user).values("id")[0]["id"]
-            # D-day 짧은 순으로
-            obj = Plantmanage.objects.filter(username=userid).order_by("nextdate")
-            return render(request, 'plantinfo.html', {"obj": obj})
-        except:
-            return render(request, "account/login.html")
-
-    elif request.method == "POST":
-        pid = request.POST["waterplant"]
+    """ 회원 식물 정보 물주기 날짜 업데이트 """
+    # POST 요청일 때
+    if request.method == "POST":
+        # 요청에서 plantid 받아서
+        pid = request.POST["plantid"]
+        # Plantmanage 테이블에서 plantid에 맞는 레코드 찾고
         obj = Plantmanage.objects.get(id=pid)
+        # 오늘 날짜
         now = datetime.date.today()
-        # 다음 주기 날짜
+        # 다음 주기 날짜 = 오늘 날짜 + plantid에 맞는 물줘야하는 주기
         next_date = now + datetime.timedelta(days=obj.cycle)
-        # db 업데이트
+        # 물준 날짜, 다음 물주는 날짜 업데이트
         Plantmanage.objects.filter(id=pid).update(waterdate=now, nextdate=next_date)
         return redirect("/plantinfo")
 
-    return redirect("/plantinfo")
+    # POST 요청이 아닐 때
+    else:
+        # 로그인 상태라면
+        if request.user.is_authenticated:
+            # userid 불러오기
+            userid = AuthUser.objects.filter(username=request.user).values("id")[0]["id"]
+            # D-day 짧은 순으로 정렬
+            obj = Plantmanage.objects.filter(username=userid).order_by("nextdate")
+            return render(request, 'plantinfo.html', {"obj": obj})
+
+        return render(request, "account/login.html")
 
 def plantdelete(request):
     """ 회원 식물 삭제 """
-    if request.method == "GET":
-        return redirect("/plantinfo")
-
-    elif request.method == "POST":
+    if request.method == "POST":
         pid = request.POST["deleteplant"]
         # db에서 삭제
         Plantmanage.objects.get(id=pid).delete()
@@ -64,10 +68,13 @@ def plantdelete(request):
     return redirect("/plantinfo")
 
 def plantmanage(request):
-    """ 식물 직접 등록 """ 
+    """ 식물 직접 등록 """
+    # POST 요청일 때
     if request.method == "POST":
         form = PlantForm(request.POST)
+        # form 검사
         if form.is_valid():
+            cycle_dic = {"주 1~2회": 5, "주 1회": 7, "2주 1회": 14, "주 2회": 3, "3주 1회": 21, "월 1회": 30, "2주 1~2회": 10}
             plant_name = request.POST["plant_name"]
             plant_nickname = request.POST["plant_nickname"]
             meet_date = request.POST["plant_date"]
@@ -75,42 +82,27 @@ def plantmanage(request):
             water_date = datetime.datetime.strptime(water_date, "%Y-%m-%d").date()
             plant_id = Plants.objects.get(name=plant_name)
             cycle = plant_id.watercycle
-            if cycle == "주 1~2회":
-                day=5
-                next_date = water_date + datetime.timedelta(days=day)
-            elif cycle == "주 1회":
-                day=7
-                next_date = water_date + datetime.timedelta(days=day)
-            elif cycle == "2주 1회":
-                day=14
-                next_date = water_date + datetime.timedelta(days=day)
-            elif cycle == "주 2회":
-                day=3
-                next_date = water_date + datetime.timedelta(days=day)
-            elif cycle == "3주 1회":
-                day=21
-                next_date = water_date + datetime.timedelta(days=day)
-            elif cycle == "월 1회":
-                day=30
-                next_date = water_date + datetime.timedelta(days=day)
-            else:
-                day=10
-                next_date = water_date + datetime.timedelta(days=day)
-
-            user = request.user
-            user = AuthUser.objects.get(username=user)
+            day = cycle_dic[cycle]
+            next_date = water_date + datetime.timedelta(days=day)
+            user = AuthUser.objects.get(username=request.user)
             # 새로운 식물 등록 db 저장
             pmanage = Plantmanage(username=user, plant=plant_id, nickname=plant_nickname, meetdate=meet_date, waterdate=water_date, cycle=day, nextdate=next_date)
             pmanage.save()
             return redirect("/plantinfo")
+        
+        # form 유효성 검사 실패 시
         else:
             messages.error(request, form.non_field_errors())
             return redirect("/plantmanage")
+    
+    # POST 요청이 아닐 때
     else:
+        # 식물 정보에서 식물 등록으로 넘어왔다면
         if request.GET.get("plant"):
             id = request.GET.get("plant")
             plant = Plants.objects.filter(plantid=id).values("name")
             return render(request, "plantmanage.html", {"form": PlantForm(), "plant": plant})
+
         return render(request, "plantmanage.html", {"form": PlantForm()})
 
 def plantrecog(request):

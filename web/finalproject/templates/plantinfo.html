@@ -70,7 +70,7 @@
             <label>물주기 D{{o.nextdate|datedelta}}</label>
             <br>
             <form action="/plantinfo/" method="post">{% csrf_token %}
-                <input type="hidden" value="{{o.id}}" name="waterplant">
+                <input type="hidden" value="{{o.id}}" name="plantid">
                 <button type="submit" class="file-upload-btn" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">물주기</button>
             </form>
             <button class="file-upload-btn" onclick="location.href='/search/info/?id={{o.plant.plantid}}'" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">식물 정보</button>

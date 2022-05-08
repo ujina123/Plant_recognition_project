@@ -25,16 +25,16 @@ class PlantForm(forms.Form):
         return data
 
 class PlantRequestForm(forms.ModelForm):
-    plantname = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "식물 이름을 입력해주세요."}))
+    requestname = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "식물 이름을 입력해주세요."}))
 
     class Meta:
         model = PlantRequest
-        fields = ("plantname",)
+        fields = ["requestname"]
 
     def clean(self):
         data = self.cleaned_data
-        if data["plantname"] == "":
+        if data["requestname"] == "":
             raise forms.ValidationError("식물 이름을 알려주세요!")
-        elif data["plantname"] > 255:
+        elif data["requestname"] > 255:
             raise forms.ValidationError("식물 이름은 255자를 넘을 수 없어요!")
         return data

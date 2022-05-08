@@ -75,5 +75,5 @@ class Weather(models.Model):
 class PlantRequest(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.ForeignKey(AuthUser, null=True, on_delete=models.CASCADE, db_column="username")
-    plantname = models.CharField(max_length=255, null=False, db_column="plantname")
+    requestname = models.CharField(max_length=255, null=False, db_column="requestname")
     submitdate = models.DateTimeField(auto_now_add=True)

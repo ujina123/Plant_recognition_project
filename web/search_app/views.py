@@ -11,26 +11,23 @@ def search(word):
                         "_source": ["URL", "name"],
                         "query": {
                             "bool": {
-                            "must": [
-                                {
-                                "match": {
-                                    "name.jaso": {
-                                    "query": word,
-                                    "analyzer": "search_analyzer"
+                                "must": [{
+                                    "match": {
+                                        "name.jaso": {
+                                            "query": word,
+                                            "analyzer": "search_analyzer",
+                                            "fuzziness": 1
+                                        }
                                     }
-                                }
-                                }
-                            ],
-                            "should": [
-                                {
-                                "match": {
-                                    "name.ngram": {
-                                    "query": word,
-                                    "analyzer": "ngram_analyzer"
+                                }],
+                                "should": [{
+                                    "match": {
+                                        "name.ngram": {
+                                            "query": word,
+                                            "analyzer": "ngram_analyzer"
+                                        }
                                     }
-                                }
-                                }
-                            ]
+                                }]
                             }
                         },
                         "highlight": {
@@ -57,13 +54,4 @@ def info(request):
         _id = request.GET.get("id")
         q = Plants.objects.get(plantid=int(_id))
         return render(request, 'search_app/info.html', {"data": q})
-
-    elif request.method == "POST":
-        form = PlantRequestForm(request.POST)
-        if form.is_valid():
-            user = request.user
-
-            name = request.POST["plantname"]
-            form.save()
-        
     return redirect("search")

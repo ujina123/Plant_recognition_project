@@ -48,6 +48,10 @@
     		font-weight: normal;
     		font-style: normal;
 		}
+        #image_file {
+            color:rgb(69, 152, 69);
+            margin-bottom: 5%;
+        }
     </style>
 </head>
 
@@ -66,9 +70,10 @@
         <br>
         
         <form action="" enctype="multipart/form-data" method="POST" autocomplete="off" style="margin-left: 12%;"> {% csrf_token %}
-            <input type="file" name="plant_img" accept="image/*" style="color:rgb(69, 152, 69); margin-bottom: 5%;">
+            {{ form.image }}
             <input type="submit" value="식물 인식하기" style="width: 90%; border-radius: 10pt; font-size: 14pt;">
         </form>
+        {% if plants %}
             {% for p in plants %}
                 <div class="plant_item" style="background-color: white; width: 90%; text-align: center; margin-bottom: 8%;">
                     <a href="/search/info/?id={{p.0}}">
@@ -79,6 +84,15 @@
                     </a>
                 </div>
             {% endfor %}
+        {% else %}
+            {% for m in messages %}
+                {% if m.tags == "alert-warning" %}
+                    <div>
+                        <b>{{ m }}</b>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
     </div>
 
     
