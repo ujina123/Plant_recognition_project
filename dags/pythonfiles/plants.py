@@ -12,12 +12,12 @@ conn = pymysql.connect(
 
 cursor = conn.cursor()
 
-f = open("", "r", encoding="utf-8")
+f = open(r"D:\DataScience\Multi_Project3\Final_project\plants.csv", "r", encoding="utf-8")
 csv_data = csv.reader(f)
 
 for row in csv_data:
     sql = """
-            INSERT INTO plants2(URL, name, botanyNm, info, waterCycle, waterInfo, waterExp, waterExpInfo, light, lightInfo, lightExp, lightExpInfo, humidity, humidInfo, humidExp, humidExpInfo, tempExp, tempExpInfo)
+            INSERT INTO plants(URL, name, botanyNm, info, waterCycle, waterInfo, waterExp, waterExpInfo, light, lightInfo, lightExp, lightExpInfo, humidity, humidInfo, humidExp, humidExpInfo, tempExp, tempExpInfo)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
           """
     cursor.execute(sql, ((row[1]), (row[2]), (row[3]), (row[4]), (row[5]), (row[6]), (row[7]), (row[8]), (row[9]), (row[10]), (row[11]), (row[12]), (row[13]), (row[14]), (row[15]), (row[16]), (row[17]), (row[18])))

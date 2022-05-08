@@ -1,4 +1,5 @@
 import io
+import re
 from PIL import Image as im
 import torch
 from django.shortcuts import render, redirect
@@ -43,13 +44,25 @@ def getImage(request):
             # 인식모델 파일
             path_weightfile = "yolo_plant/runs/train/yolov5s_results20/weights/best.pt"  
 
+            # 모델 불러오기
             model = torch.hub.load(path_hubconfig, 'custom', path=path_weightfile, source='local')
+            
+            ## yujin ## 
+            # 예측 confidence 기준 20%로 설정
+            model.conf = 0.2
+            
+            # 모델 결과 
             results = model(img, size=224)
             
-            try:
+            try: 
                 # 인식값 나오면
-                result_confidence = results.pandas().xyxy[0]['confidence'].values[0]
-                result_name = plant_dic[results.pandas().xyxy[0]['name'].values[0]]
+                res_table = results.pandas().xyxy[0] # 결과 테이블 저장 
+                result_list = [ res_table['confidence'].values[i] for i in range(len(res_table)) ] # 결과 테이블에서 confidence를 result_list에 저장
+                
+                res_idx = result_list.index(max(result_list)) # confidence를 저장한 result_list에서 가장 큰 값 인덱스 찾기 
+                result_confidence = res_table['confidence'].values[res_idx] # confidenc가 가장 높은 것
+                result_name = plant_dic[res_table['name'].values[res_idx]] # confidenc가 가장 높이 예측된 식물 
+                
             except:
                 # 안나오면
                 result_confidence = None
@@ -70,13 +83,15 @@ def getImage(request):
             PlantModel.objects.filter(id=uploaded_img_qs.id).update(name=result_name, accuracy=result_confidence, outimage=f"plant_out/{uploaded_img_str}_out.jpg")
             
             # 이름 None일 경우 메시지
+            ## yujin ##
             if result_name is None:
-                messages.warning(request, "식물 인식에 실패했어요ㅠㅠ")
+                messages.warning(request, "식물을 인식하지 못했어요")
+                messages.warning(request, "식물이 잘 보이게 찍어주세요!")
                 return redirect("/plantrecog")
             
             # 이름 None 아닐 경우 elasticsearch 검색
-            plants = search(result_name)
+            # plants = search(result_name)
 
-            return render(request, "plantimage/plantrecog.html", {"form": ImageUpload(), "plants": plants})
+            return render(request, "plantimage/plantrecog.html", {"form": ImageUpload(), "plants": result_name})
         return redirect("/plantrecog")
     return render(request, "plantimage/plantrecog.html", {"form": ImageUpload()})

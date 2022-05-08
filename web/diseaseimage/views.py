@@ -64,7 +64,8 @@ def getImage(request):
 
             # 이름 None일 경우 메세지
             if result_name is None:
-                messages.warning(request, "식물병 인식에 실패했어요ㅠㅠ")
+                messages.warning(request, "식물병을 인식하지 못했어요")
+                messages.warning(request, "식물병이 잘 보이게 찍어주세요")
                 return redirect("/plantdisease")
             
             # 이름 None 아닐 경우 이름 return
