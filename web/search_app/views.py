@@ -1,6 +1,7 @@
 # JngMkk
 from django.shortcuts import render, redirect
-from finalproject.models import Plants
+from finalproject.models import Plants, PlantRequest
+from finalproject.forms import PlantRequestForm
 from elasticsearch import Elasticsearch
 
 def search(word):
@@ -56,4 +57,13 @@ def info(request):
         _id = request.GET.get("id")
         q = Plants.objects.get(plantid=int(_id))
         return render(request, 'search_app/info.html', {"data": q})
+
+    elif request.method == "POST":
+        form = PlantRequestForm(request.POST)
+        if form.is_valid():
+            user = request.user
+
+            name = request.POST["plantname"]
+            form.save()
+        
     return redirect("search")

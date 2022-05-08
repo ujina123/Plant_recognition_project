@@ -18,7 +18,7 @@
     <title>식물 인식</title>
     <style>
         div {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'ACCchildrenheartOTF-Regular';
         }
         /* 상단바 css */
         .icon-bar {
@@ -42,6 +42,12 @@
         .active {
             background-color: #04AA6D; /* Add an active/current color */
         }
+        @font-face {
+    		font-family: 'ACCchildrenheartOTF-Regular';
+    		src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112-2@1.0/ACCchildrenheartOTF-Regular.woff') format('woff');
+    		font-weight: normal;
+    		font-style: normal;
+		}
     </style>
 </head>
 
@@ -49,19 +55,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
-    <div class="file-upload" style= "max-width: 100%; font-family: 'Noto Sans KR', sans-serif; margin-top: -9%">
+    <div class="file-upload" style= "max-width: 100%; margin-top: -9%">
+        <br><br>
+        <h1 style="margin-left: 10%; font-weight: 600;">촬영으로 정보 조회</h1>
         <br>
-        <h1 style="margin-left: 10%;">촬영으로 정보 조회</h1>
-        <br>
-        <center><img src="{% static 'img/plantrecog.jpeg' %}" style="width: 80%; border-radius: 5pt; height: 28vh;"></center>
-        <br>
-        
-        <div style="text-align: center; font-size: 13pt; margin-bottom: 10%; font-family: 'Noto Sans KR', sans-serif;">식물의 이미지 데이터를 분석해<br>어떤 식물인지 알아내고<br> 관련된 정보 제공를 통해<br> 식물을 더 잘 관리할 수 있어요.</div>
+        <center><img src="{% static 'img/plantrecog.jpeg' %}" style="width: 80%; border-radius: 5pt; height: 26vh;"></center>
         <br>
         
-        <form action="" enctype="multipart/form-data" method="POST" autocomplete="off" style="margin-left: 16%;"> {% csrf_token %}
-            <input type="file" name="plant_img" accept="image/*" style="color:rgb(69, 152, 69);">
-            <input type="submit" value="식물인식" style="background-color: #04AA6D;">
+        <div style="text-align: center; font-size: 14pt; margin-bottom: 10%; font-weight: bold;">식물의 이미지 데이터를 분석해<br>어떤 식물인지 알아내고<br> 관련된 정보 제공를 통해<br> 식물을 더 잘 관리할 수 있어요.</div>
+        <br>
+        
+        <form action="" enctype="multipart/form-data" method="POST" autocomplete="off" style="margin-left: 12%;"> {% csrf_token %}
+            <input type="file" name="plant_img" accept="image/*" style="color:rgb(69, 152, 69); margin-bottom: 5%;">
+            <input type="submit" value="식물 인식하기" style="width: 90%; border-radius: 10pt; font-size: 14pt;">
         </form>
             {% for p in plants %}
                 <div class="plant_item" style="background-color: white; width: 90%; text-align: center; margin-bottom: 8%;">

@@ -1,4 +1,4 @@
-from finalproject.models import Plants
+from finalproject.models import Plants, PlantRequest
 from django import forms
 import datetime
 
@@ -22,4 +22,19 @@ class PlantForm(forms.Form):
             raise forms.ValidationError("식물 이름은 255자를 넘을 수 없어요!")
         elif len(data["plant_nickname"]) > 50:
             raise forms.ValidationError("식물 별명은 50자 이하로 입력해주세요!")
+        return data
+
+class PlantRequestForm(forms.ModelForm):
+    plantname = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "식물 이름을 입력해주세요."}))
+
+    class Meta:
+        model = PlantRequest
+        fields = ("plantname",)
+
+    def clean(self):
+        data = self.cleaned_data
+        if data["plantname"] == "":
+            raise forms.ValidationError("식물 이름을 알려주세요!")
+        elif data["plantname"] > 255:
+            raise forms.ValidationError("식물 이름은 255자를 넘을 수 없어요!")
         return data

@@ -38,6 +38,14 @@
         b {
             font-size: 10pt;
         }
+
+        .logout{
+			background-color:#04AA6D;
+			border-radius: 5pt;
+			color: cornsilk;
+			width: 32%;
+			font-size: 11pt;
+		}
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -54,7 +62,8 @@
 
     <div class="file-upload" style="max-width: 100%;">
         
-        <div style="margin-top: -2%; font-size: 17pt; margin-left: 2%; font-weight: bold; margin-bottom: 7%; margin-right: 14%; float: left;">나의 식물 추가</div>
+        <div style="margin-top: -2%; font-size: 17pt; margin-left: 2%; font-weight: bold; margin-bottom: 7%; margin-right: 13%; float: left;">나의 식물 추가</div>
+        <button class="logout">식물 요청</button>
         <br><br><br>
         <form action="" method="POST" autocomplete="off">{% csrf_token %}
             <div>

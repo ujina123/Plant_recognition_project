@@ -71,3 +71,9 @@ class Weather(models.Model):
     class Meta:
         managed = False
         db_table = 'weather'
+
+class PlantRequest(models.Model):
+    id = models.AutoField(primary_key=True)
+    username = models.ForeignKey(AuthUser, null=True, on_delete=models.CASCADE, db_column="username")
+    plantname = models.CharField(max_length=255, null=False, db_column="plantname")
+    submitdate = models.DateTimeField(auto_now_add=True)

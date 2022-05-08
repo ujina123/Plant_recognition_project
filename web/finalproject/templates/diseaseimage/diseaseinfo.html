@@ -5,21 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>병해 정보</title>
+    <style>
+        label {
+            font-size: 14pt;
+            text-align: center;
+            float: left;
+            margin-left: 3%;
+            font-weight: bold;
+        }
+        div {
+            background-color: #f9f9f9; padding: 5%; border-radius: 5pt; border: 0.5px solid #ccc;
+        }
+    </style>
 </head>
 <body>
     <div>
+        <label>병명</label>
+        <br><br><br>
+
         {{ data.diseasename }}
     </div>
+    <br>
     <div>
+        <label>학명</label>
+        <br><br><br>
         {{ data.englishname }}
     </div>
+    <br>
     <div>
+        <label>증상</label>
+        <br><br><br>
         {{ data.symptom }}    
     </div>
+    <br>
     <div>
+        <label>발생환경</label>
+        <br><br><br>
         {{ data.environment }}
     </div>
+    <br>
     <div>
+        <label>예방법</label>
+        <br><br><br>
         {{ data.precaution }}  
     </div>
 </body>

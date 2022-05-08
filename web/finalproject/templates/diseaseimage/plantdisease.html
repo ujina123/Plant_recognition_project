@@ -15,18 +15,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 	<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gamja+Flower&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
     <title>병해 인식</title>
     <style>
         div {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'ACCchildrenheartOTF-Regular';
         }
         /* 상단바 css */
         .icon-bar {
             margin-right: 15%;
-            width: 106%; /* Full-width */
+            width: 107%; /* Full-width */
             background-color: #555; /* Dark-grey background */
             overflow: auto; /* Overflow due to float */
-            /* position: sticky; */
+            position: sticky;
         }
         .icon-bar a {
             float: left; /* Float links side by side */
@@ -44,28 +47,35 @@
             background-color: #04AA6D; /* Add an active/current color */
         }
         div {
-            font-family: 'Noto Sans KR', sans-serif;
+            font-family: 'ACCchildrenheartOTF-Regular';
         }
+
+        /* ACC 어린이 마음고운체 */
+		@font-face {
+    		font-family: 'ACCchildrenheartOTF-Regular';
+    		src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112-2@1.0/ACCchildrenheartOTF-Regular.woff') format('woff');
+    		font-weight: normal;
+    		font-style: normal;
+		}
     </style>
 </head>
 <body style="font-size: 12pt;">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
     <div class="file-upload" style= "max-width: 100%;">
-        <h1 style="margin-left: 7%;">촬영으로 식물병 조회</h1>
+        <h1 style="margin-left: 7%; margin-top: 5%; font-weight: bold;">촬영으로 식물병 조회</h1>
         <br>
         <center><img src="{% static 'img/plantreal.png'%}" style="width: 85%; height: 13em; border-radius: 5pt;"></center>
         <br>
-        <div style="text-align: center; font-size: 13pt;">식물의 이미지데이터를 분석해<br>식물이 어떤 식물병에 걸렸는지 <br> 확인하고 정보를 제공 받을 수 있어요.
-        <br>
+        <div style="text-align: center; font-size: 14pt; font-weight: bold;">식물의 이미지데이터를 분석해<br>식물이 어떤 식물병에 걸렸는지 <br> 확인하고 정보를 제공 받을 수 있어요.
+        <br><br>
         
-        <form action="" enctype="multipart/form-data" method="POST" autocomplete="off"> {% csrf_token %}
-            <input type="file" name="disease_img" accept="image/*" style="color:rgb(69, 152, 69);">
-            <input type="submit" value="SUBMIT" style="background-color: #04AA6D;">
+        <form action="" enctype="multipart/form-data" method="POST" autocomplete="off" style="margin-left: 12%;">
+            {% csrf_token %}
+            <input type="file" name="disease_img" accept="image/*" style="color:rgb(69, 152, 69); margin-bottom: 5%;">
+            <!-- 고침 -->
+            <input type="submit" value="식물병 조회하기" style="margin-right: 20%; width: 90%; border-radius: 10pt;">
         </form>
     </div>
-    
+    <br>
     <div class="icon-bar">
         <a href="{% url 'main' %}"><i class="fa fa-home"></i></a>
         <a href="{% url 'plantimage:plantimage' %}"><i class="fa fa-pagelines"></i></a>
@@ -73,4 +83,5 @@
         <a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
     </div>
 </body>
+
 </html>

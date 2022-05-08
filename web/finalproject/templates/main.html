@@ -134,8 +134,9 @@
 			border-radius: 50%;
 		}
 		div {
-			font-family: 'Noto Sans KR', sans-serif;
-			font-size: 11.5pt;
+			font-family: 'ACCchildrenheartOTF-Regular';
+			font-size: 12pt;
+			font-weight: bold;
 		}
 		body {
 			font-size: 13pt;
@@ -182,8 +183,15 @@
 			font-weight: bold;
 		}
 
-		/* sliderbar css */
+		/* ACC 어린이 마음고운체 */
+		@font-face {
+    		font-family: 'ACCchildrenheartOTF-Regular';
+    		src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112-2@1.0/ACCchildrenheartOTF-Regular.woff') format('woff');
+    		font-weight: normal;
+    		font-style: normal;
+		}
 
+		/* sliderbar css */
 		ul {list-style:none;}
 		b {text-decoration:none; color:inherit; margin-right: 7%; font-size: 11pt;}
 		.box {max-width:960px; width:100%; height:67px; border:0.5px solid #ccc; margin:0 auto; border-radius: 5pt;}
@@ -207,7 +215,7 @@
         padding-bottom: 7px;
       	}
 
-      .swiper li {
+      	.swiper li {
         width: 136px;
         height: 80px;
         background-size: cover;
@@ -216,12 +224,11 @@
         border-radius: 5px;
         margin-right: 2%;
       	}
-
     </style>
 </head>
 <body>
 	<div class="file-upload" style= "max-width: 100%;">
-		<a href="{% url 'main' %}" style="margin-left: 3%; margin-right: 15%;">
+		<a href="{% url 'main' %}" style="margin-left: 3%; margin-right: 14%;">
 			<img src="{% static 'img/website_logo.png' %}" style="width: 55%; margin-bottom: 10%;">
 		</a>
 
@@ -231,7 +238,7 @@
 		{% else %}
 		<button onclick="location.href='{% url 'account_logout' %}'" class="logout">로그아웃</button>
 		{% endif %}	 
-		<div style="border-radius: 5pt; background-color: #f4f4f4; height: 16vh; padding:4%; border:0.5px solid #ccc;">
+		<div style="border-radius: 5pt; background-color: #f4f4f4; height: 16vh; padding:5%; border:0.5px solid #ccc;">
 			<div id="userloc" style="font-weight: bold;"></div>
 			<br>
 			<div class="weather">온도</div>
@@ -271,7 +278,7 @@
 		{% else %}
 		
 		<div class="myplant" style="padding: 6%;">
-			<div style="font-size: 15pt; float: left; margin-right: 10%; font-weight: bold;">언제 물줬지?</div>
+			<div style="font-size: 15pt; float: left; margin-right: 20%; font-weight: 900;">언제 물줬지?</div>
 			<button onclick="location.href='{% url 'plantinfo' %}'" style="border-radius: 5pt; background-color: #04AA6D; color: cornsilk; padding: 2%;">나의 식물 관리</button>
 		
 			<ul class="swiper">

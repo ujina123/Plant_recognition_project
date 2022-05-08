@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from finalproject.models import *
-from finalproject.forms import PlantForm
+from finalproject.forms import PlantForm, PlantRequestForm
 from django.contrib import messages
 import datetime
 
@@ -121,3 +121,6 @@ def plantdisease(request):
 
 def plantrecog(request):
     return render(request, 'plantrecog.html')
+
+def test(request):
+    return render(request, "test.html", {"form": PlantRequestForm()})
