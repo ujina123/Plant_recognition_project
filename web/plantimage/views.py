@@ -32,6 +32,7 @@ def getImage(request):
             
             # PlantModel에 마지막에 저장된 img
             uploaded_img_qs = PlantModel.objects.filter().last()
+            uploaded_img_str = str(uploaded_img_qs.image).split("/")[1].rsplit(".")[0]
             # img읽기
             img_bytes = uploaded_img_qs.image.read()
             # img열기
@@ -60,13 +61,13 @@ def getImage(request):
             # 모델 돌린거 render
             results.render()
             
-            # media/yolo_out에 결과 저장
+            # media/plant_out에 결과 저장
             for img in results.imgs:
                 img_base64 = im.fromarray(img)
-                img_base64.save(f"media/plant_out/{str(imgfile).rsplit('.')[0]}_out.jpg", format="JPEG")
+                img_base64.save(f"media/plant_out/{uploaded_img_str}_out.jpg", format="JPEG")
 
             # 결과 내용 PlantModel에 업데이트
-            PlantModel.objects.filter(id=uploaded_img_qs.id).update(name=result_name, accuracy=result_confidence, outimage=f"plant_out/{str(imgfile).rsplit('.')[0]}_out.jpg")
+            PlantModel.objects.filter(id=uploaded_img_qs.id).update(name=result_name, accuracy=result_confidence, outimage=f"plant_out/{uploaded_img_str}_out.jpg")
             
             # 이름 None일 경우 메시지
             if result_name is None:

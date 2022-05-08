@@ -26,6 +26,7 @@ def getImage(request):
             img_instance.save()
 
             uploaded_img_qs = DiseaseModel.objects.filter().last()
+            uploaded_img_str = str(uploaded_img_qs.image).split("/")[1].rsplit(".")[0]
             # img읽기
             img_bytes = uploaded_img_qs.image.read()
             # img열기
@@ -56,10 +57,10 @@ def getImage(request):
 
             for img in results.imgs:
                 img_base64 = im.fromarray(img)
-                img_base64.save(f"media/disease_out/{str(imgfile).rsplit('.')[0]}_out.jpg", format="JPEG")
+                img_base64.save(f"media/disease_out/{uploaded_img_str}_out.jpg", format="JPEG")
 
             # 결과 이름, 정확도, 이미지 경로 db저장
-            DiseaseModel.objects.filter(id=uploaded_img_qs.id).update(name=result_name, accuracy=result_confidence, outimage=f"disease_out/{str(imgfile).rsplit('.')[0]}_out.jpg")
+            DiseaseModel.objects.filter(id=uploaded_img_qs.id).update(name=result_name, accuracy=result_confidence, outimage=f"disease_out/{uploaded_img_str}_out.jpg")
 
             # 이름 None일 경우 메세지
             if result_name is None:
