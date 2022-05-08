@@ -36,3 +36,14 @@ CREATE TABLE plants (
     tempExp         VARCHAR(255) NOT NULL,
     tempExpInfo     TEXT NOT NULL
     ) charset = utf8;
+
+DROP TABLE IF EXISTS plantdisease;
+CREATE TABLE plantdisease (
+    diseaseId       VARCHAR(3),
+    diseaseName     VARCHAR(30),
+    englishName     VARCHAR(30),
+    symptom         TEXT,
+    environment     TEXT,
+    precaution      TEXT,
+    PRIMARY KEY(diseaseId)
+    ) charset = utf8;
