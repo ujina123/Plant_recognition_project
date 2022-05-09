@@ -1,4 +1,3 @@
-# JngMkk
 from django.shortcuts import render, redirect
 from diseaseimage.models import Plantdisease, DiseaseModel
 from finalproject.models import AuthUser
@@ -39,12 +38,45 @@ def getImage(request):
             path_weightfile = "yolo_disease/runs/train/yolov5s_results_ver5/weights/best.pt"  
 
             model = torch.hub.load(path_hubconfig, 'custom', path=path_weightfile, source='local')
+            model.conf = 0.2
             results = model(img, size=224)
             
             try:
                 # 인식값 나오면
-                result_confidence = results.pandas().xyxy[0]['confidence'].values[0]
-                result_name = results.pandas().xyxy[0]['name'].values[0]
+                res_table = results.pandas().xyxy[0] # 결과 테이블 저장 
+                result_name_list = res_table['name'].values.tolist()
+                result_conf_list = res_table['confidence'].values.tolist()
+                
+                # print(res_table)
+                # print(result_name_list)
+                
+                # yujin #
+                list_conf = []
+                if '정상' in result_name_list:
+                    if '흰가루병' in result_name_list:
+                        powdery_conf = [result_conf_list[i] for i, value in enumerate(result_name_list) if value == '흰가루병']
+                        list_conf.append(powdery_conf[0])
+                    if '노균병' in result_name_list:
+                        downy_conf = [result_conf_list[i] for i, value in enumerate(result_name_list) if value == '노균병']
+                        list_conf.append(downy_conf[0])
+                    if ('노균병' not in result_name_list) & ('흰가루병' not in result_name_list):
+                        nor_conf = [result_conf_list[i] for i, value in enumerate(result_name_list) if value == '정상']
+                        list_conf.append(nor_conf[0])
+                else:
+                    if '흰가루병' in result_name_list:
+                        powdery_conf = [result_conf_list[i] for i, value in enumerate(result_name_list) if value == '흰가루병']
+                        list_conf.append(powdery_conf[0])
+                    if '노균병' in result_name_list:
+                        downy_conf = [result_conf_list[i] for i, value in enumerate(result_name_list) if value == '노균병']
+                        list_conf.append(downy_conf[0])
+             
+                # print(list_conf)
+                max_idx = result_conf_list.index(max(list_conf))
+                
+                result_confidence = result_conf_list[max_idx]
+                result_name = result_name_list[max_idx]
+                #####
+                   
             except:
                 # 안나오면
                 result_confidence = None
