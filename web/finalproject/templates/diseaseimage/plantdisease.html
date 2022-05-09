@@ -24,11 +24,14 @@
             font-family: 'ACCchildrenheartOTF-Regular';
         }
         /* 상단바 css */
+        /* 혜인: icon-bar position, bottom, left 추가, position: sticky 지움 */
         .icon-bar {
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
             width: 100%; /* Full-width */
             background-color: #555; /* Dark-grey background */
             overflow: auto; /* Overflow due to float */
-            position: sticky;
         }
         .icon-bar a {
             float: left; /* Float links side by side */
@@ -71,13 +74,13 @@
             font-size: 14pt;
         }
         body {
-            width: 110%;
-            margin-left: -5%;
+            width: 600px;
+			margin: 0 auto;
         }
     </style>
 </head>
 <body>
-    <div class="file-upload" style= "max-width: 100%;">
+    <div class="file-upload">
         <h1 style="text-align: center; font-family: 'EliceDigitalBaeum-Bd';">촬영으로 식물병 조회</h1>
         <br>
         <center><img src="{% static 'img/plantreal.png'%}" style="width: 85%; height: 13em; border-radius: 5pt;"></center>

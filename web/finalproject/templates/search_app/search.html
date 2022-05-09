@@ -20,7 +20,12 @@
         div {
             font-family: 'Noto Sans KR', sans-serif;
         }
+        .body {
+            width: 600px;
+			margin: 0 auto;
+        }
         /* 상단바 css */
+        /* 혜인: icon-bar position, bottom, left 추가, position: sticky 지움 */
         .icon-bar {
             position: fixed;
             width: 100%; /* Full-width */
@@ -45,9 +50,6 @@
 		.active {
 		    background-color: #04AA6D; /* Add an active/current color */
 		}
-        div{
-            font-family: 'Noto Sans KR', sans-serif;
-        }
         .plant_image{
             width: 90%;
             height: 200px;
@@ -111,7 +113,7 @@
     </script>
 </head>
 <body>
-    <div class="file-upload" style= "max-width: 100%;"> 
+    <div class="file-upload"> 
         <form action="/search/" method="GET" autocomplete="off">
             <input id="text_input" type="text" placeholder="식물 이름을 검색해주세요" name="term" class="searchbar">
             <input type="submit" value="검색" class="searchbutton">
