@@ -86,24 +86,51 @@
         $(function() {
             $("#text_input").autocomplete({
                 source: function(req, res) {
-                    var wildcard = { "name": "*" }
+                    var arr = new Array()
                     var postData = {
-                        "query": {"wildcard": wildcard},
-                        "fields": ["name"]
+                        "_source": ["name"],
+                        "query": {
+                            "bool": {
+                                "must": [{
+                                    "match": {
+                                        "name.jaso": {
+                                            "query": $("#text_input").val(),
+                                            "analyzer": "search_analyzer",
+                                            "fuzziness": 1
+                                        }
+                                    }
+                                }],
+                                "should": [{
+                                    "match": {
+                                        "name.ngram": {
+                                            "query": $("#text_input").val(),
+                                            "analyzer": "ngram_analyzer"
+                                        }
+                                    }
+                                }]
+                            }
+                        },
+                        "highlight": {
+                            "fields": {
+                            "name.ngram": {}
+                            }
+                        }
                     }
                     $.ajax({
-                        url: "http://localhost:9200/dictionary/_search" + $("#text_input").val(),
-                        type: "GET",
+                        url: "http://localhost:9200/dictionary/_search",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(postData),
                         success: function(data) {
-                            res($.map(data.hits.hits, function(item) {
-                                return {
-                                    label: item._source.name
-                                }
-                            }))
+                            var hitsJson = (data.hits.hits)
+                            for(var key in hitsJson) {
+                                arr.push(hitsJson[key]._source.name)
+                            }
+                            res(arr)
                         }
                     })
                 },
-                minLength: 1
+                minLength: 1, delay:200
             })
         })
     </script>
