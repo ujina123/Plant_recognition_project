@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     "plantimage",
     "diseaseimage",
 ]
-SITE_ID = 1
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -75,7 +75,6 @@ TEMPLATES = [
     },
 ]
 
-SITE_ID= 1
 
 WSGI_APPLICATION = 'finalproject.wsgi.application'
 
@@ -152,7 +151,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 LOGIN_REDIRECT_URL = '/'
 
 #카카오톡 소셜 로그인 리다이렉트 설정
-SITE_ID = 1
+SITE_ID = 2
 LOGIN_REDIRECT_URL = '/'  # 로그인 후 리다이렉트 될 경로
 
 MEDIA_URL = '/media/'
@@ -163,5 +162,5 @@ ACCOUNT_LOGOUT_ON_GET = True
 MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: "alert-error",
-    messages.INFO: "alert-info",
+    messages.INFO: "alert-info"
 }

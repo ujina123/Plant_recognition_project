@@ -46,7 +46,7 @@ def getImage(request):
             # yolov5 디렉터리
             path_hubconfig = "yolo_plant"
             # 인식모델 파일
-            path_weightfile = "yolo_plant/runs/train/yolov5s_results20/weights/best.pt"  
+            path_weightfile = "yolo_plant/runs/train/yolov5s_results4/weights/best.pt"  
 
             # 모델 불러오기
             model = torch.hub.load(path_hubconfig, 'custom', path=path_weightfile, source='local')
