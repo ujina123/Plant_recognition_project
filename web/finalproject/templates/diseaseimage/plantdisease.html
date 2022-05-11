@@ -15,14 +15,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 	<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gamja+Flower&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
     <title>병해 인식</title>
     <style>
-        div {
-            font-family: 'ACCchildrenheartOTF-Regular';
-        }
         /* 상단바 css */
         /* 혜인: icon-bar position, bottom, left 추가, position: sticky 지움 */
         .icon-bar {
@@ -48,77 +43,69 @@
         .active {
             background-color: #04AA6D; /* Add an active/current color */
         }
-        div {
-            font-family: 'ACCchildrenheartOTF-Regular';
-            font-weight: bold;
-        }
-
-        /* ACC 어린이 마음고운체 */
-		@font-face {
-    		font-family: 'ACCchildrenheartOTF-Regular';
-    		src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112-2@1.0/ACCchildrenheartOTF-Regular.woff') format('woff');
-    		font-weight: normal;
-    		font-style: normal;
-		}
-        /* 엘리스디지털배움체 */
-        @font-face {
-            font-family: 'EliceDigitalBaeum-Bd';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-        }
         #image_file {
             color:rgb(69, 152, 69);
             margin-bottom: 5%;
             font-weight: bold;
             font-size: 14pt;
         }
+        /* 혠겹 */
         body {
 			margin: 0 auto;
+        }
+        .message {
+            font-size: 13pt;
         }
     </style>
 </head>
 <body>
-    <div class="file-upload">
-        <h1 style="text-align: center; font-family: 'EliceDigitalBaeum-Bd';">촬영으로 식물병 조회</h1>
-        <br>
-        <center><img src="{% static 'img/plantreal.png'%}" style="width: 85%; height: 13em; border-radius: 5pt;"></center>
-        <br>
-        <div style="text-align: center; font-size: 16pt; font-weight: bold;">식물의 이미지데이터를 분석해<br>식물이 어떤 식물병에 걸렸는지 <br> 확인하고 정보를 제공 받을 수 있어요.
-        <br><br>
+    <div class="container">
+        <div class="file-upload">
+            <h1 style="text-align: center; font-family: 'EliceDigitalBaeum-Bd';">촬영으로 식물병 조회</h1>
+            <br>
+            <center><img src="{% static 'img/plantreal.png'%}" style="width: 85%; height: 13em; border-radius: 5pt;"></center>
+            <br>
+            <div style="text-align: center; font-size: 16pt; font-weight: bold; font-family: 'ACCchildrenheartOTF-Regular';">식물의 이미지데이터를 분석해<br>식물이 어떤 식물병에 걸렸는지 <br> 확인하고 정보를 제공 받을 수 있어요.
+            <br><br>
         
-        <form action="" enctype="multipart/form-data" method="POST" autocomplete="off" style="margin-left: 12%; font-weight: bold;">
-            {% csrf_token %}
-            {{ form.image }}
-            <input type="submit" value="식물병 조회하기" class="file-upload-btn" style="margin-left: -14%; width: 95%; border-radius: 10pt; margin-bottom: 3.5%;">
-        </form>
+            <form action="" enctype="multipart/form-data" method="POST" autocomplete="off" style="margin-left: 12%; font-weight: bold;"> {% csrf_token %}
+                {{ form.image }}
+                <input type="submit" value="식물병 조회하기" class="file-upload-btn" style="margin-left: -14%; width: 95%; border-radius: 10pt; margin-bottom: 3.5%;">
+            </form>
 
-        <div>
-            {% if disease %}
-                <div>
-                    <form action="" method="GET">
-                        <input type="hidden" value="{{disease}}" name="disease_name">
-                        <b>{{ disease }}</b>
-                    </form>
-                </div>
-            {% else %}
-                {% for m in messages %}
-                    {% if m.tags == "alert-warning" %}
+            <div>
+                {% if d %}
+                    <div>
                         <div>
-                            <b>{{ m }}</b>
+                            <div class="message">
+                                <b>식물이 {{ d.diseasename }}에 걸렸을 확률이 {% widthratio per 1 100 %}%입니다.</b>
+                            </div>
+                            <div class="message">
+                                <b>{{ d.diseasename }}이 뭘까요?? 👉 <a href="/plantdisease/info/?id={{ d.diseaseid }}">알아보자!</a></b>
+                            </div>
                         </div>
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
+                    </div>
+                {% else %}
+                    {% for m in messages %}
+                        {% if m.tags == "alert-warning" %}
+                            <div class="message">
+                                <b>{{ m }}</b>
+                            </div>
+                        {% elif m.tags == "alert-info" %}
+                            <div class="message">
+                                <b>{{ m }}<a href="/search/">알아볼까?</a></b>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
     </div>
-    <br>
-    <div class="icon-bar">
-        <a href="{% url 'main' %}"><i class="fa fa-home"></i></a>
-        <a href="{% url 'plantimage:plantimage' %}"><i class="fa fa-pagelines"></i></a>
-        <a href="{% url 'diseaseimage:diseaseimage' %}" class="active"><i class="fa fa-medkit" aria-hidden="true"></i></a>
-        <a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
-    </div>
 </body>
-
+<div class="icon-bar">
+    <a href="{% url 'main' %}"><i class="fa fa-home"></i></a>
+    <a href="{% url 'plantimage:plantimage' %}"><i class="fa fa-pagelines"></i></a>
+    <a href="{% url 'diseaseimage:diseaseimage' %}" class="active"><i class="fa fa-medkit" aria-hidden="true"></i></a>
+    <a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
+</div>
 </html>

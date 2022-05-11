@@ -15,11 +15,13 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com"> 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 	<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gamja+Flower&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <!--식물 추가 요청 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <title>식물 추가하기</title>
     <style>
-        div {
-            font-family: 'Noto Sans KR', sans-serif;
-        }
         #message {
             font-size: 11pt;
             width: 50%;
@@ -42,90 +44,102 @@
 			background-color:#04AA6D;
 			border-radius: 5pt;
 			color: cornsilk;
-			width: 32%;
+            text-align: center;
+            float: left;
+			width: 28%;
 			font-size: 11pt;
             font-family: 'EliceDigitalBaeum-Bd';
-		}
-        @font-face {
-            font-family: 'EliceDigitalBaeum-Bd';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-        }
-		@font-face {
-    		font-family: 'ACCchildrenheartOTF-Regular';
-    		src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112-2@1.0/ACCchildrenheartOTF-Regular.woff') format('woff');
-    		font-weight: normal;
-    		font-style: normal;
 		}
         .plant_manage {
             font-family: 'EliceDigitalBaeum-Bd';
         }
     </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        // window.setTimeout(function() {
-        //     $("#message").fadeTo(500, 0).slideUp(500, function(){
-        //         $(this).remove();
-        //     });
-        // }, 5000);
-    </script>
 </head>
 <body style="font-size: 13pt;">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
-    <div class="file-upload" style="max-width: 100%;">
+    <div class="container">
+        <div class="file-upload">
         
-        <div style="font-family: 'EliceDigitalBaeum-Bd'; margin-top: -2%; font-size: 17pt; margin-left: 2%; font-weight: bold; margin-bottom: 7%; margin-right: 19%; float: left;">나의 식물 추가</div>
-        <button class="request">식물 추가 요청</button>
-        <br><br><br>
-        <form action="" method="POST" autocomplete="off">{% csrf_token %}
-            <div>
-                <label class="plant_manage">식물 종류
-                    {% if plant %}
-                        {% for p in plant %}
-                            {% render_field form.plant_name value=p.name %}
-                        {% endfor %}
-                    {% else %}
-                        {{form.plant_name}}
-                    {% endif %}
-                </label>
+            <div style="font-family: 'EliceDigitalBaeum-Bd'; margin-top: -2%; font-size: 20pt; margin-left: 2%; font-weight: bold; margin-bottom: 7%; margin-right: 10%; float: left;">나의 식물 추가</div>
+
+            <button class="request" data-toggle="modal" data-target="#myModal">식물 추가 요청하기</button>
+        
+            <div class="modal fade" id="myModal" data-keyboard="false">
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+                    <div class="modal-content">
+                        <form action="/plantrequest/" method="POST"> {% csrf_token %}
+                            <div class="modal-header">
+                                <h4 class="modal-title plant_manage">식물 추가 요청</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div>
+                                    <label class="plant_manage">식물종류
+                                        {{ form2.requestname }}
+                                    </label>
+                                    <div>
+                                        <b>💡 요청해주신 식물은 검토 후 추가될 거예요.</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default plant_manage" data-dismiss="modal">닫기</button>
+                                <button type="submit" class="submit-btn btn btn-primary plant_manage">요청하기</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <br>
-            <div>
-                <label class="plant_manage">식물 애칭
-                    {{form.plant_nickname}}
-                </label>
-            </div>
-            <br>
-            <div>
-                <label class="plant_manage">처음 만난 날
-                    <p>
-                        {{form.plant_date}}
-                    </p>
-                </label>
-            </div>
-            <br>
-            <div>
-                <label class="plant_manage">최근 물준 날
-                    <p>
-                        {{form.water_date}}
-                    </p>
-                </label>
-            </div>
-            <br>
-            <div>
-                {% for message in messages %}
-                    {% if message.tags == 'alert-error' %}
-                        <b>{{ message }}</b>
-                    {% endif %}
-                {% endfor %}
-            </div>
-            <br>
-            <button class="file-upload-btn" type="submit" style="font-family: 'EliceDigitalBaeum-Bd';">내 식물로 등록</button>
-            <br><br>
-        </form>
+
+            <br><br><br>
+            <form action="" method="POST" autocomplete="off">{% csrf_token %}
+                <div>
+                    <label class="plant_manage">식물 종류
+                        {% if plant %}
+                            {% for p in plant %}
+                                {% render_field form.plant_name value=p.name %}
+                            {% endfor %}
+                        {% else %}
+                            {{form.plant_name}}
+                        {% endif %}
+                    </label>
+                </div>
+                <br>
+                <div>
+                    <label class="plant_manage">식물 애칭
+                        {{form.plant_nickname}}
+                    </label>
+                </div>
+                <br>
+                <div>
+                    <label class="plant_manage">처음 만난 날
+                        <p>
+                            {{form.plant_date}}
+                        </p>
+                    </label>
+                </div>
+                <br>
+                <div>
+                    <label class="plant_manage">최근 물준 날
+                        <p>
+                            {{form.water_date}}
+                        </p>
+                    </label>
+                </div>
+                <br>
+                <div>
+                    {% for message in messages %}
+                        {% if message.tags == 'alert-error' %}
+                            <b>{{ message }}</b>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <br>
+                <button class="file-upload-btn" type="submit" style="font-family: 'EliceDigitalBaeum-Bd';">내 식물로 등록</button>
+                <br><br>
+            </form>
+        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

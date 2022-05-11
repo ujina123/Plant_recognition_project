@@ -16,34 +16,37 @@
         div {
             background-color: #f9f9f9; padding: 5%; border-radius: 5pt; border: 0.5px solid #ccc;
         }
+        .disease_info {
+            font-family: 'EliceDigitalBaeum-Bd';
+        }
     </style>
 </head>
 <body>
-    <div>
+    <div class="disease_info">
         <label>병명</label>
         <br><br><br>
         {{ data.diseasename }}
     </div>
     <br>
-    <div>
+    <div class="disease_info">
         <label>학명</label>
         <br><br><br>
         {{ data.englishname }}
     </div>
     <br>
-    <div>
+    <div class="disease_info">
         <label>증상</label>
         <br><br><br>
         {{ data.symptom }}    
     </div>
     <br>
-    <div>
+    <div class="disease_info">
         <label>발생환경</label>
         <br><br><br>
         {{ data.environment }}
     </div>
     <br>
-    <div>
+    <div class="disease_info">
         <label>예방법</label>
         <br><br><br>
         {{ data.precaution }}  

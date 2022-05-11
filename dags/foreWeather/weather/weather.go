@@ -15,9 +15,11 @@ type Weather struct {
 	IsDay     string
 	Temp      string
 	Humidity  string
+	HumidInfo string
 	RainRatio string
 	SnowRatio string
 	Uv        string
+	UvInfo    string
 }
 
 type Response struct {

@@ -9,9 +9,11 @@ CREATE TABLE weather (
     isDay       INT NULL,
     temp        INT NULL,
     humidity    INT NULL,
+    humidInfo   VARCHAR(50) NULL,
     rainRatio   INT NULL,
     snowRatio   INT NULL,
-    uv          INT NULL
+    uv          INT NULL,
+    uvInfo      VARCHAR(50) NULL
 );
 
 DROP TABLE IF EXISTS plants;

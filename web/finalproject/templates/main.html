@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<!-- 기존 css -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/plantrecog.css' %}">
     <title>Plant Doctor</title>
@@ -50,7 +51,7 @@
 					}
 					const userLoc = document.getElementById("userloc")
 					// 사용자 위치 어딘지 
-					userLoc.innerHTML = addr
+					userLoc.innerHTML = "현재 위치는 " + addr + "입니다."
 					if (addr) {
 						const con = document.getElementById("condi")
 						const tem = document.getElementById("temp")
@@ -61,17 +62,30 @@
 							url: "weather/?loc=" + addr,
 							type: "GET",
 							success: function(data) {
+								var d = new Date()
+								var hour = d.getHours()
 								con.innerHTML = data[0].condi
+								$("#condi_image").attr("src", "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/weather/" + data[0].condi + ".png")
 								tem.innerHTML = data[0].temp + "°C"
-								humid.innerHTML = data[0].humidity + "%"
-								uV.innerHTML = data[0].uv
+								humid.innerHTML = data[0].humidinfo
+								if (hour > 0 && hour < 6) {
+									const arr = data.filter(d => d.time === 14)
+									uV.innerHTML = "오늘 예상 " + arr[0].uvinfo
+								} else if (hour < 18) {
+									uV.innerHTML = "현재"
+								} else if (hour >= 18) {
+									const arr = data.filter(d => d.time === 14)
+									uV.innerHTML = "내일 예상" + arr[0].uvinfo
+								}
 								for (i=0; i<24; i++) {
 									var sp = document.createElement("span")
 									var b1 = document.createElement("b")
 									var b2 = document.createElement("b")
+									var img = document.createElement("img")
 									b1.innerHTML = data[i].time + "시"
 									b2.innerHTML = data[i].temp + "°C"
-									sp.append(b1,b2)
+									img.setAttribute("src", "https://myplantsbucket.s3.ap-northeast-2.amazonaws.com/weather/" + data[i].condi + ".png")
+									sp.append(b1,b2,img)
 									fore.appendChild(sp)
 								}
 							},
@@ -109,9 +123,6 @@
 			history.back();
 		}
 	</script>
-	<!-- 부트스트랩 script -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-	<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<style>      
 		.main-container{
 			text-align: center;
@@ -140,6 +151,7 @@
 		}
 		body {
 			font-size: 13pt;
+			width: 100%;
 		}
 		/* 상단바 css */
 		/* 혜인: icon-bar position, bottom, left 추가, position: sticky 지움 */
@@ -185,29 +197,13 @@
 		}
 		.weather {
 			float: left;
-			margin-right: 5%;
+			margin-right: 7%;
 			font-weight: bold;
 		}
-
-		/* ACC 어린이 마음고운체 */
-		@font-face {
-    		font-family: 'ACCchildrenheartOTF-Regular';
-    		src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112-2@1.0/ACCchildrenheartOTF-Regular.woff') format('woff');
-    		font-weight: normal;
-    		font-style: normal;
-		}
-		/* 엘리스디지털배움체 */
-		@font-face {
-			font-family: 'EliceDigitalBaeum-Bd';
-			src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
-			font-weight: normal;
-			font-style: normal;
-		}
-
 		/* sliderbar css */
 		ul {list-style:none;}
 		b {text-decoration:none; color:inherit; margin-right: 12%; font-size: 11pt;}
-		.box {max-width:960px; width:100%; height:67px; border:0.5px solid #ccc; margin:0 auto; border-radius: 5pt; margin-bottom: 5%;}
+		.box {max-width:960px; width:100%; height:67px; border:0.5px solid #ccc; margin:0 auto; border-radius: 5pt; margin-bottom: 5%; background-color: #f9f9f9;}
 		#tab {
 			height: 65px;
 		}
@@ -219,7 +215,6 @@
 		}
 		#tab ul{white-space:nowrap; overflow-x: auto; text-align:center; background:#f9f9f9;}
 		#tab ul span{display:inline-block; padding: 5px 5px; background:#f9f9f9;}
-
 		/* 물주기 slider css */
 		.swiper {
         	white-space: nowrap;
@@ -227,7 +222,6 @@
         	padding: 24px;
         	padding-bottom: 7px;
       	}
-
       	.swiper li {
 			width: 136px;
 			height: 80px;
@@ -235,76 +229,81 @@
 			background-position: center;
 			display: inline-block;
 			border-radius: 5px;
-			margin-right: 2%;
+			margin-right: 10%;
       	}
     </style>
 </head>
 <body>
-	<div class="file-upload">
-		<a href="{% url 'main' %}" style="margin-left: 5%; margin-right: 8%;">
-			<img src="{% static 'img/website_logo.png' %}" style="width: 55%; margin-bottom: 8%;">
-		</a>
-
-		<!-- 로그인, 로그아웃 버튼 바뀌게하기! -->
-		{% if not user.is_authenticated %}
-			<button onclick="location.href='{% url 'account_login' %}'" class="login">로그인</button>
-		{% else %}
-			<button onclick="location.href='{% url 'account_logout' %}'" class="logout">로그아웃</button>
-		{% endif %}	 
-		<div style="border-radius: 5pt; background-color: #f4f4f4; height: 11vh; padding:2%; border:0.5px solid #ccc; width: 93%; margin-left: 3%;">
-			<div id="userloc" style="margin-bottom: 2%;"></div>
-			<div class="weather">💡온도 :</div>
-			<div id="temp" class="weather"></div>
-			<div class="weather">💡날씨 :</div>
-			<div id="condi" class="weather"></div>	
-		</div>
-		<br>
-
-		<div class="myplant" style="width: 93%; margin-left: 3%;">
-			<div style="margin-left: 30%;">
-				<div class="weather" style="margin-left: 15%;">습도</div>
-				<div id="humidity" class="weather"></div>
-				<br>
-				<div class="weather">자외선 지수</div>
-				<div id="uv" class="weather"></div>			
-			</div>
-		</div>
-		<br><br>
-		<div class="box" style="width: 93%; margin-left: 3%;">
-			<div id="tab">
-				<ul id="foreTemp"></ul>
-			</div>
-		</div>
-		<br>
-
-		<!-- 내식물 관리하기 회원 비회원 기능 구분 -->
-		{% if not user.is_authenticated %}
-			<div class="myplant" style="padding: 5%; font-family: 'Noto Sans KR', sans-serif; background-color: #f4f4f4;">
-				<div onclick="location.href='{% url 'account_login' %}'"  style=" margin-top: 2%; margin-left: 2%; font-size: 16pt;">
-					<img src="{% static 'img/plant_cute.jpeg' %}" style="width: 32%; margin-bottom: 5%;">
-					<div style="font-size: 13pt; font-weight: bold;">식물을 추가해주세요</div>
-					<i class="fa fa-plus-circle" aria-hidden="true"></i>
+	<div class="container" style="background-color: white">
+		<div class="row">
+			<div class="file-upload">
+				<i style="margin-left: 5%; margin-right: 8%;">
+					<img src="{% static 'img/website_logo.png' %}" style="width: 55%; margin-bottom: 8%;">
+				</i>
+			<!-- 로그인, 로그아웃 버튼 바뀌게하기! -->
+			{% if not user.is_authenticated %}
+				<button onclick="location.href='{% url 'account_login' %}'" class="login">로그인</button>
+			{% else %}
+				<button onclick="location.href='{% url 'account_logout' %}'" class="logout">로그아웃</button>
+			{% endif %}	 
+			<div class="row">
+				<div style="border-radius: 5pt; background-color: #f4f4f4; height: 6em; padding: 5%; border:0.5px solid #ccc; width: 93%; margin-left: 3%;">
+					<div id="userloc" style="margin-bottom: 3%;"></div>
+					<div class="weather">💡온도 :</div>
+					<div id="temp" class="weather"></div>
+					<div class="weather">💡날씨 :</div>
+					<div id="condi" class="weather"></div>	
+					<img id="condi_image" src="" alt="server error">
 				</div>
 			</div>
-
-		{% else %}
-			<div class="myplant" style="padding: 7%; height: 26vh; width: 93%; margin-left: 3%;">
-				<div style="font-size: 19pt; float: left; margin-right: 20%; font-weight: bold;">언제 물줬지?</div>
-				<button onclick="location.href='{% url 'plantinfo' %}'" style="border-radius: 5pt; background-color: #04AA6D; color: cornsilk; padding: 2%; font-family: 'EliceDigitalBaeum-Bd';">나의 식물 관리</button>
-		
-				<ul class="swiper">
-					{% for o in obj %}
-						<li>
-							<img src="{{o.plant.url}}" style="width: 50%; text-decoration:none; color:inherit; margin-right: 7%; border-radius: 50%; border:0.5px solid #ccc;">
-							<b style="color: rgba(11, 97, 50, 0.571);">{{o.nickname}}</b>
-							<br>
-							<b>물주기 D{{o.nextdate|datedelta}}</b>
-						</li>
-					{% endfor %}
-				</ul>
+			<br>
+			<div class="row">
+				<div class="myplant" style="width: 93%; margin-left: 3%;">
+					<div style="margin-left: 30%;">
+						<div id="humidity" class="weather"></div>
+						<br>
+						<div id="uv" class="weather"></div>			
+					</div>
+				</div>
 			</div>
-		{% endif %}
-		<br>
+			<br><br>
+			<div class="row">
+				<div class="box" style="width: 93%; margin-left: 3%;">
+					<div id="tab">
+						<ul id="foreTemp"></ul>
+					</div>
+				</div>
+			<br>
+			<!-- 내식물 관리하기 회원 비회원 기능 구분 -->
+			{% if not user.is_authenticated %}
+				<div class="myplant" style="padding: 5%; background-color: #f4f4f4;">
+					<div onclick="location.href='{% url 'account_login' %}'"  style=" margin-top: 2%; margin-left: 2%; font-size: 16pt;">
+						<img src="{% static 'img/plant_cute.jpeg' %}" style="width: 32%; margin-bottom: 5%;">
+						<div style="font-size: 13pt; font-weight: bold;">식물을 추가해주세요</div>
+						<i class="fa fa-plus-circle" aria-hidden="true"></i>
+					</div>
+				</div>
+			{% else %}
+				<div class="myplant" style="padding: 5%; height: 15em;">
+					<div class="col col-lg-9">
+						<div style="font-size: 17pt; float: left; font-weight: bold;">언제 물줬지?</div>
+					</div>
+					<div class="col col-lg-3">
+						<button onclick="location.href='{% url 'plantinfo' %}'" style="border-radius: 5pt; background-color: #04AA6D; color: cornsilk; padding: 2%; font-family: 'EliceDigitalBaeum-Bd';">나의 식물 관리</button>
+					</div>
+		
+					<ul class="swiper">
+						{% for o in obj %}
+							<li>
+								<img src="{{o.plantid.url}}" style="width: 53%; text-decoration:none; color:inherit; margin-right: 7%; border-radius: 50%; border:0.5px solid #ccc;">
+								<b style="color: rgba(11, 97, 50, 0.571);">{{o.nickname}}</b>
+								<br>
+								<b>물주기 D{{o.nextdate|datedelta}}</b>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %}
 </body>
 <div class="icon-bar">
 	<a class="active" href="{% url 'main' %}"><i class="fa fa-home"></i></a>

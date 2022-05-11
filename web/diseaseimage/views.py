@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from diseaseimage.models import Plantdisease, DiseaseModel
 from finalproject.models import AuthUser
 from diseaseimage.forms import ImageUpload
+from django.utils.safestring import mark_safe
 from django.contrib import messages
 import io
 from PIL import Image as im
@@ -22,7 +23,7 @@ def getImage(request):
             else:
                 userid = None
 
-            img_instance = DiseaseModel(username=userid, image=imgfile)
+            img_instance = DiseaseModel(userid=userid, image=imgfile)
             img_instance.save()
 
             uploaded_img_qs = DiseaseModel.objects.filter().last()
@@ -47,9 +48,6 @@ def getImage(request):
                 result_name_list = res_table['name'].values.tolist()
                 result_conf_list = res_table['confidence'].values.tolist()
                 
-                # print(res_table)
-                # print(result_name_list)
-                
                 # yujin #
                 list_conf = []
                 if '정상' in result_name_list:
@@ -69,21 +67,19 @@ def getImage(request):
                     if '노균병' in result_name_list:
                         downy_conf = [result_conf_list[i] for i, value in enumerate(result_name_list) if value == '노균병']
                         list_conf.append(downy_conf[0])
-             
-                # print(list_conf)
+
                 max_idx = result_conf_list.index(max(list_conf))
                 
                 result_confidence = result_conf_list[max_idx]
                 result_name = result_name_list[max_idx]
-                #####
-                   
+                if result_name != "정상":
+                    result_name = Plantdisease.objects.filter(diseasename=result_name).values("diseaseid")[0]["diseaseid"]
+                    print(result_name)
+
             except:
                 # 안나오면
                 result_confidence = None
                 result_name = None
-
-            print('--'*10)
-            print('pred_name: ',result_name, '\nconfidence: ' , result_confidence)
             
             # 모델 돌린거 render
             results.render()
@@ -93,16 +89,17 @@ def getImage(request):
                 img_base64.save(f"media/disease_out/{uploaded_img_str}_out.jpg", format="JPEG")
 
             # 결과 이름, 정확도, 이미지 경로 db저장
-            DiseaseModel.objects.filter(id=uploaded_img_qs.id).update(name=result_name, accuracy=result_confidence, outimage=f"disease_out/{uploaded_img_str}_out.jpg")
+            DiseaseModel.objects.filter(dsmodelid=uploaded_img_qs.dsmodelid).update(diseaseid=result_name, accuracy=result_confidence, outimage=f"disease_out/{uploaded_img_str}_out.jpg")
 
             # 이름 None일 경우 메세지
             if result_name is None:
-                messages.warning(request, "식물병을 인식하지 못했어요")
-                messages.warning(request, "식물병이 잘 보이게 찍어주세요")
+                messages.warning(request, mark_safe("식물병을 인식하지 못했어요.<br/>식물병이 잘 보이게 찍어주세요."))
                 return redirect("/plantdisease")
-            
-            # 이름 None 아닐 경우 이름 return
-            return render(request, "diseaseimage/plantdisease.html", {"form": ImageUpload(), "disease": result_name})
+            elif result_name == "정상":
+                messages.info(request, mark_safe("발견된 식물병이 없습니다.<br/>식물도 사람처럼 사랑을 주세요!<br/>내 식물과 더 친해지기 👉 "))
+                return redirect("/plantdisease")
+
+            return render(request, "diseaseimage/plantdisease.html", {"form": ImageUpload(), "d": Plantdisease.objects.get(diseaseid=result_name), "per": result_confidence})
         return redirect("/plantdisease")
     return render(request, "diseaseimage/plantdisease.html", {"form": ImageUpload()})
 

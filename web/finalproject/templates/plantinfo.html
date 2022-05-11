@@ -15,6 +15,11 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com"> 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 	<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gamja+Flower&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <!--식물 삭제 요청 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <title>나의 식물 관리하기</title>
     <style>
         div{
@@ -37,62 +42,60 @@
         .img {
             width: 100%;
         }
-        /* 엘리스디지털배움체 */
-        @font-face {
-            font-family: 'EliceDigitalBaeum-Bd';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-        }
-        /* ACC 어린이 마음고운체 */
-		@font-face {
-    		font-family: 'ACCchildrenheartOTF-Regular';
-    		src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112-2@1.0/ACCchildrenheartOTF-Regular.woff') format('woff');
-    		font-weight: normal;
-    		font-style: normal;
-		}
         body {
-			height: 80vh;
+			height: 100%;
 		}
     </style>
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
-    <div class="file-upload" style="max-width: 100%; ">
-        
-        <div style="float: left; width: 70%;">
-            <div style="font-family: 'EliceDigitalBaeum-Bd'; font-size: 20pt; margin-left: 5%;">나의 식물</div>
-        </div>
-        
-        <div class="file-upload-btn" onclick="location.href='{% url 'plantmanage' %}'" 
-            style="width: 28%; font-size: 10pt; text-align: center; float: left; font-family: 'EliceDigitalBaeum-Bd';">식물 추가
-        </div>
-        
-        <br><br>
-        {% for o in obj %}
+    <div class="container">
+        <div class="file-upload">
+            <div style="float: left; width: 70%;">
+                <div style="font-family: 'EliceDigitalBaeum-Bd'; font-size: 20pt; margin-left: 5%;">나의 식물</div>
+            </div>
+            <div class="file-upload-btn" onclick="location.href='{% url 'plantmanage' %}'" 
+                style="width: 28%; font-size: 10pt; text-align: center; float: left; font-family: 'EliceDigitalBaeum-Bd';">식물 추가
+            </div>
+            <br><br>
+            {% for o in obj %}
             <fieldset>
-                <img src="{{o.plant.url}}" class="img" style="margin-bottom: 10%;">
+                <img src="{{o.plantid.url}}" class="img" style="margin-bottom: 10%;">
                 <label style="font-family: 'ACCchildrenheartOTF-Regular'; font-weight: bold; font-size: 22pt; color:rgb(15, 116, 82);">{{o.nickname}}</label>
                 <br><br><br>
-                <label>{{o.plant.name}}</label>
+                <label>{{o.plantid.name}}</label>
                 <br>
                 <label>함께한 지 {{o.meetdate|howmanyday}}일째</label>
                 <br>
                 <label style="margin-bottom: 10%;">물주기 D{{o.nextdate|datedelta}}</label>
-
                 <form action="/plantinfo/" method="post">{% csrf_token %}
-                    <input type="hidden" value="{{o.id}}" name="plantid">
+                    <input type="hidden" value="{{o.manageid}}" name="manageid">
                     <button type="submit" class="file-upload-btn" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">물주기</button>
                 </form>
-                <button class="file-upload-btn" onclick="location.href='/search/info/?id={{o.plant.plantid}}'" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">식물 정보</button>
-                <form action="/plantdelete/" method="post">{% csrf_token %}
-                    <input type="hidden" value="{{o.id}}" name="deleteplant">
-                    <button type="submit" class="file-upload-btn" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">삭제</button>
-                </form>
+                <button class="file-upload-btn" onclick="location.href='/search/info/?id={{o.plantid.plantid}}'" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">식물 정보</button>
+                <button href="#" data-toggle="modal" data-target="#myModal" class="file-upload-btn" style="height: 2.5em; font-size: 16pt; margin-bottom: 8%">삭제</button>
+                <div class="modal fade" id="myModal" data-keyboard="false">
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="modal-content">
+                            <form action="/plantdelete/" method="POST"> {% csrf_token %}
+                                <input type="hidden" value="{{o.manageid}}" name="deleteplant">
+                                <div class="modal-body">
+                                    <div>
+                                        <p style="font-size: 12pt;"> 정말로 이 식물을 삭제하시겠습니까? </p>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+                                    <button type="submit" class="submit-btn btn btn-primary">삭제</button>
+                                </div>
+                            </form>    
+                        </div>
+                    </div>
+                </div>
             </fieldset>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

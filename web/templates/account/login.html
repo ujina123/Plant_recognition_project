@@ -73,17 +73,11 @@
         {% endif %}
         <form class="login" method="POST" action="{% url 'account_login' %}">{% csrf_token %}
             <p>
-                <!-- <label for="id_login">아이디</label> -->
                 <input type="text" name="login" placeholder="아이디" autocomplete="username" maxlength="150" required="" id="id_login">    
             </p>
             <p>
-                <!-- <label for="id_password">패스워드</label> -->
                 <input type="password" name="password" placeholder="비밀번호" autocomplete="current-password" required="" id="id_password">
             </p>
-            <!-- <p>
-                <label for="id_remember">Remember Me:</label>
-                <input type="checkbox" name="remember" id="id_remember">
-            </p> -->
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
@@ -94,7 +88,6 @@
                 <div style="margin-top: 1.5%; font-family: 'EliceDigitalBaeum-Bd'; margin-right: 7%;">카카오로 간편 로그인</div>
             </a>
             <br><br>
-            <!-- <a class="button secondaryAction" href="{% url 'account_reset_password' %}" style="font-family: 'Noto Sans KR', sans-serif;">{% trans "비밀번호를 잊어버리셨나요?" %}</a> -->
             <div class="login-or">{% trans '' %}</div>
     </div>
         <div style="font-family: 'EliceDigitalBaeum-Bd';">

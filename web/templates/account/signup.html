@@ -36,32 +36,33 @@
         font-weight: normal;
         font-style: normal;
     }
+    .form-control {
+        margin-bottom: 10%;
+    }
 </style>
 
 <a href="{% url 'main' %}" style="margin-left: 15%; margin-top: 35%;"><img src="{% static 'img/website_logo.png' %}" style="width: 70%; margin-bottom: 10%;"></a>
 
-<!-- <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p> -->
 <div style="text-align: center; margin-top: 8%;" >
-    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}"
-     style="font-family: 'EliceDigitalBaeum-Bd';">
+    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}" style="font-family: 'EliceDigitalBaeum-Bd';">
         {% csrf_token %}
         <label for="id_username">아이디</label>
         <br>
-        <input type="text" class="form-control" id="id_username" placeholder="입력해주세요" name="username" style="margin-bottom: 10%;">
+        <input type="text" class="form-control" id="id_username" placeholder="입력해주세요" name="username">
         <br>
         <label for="id_email">E-mail</label>
         <br>
-        <input type="email" class="form-control" id="id_email" placeholder="입력해주세요" name="email" style="margin-bottom: 10%;">
+        <input type="email" class="form-control" id="id_email" placeholder="입력해주세요" name="email">
         <br>
         <label for="id_password1">비밀번호</label>
         <br>
-        <input type="password" class="form-control" id="id_password1" placeholder="입력해주세요" name="password1" style="margin-bottom: 10%;">
+        <input type="password" class="form-control" id="id_password1" placeholder="입력해주세요" name="password1">
         <br>
         <label for="id_password2">비밀번호 재확인</label>
         <br>
-        <input type="password" class="form-control" id="id_password2" placeholder="입력해주세요" name="password2" style="margin-bottom: 10%;">        
+        <input type="password" class="form-control" id="id_password2" placeholder="입력해주세요" name="password2">
         {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
         <button type="submit" class="registerbutton">{% trans "가입하기" %}</button>
     </form>

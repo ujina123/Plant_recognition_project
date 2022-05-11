@@ -16,11 +16,11 @@ class Plantdisease(models.Model):
         db_table = 'plantdisease'
 
 class DiseaseModel(models.Model):
-    id = models.AutoField(primary_key=True)
-    username = models.ForeignKey(AuthUser, null=True, on_delete=models.CASCADE, db_column="username")
+    dsmodelid = models.AutoField(primary_key=True, db_column="dsmodelid")
+    userid = models.ForeignKey(AuthUser, null=True, on_delete=models.CASCADE, db_column="userid")
     created = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(gettext_lazy("image"), blank=True, upload_to="diseaseimages")
-    name = models.CharField(max_length=50, null=True)
+    diseaseid = models.CharField(max_length=3, null=True, db_column="diseaseid")
     accuracy = models.FloatField(null=True)
     outimage = models.ImageField(gettext_lazy("image"), null=True, upload_to="disease_out")
 

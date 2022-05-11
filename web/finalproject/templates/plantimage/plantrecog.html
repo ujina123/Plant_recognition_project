@@ -45,21 +45,12 @@
         .active {
             background-color: #04AA6D; /* Add an active/current color */
         }
-        .body {
-			margin: 0 auto;
-        }
-        @font-face {
-    		font-family: 'ACCchildrenheartOTF-Regular';
-    		src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112-2@1.0/ACCchildrenheartOTF-Regular.woff') format('woff');
-    		font-weight: normal;
-    		font-style: normal;
-		}
-        /* 엘리스디지털배움체 */
-        @font-face {
-            font-family: 'EliceDigitalBaeum-Bd';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
+        .plant_image{
+            width: 90%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         #image_file {
             color:rgb(69, 152, 69);
@@ -70,50 +61,48 @@
     </style>
 </head>
 
-<body style="font-size: 12pt;">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<body>
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
-    <div class="file-upload">
-        <h1 style="text-align: center; font-family: 'EliceDigitalBaeum-Bd';">촬영으로 정보 조회</h1>
-        <br>
-        <center><img src="{% static 'img/plantrecog.jpeg' %}" style="width: 80%; border-radius: 5pt; height: 26vh;"></center>
-        <br>
+    <div class="container">
+        <div class="file-upload">
+            <h1 style="text-align: center; font-family: 'EliceDigitalBaeum-Bd';">촬영으로 정보 조회</h1>
+            <br>
+            <center><img src="{% static 'img/plantrecog.jpeg' %}" style="width: 80%; border-radius: 5pt; height: 26vh;"></center>
+            <br>
         
-        <div style="text-align: center; font-size: 16pt; margin-bottom: 10%; font-weight: bold;">식물의 이미지 데이터를 분석해<br>어떤 식물인지 알아내고<br> 관련된 정보 제공를 통해<br> 식물을 더 잘 관리할 수 있어요.</div>
+            <div style="text-align: center; font-size: 16pt; margin-bottom: 10%; font-weight: bold;">식물의 이미지 데이터를 분석해<br>어떤 식물인지 알아내고<br> 관련된 정보 제공를 통해<br> 식물을 더 잘 관리할 수 있어요.</div>
         
-        <form action="" enctype="multipart/form-data" method="POST" autocomplete="off" style="margin-left: 12%;"> {% csrf_token %}
-            {{ form.image }}
-            <input type="submit" value="식물 인식하기" class="file-upload-btn" style="width: 92%; border-radius: 10pt; font-size:16pt; margin-left: -3%;">
-        </form>
-        {% if plants %}
-            {% for p in plants %}
-                <div class="plant_item" style="background-color: white; width: 90%; text-align: center; margin-bottom: 8%;">
-                    <a href="/search/info/?id={{p.0}}">
-                        <div class="plant_image" style="background-image: url({{p.1}})"></div>
-                        <div>
-                            <div style="font-size: 13pt;">{{p.2}}</div>
-                        </div>
-                    </a>
-                </div>
-            {% endfor %}
-        {% else %}
-            {% for m in messages %}
-                {% if m.tags == "alert-warning" %}
-                    <div>
-                        <b>{{ m }}</b>
+            <form action="" enctype="multipart/form-data" method="POST" autocomplete="off" style="margin-left: 12%;"> {% csrf_token %}
+                {{ form.image }}
+                <input type="submit" value="식물 인식하기" class="file-upload-btn" style="width: 92%; border-radius: 10pt; font-size:16pt; margin-left: -3%;">
+            </form>
+            {% if plants %}
+                {% for p in plants %}
+                    <div class="plant_item" style="background-color: white; width: 90%; text-align: center; margin-bottom: 8%;">
+                        <a href="/search/info/?id={{p.plantid}}">
+                            <div class="plant_image" style="background-image: url({{p.url}})"></div>
+                            <div>
+                                <div style="font-size: 13pt;">{{p.name}}</div>
+                            </div>
+                        </a>
                     </div>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-    </div>
-
-    
-    <div class="icon-bar">
-        <a href="{% url 'main' %}"><i class="fa fa-home"></i></a> 
-        <a href="{% url 'plantimage:plantimage' %}" class="active"><i class="fa fa-pagelines"></i></a> 
-        <a href="{% url 'diseaseimage:diseaseimage' %}"><i class="fa fa-medkit" aria-hidden="true"></i></a> 
-        <a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
+                {% endfor %}
+            {% else %}
+                {% for m in messages %}
+                    {% if m.tags == "alert-warning" %}
+                        <div>
+                            <b>{{ m }}</b>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
     </div>
 </body>
+<div class="icon-bar">
+    <a href="{% url 'main' %}"><i class="fa fa-home"></i></a> 
+    <a href="{% url 'plantimage:plantimage' %}" class="active"><i class="fa fa-pagelines"></i></a> 
+    <a href="{% url 'diseaseimage:diseaseimage' %}"><i class="fa fa-medkit" aria-hidden="true"></i></a> 
+    <a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
+</div>
 </html>

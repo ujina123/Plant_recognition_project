@@ -38,7 +38,6 @@ INSTALLED_APPS = [
 
     'widget_tweaks',
 
-    'users',
     'finalproject',
     "search_app",
 
@@ -164,4 +163,5 @@ ACCOUNT_LOGOUT_ON_GET = True
 MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: "alert-error",
+    messages.INFO: "alert-info",
 }

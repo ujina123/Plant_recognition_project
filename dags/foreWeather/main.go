@@ -57,6 +57,7 @@ func checkWeatherCode(wea []weather.Weather) []weather.Weather {
 func getWeather(lat, lng, aN string, c chan<- []weather.Weather) {
 	var weathers []weather.Weather
 	var w weather.Weather
+	var uvinfo, humidinfo string
 	res, err := http.Get(fmt.Sprintf("http://api.weatherapi.com/v1/forecast.json?key=&q=%s,%s&days=2", lat, lng))
 	check.CheckError(err)
 	check.CheckCode(res)
@@ -72,8 +73,28 @@ func getWeather(lat, lng, aN string, c chan<- []weather.Weather) {
 	condiCode := strconv.Itoa(result.Current.Condition.Code)
 	isDay := strconv.Itoa(result.Current.IsDay)
 	temp := strconv.Itoa(int(math.Round(result.Current.TempC)))
-	humidity := strconv.Itoa(result.Current.Humidity)
-	uv := strconv.Itoa(int(result.Current.Uv))
+	humidInt := result.Current.Humidity
+	humidity := strconv.Itoa(humidInt)
+	uvInt := int(result.Current.Uv)
+	uv := strconv.Itoa(uvInt)
+	if uvInt < 3 {
+		uvinfo = fmt.Sprintf("자외선 지수는 %d로 낮은 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+	} else if uvInt < 6 {
+		uvinfo = fmt.Sprintf("자외선 지수는 %d로 보통 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+	} else if uvInt < 8 {
+		uvinfo = fmt.Sprintf("자외선 지수는 %d로 높은 수준입니다. 식물들도 자외선에 약하니 주의해주세요.", uvInt)
+	} else if uvInt < 11 {
+		uvinfo = fmt.Sprintf("자외선 지수는 %d로 매우 높은 수준입니다. 식물들을 실내로 옮겨주세요!", uvInt)
+	} else {
+		uvinfo = fmt.Sprintf("자외선 지수는 %d로 위험한 수준입니다. 식물들이 햇빛의 직사광선에 맞지 않게 해주세요!", uvInt)
+	}
+	if humidInt < 40 {
+		humidinfo = "현재 습도는 " + strconv.Itoa(humidInt) + "%로 건조한 날씨입니다. 건조에 약한 식물을 잘 보살펴 주세요."
+	} else if humidInt > 70 {
+		humidinfo = "현재 습도는 " + strconv.Itoa(humidInt) + "%로 매우 습한 날씨입니다. 습한 환경에 약한 식물을 잘 보살펴 주세요."
+	} else {
+		humidinfo = "현재 습도는 " + strconv.Itoa(humidInt) + "%로 쾌적한 날씨입니다. 식물을 키우기 딱 좋아요!"
+	}
 	var rainRatio string
 	var snowRatio string
 	w = weather.Weather{
@@ -83,9 +104,11 @@ func getWeather(lat, lng, aN string, c chan<- []weather.Weather) {
 		IsDay:     isDay,
 		Temp:      temp,
 		Humidity:  humidity,
+		HumidInfo: humidinfo,
 		RainRatio: rainRatio,
 		SnowRatio: snowRatio,
 		Uv:        uv,
+		UvInfo:    uvinfo,
 	}
 	weathers = append(weathers, w)
 	for i := 0; i < len(result.Forecast.Forecastday); i++ {
@@ -105,7 +128,19 @@ func getWeather(lat, lng, aN string, c chan<- []weather.Weather) {
 			humidity = strconv.Itoa(v.Humidity)
 			rainRatio = strconv.Itoa(int(math.Round(v.ChanceOfRain)))
 			snowRatio = strconv.Itoa(int(math.Round(v.ChanceOfSnow)))
-			uv = strconv.Itoa(int(v.Uv))
+			uvInt = int(v.Uv)
+			uv = strconv.Itoa(uvInt)
+			if uvInt < 3 {
+				uvinfo = fmt.Sprintf("자외선 지수는 %d로 낮은 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+			} else if uvInt < 6 {
+				uvinfo = fmt.Sprintf("자외선 지수는 %d로 보통 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+			} else if uvInt < 8 {
+				uvinfo = fmt.Sprintf("자외선 지수는 %d로 높은 수준입니다. 식물들도 자외선에 약하니 주의해주세요.", uvInt)
+			} else if uvInt < 11 {
+				uvinfo = fmt.Sprintf("자외선 지수는 %d로 매우 높은 수준입니다. 식물들이 다치지 않도록 유의해주세요!", uvInt)
+			} else {
+				uvinfo = fmt.Sprintf("자외선 지수는 %d로 위험한 수준입니다. 식물들을 실내로 옮겨주세요!", uvInt)
+			}
 			w = weather.Weather{
 				AreaNo:    areaNo,
 				Time:      wtime,
@@ -113,9 +148,11 @@ func getWeather(lat, lng, aN string, c chan<- []weather.Weather) {
 				IsDay:     isDay,
 				Temp:      temp,
 				Humidity:  humidity,
+				HumidInfo: "",
 				RainRatio: rainRatio,
 				SnowRatio: snowRatio,
 				Uv:        uv,
+				UvInfo:    uvinfo,
 			}
 			weathers = append(weathers, w)
 		}
@@ -132,12 +169,12 @@ func writeCsv(weathers []weather.Weather) {
 
 	defer w.Flush()
 
-	headers := []string{"areaNo", "time", "condiCode", "isDay", "temp", "humidity", "rainRatio", "snowRatio", "uv"}
+	headers := []string{"areaNo", "time", "condiCode", "isDay", "temp", "humidity", "humidInfo", "rainRatio", "snowRatio", "uv", "uvInfo"}
 	wErr := w.Write(headers)
 	check.CheckError(wErr)
 
 	for _, wea := range weathers {
-		s := []string{wea.AreaNo, wea.Time, wea.CondiCode, wea.IsDay, wea.Temp, wea.Humidity, wea.RainRatio, wea.SnowRatio, wea.Uv}
+		s := []string{wea.AreaNo, wea.Time, wea.CondiCode, wea.IsDay, wea.Temp, wea.Humidity, wea.HumidInfo, wea.RainRatio, wea.SnowRatio, wea.Uv, wea.UvInfo}
 		err := w.Write(s)
 		check.CheckError(err)
 	}

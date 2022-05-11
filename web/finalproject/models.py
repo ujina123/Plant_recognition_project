@@ -44,12 +44,11 @@ class AuthUser(models.Model):
         db_table = 'auth_user'
 
 class Plantmanage(models.Model):
-    id = models.AutoField(primary_key=True)
-    username = models.ForeignKey(AuthUser, on_delete=models.CASCADE, db_column="username")
-    plant = models.ForeignKey(Plants, on_delete=models.CASCADE, db_column="plant")
+    manageid = models.AutoField(primary_key=True, db_column="manageid")
+    userid = models.ForeignKey(AuthUser, on_delete=models.CASCADE, db_column="userid")
+    plantid = models.ForeignKey(Plants, on_delete=models.CASCADE, db_column="plantid")
     nickname = models.CharField(max_length=50)
     meetdate = models.DateField()
-    waterdate = models.DateField()
     cycle = models.IntegerField()
     nextdate = models.DateField()
 
@@ -65,17 +64,19 @@ class Weather(models.Model):
     isday = models.IntegerField(db_column='isDay', blank=True, null=True)  # Field name made lowercase.
     temp = models.IntegerField(blank=True, null=True)
     humidity = models.IntegerField(blank=True, null=True)
+    humidinfo = models.CharField(db_column='humidInfo', max_length=50, blank=True, null=True)  # Field name made lowercase.
     rainratio = models.IntegerField(db_column='rainRatio', blank=True, null=True)  # Field name made lowercase.
     snowratio = models.IntegerField(db_column='snowRatio', blank=True, null=True)  # Field name made lowercase.
     uv = models.IntegerField(blank=True, null=True)
+    uvinfo = models.CharField(db_column='uvInfo', max_length=50, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'weather'
 
 class PlantRequest(models.Model):
-    id = models.AutoField(primary_key=True)
-    username = models.ForeignKey(AuthUser, on_delete=models.CASCADE, db_column="username")
+    requestid = models.AutoField(primary_key=True, db_column="requestid")
+    userid = models.ForeignKey(AuthUser, on_delete=models.CASCADE, db_column="userid")
     requestname = models.CharField(max_length=255, db_column="requestname")
     submitdate = models.DateTimeField(auto_now_add=True)
 
