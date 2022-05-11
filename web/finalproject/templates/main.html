@@ -72,10 +72,10 @@
 									const arr = data.filter(d => d.time === 14)
 									uV.innerHTML = "오늘 예상 " + arr[0].uvinfo
 								} else if (hour < 18) {
-									uV.innerHTML = "현재"
+									uV.innerHTML = "현재 " + data[0].uvinfo
 								} else if (hour >= 18) {
 									const arr = data.filter(d => d.time === 14)
-									uV.innerHTML = "내일 예상" + arr[0].uvinfo
+									uV.innerHTML = "내일 예상 " + arr[0].uvinfo
 								}
 								for (i=0; i<24; i++) {
 									var sp = document.createElement("span")
