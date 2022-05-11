@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,56 +80,6 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-        $(function() {
-            $("#text_input").autocomplete({
-                source: function(req, res) {
-                    var arr = new Array()
-                    var postData = {
-                        "_source": ["name"],
-                        "query": {
-                            "bool": {
-                                "must": [{
-                                    "match": {
-                                        "name.jaso": {
-                                            "query": $("#text_input").val(),
-                                            "analyzer": "search_analyzer",
-                                            "fuzziness": 1
-                                        }
-                                    }
-                                }],
-                                "should": [{
-                                    "match": {
-                                        "name.ngram": {
-                                            "query": $("#text_input").val(),
-                                            "analyzer": "ngram_analyzer"
-                                        }
-                                    }
-                                }]
-                            }
-                        },
-                        "highlight": {
-                            "fields": {
-                            "name.ngram": {}
-                            }
-                        }
-                    }
-                    $.ajax({
-                        url: "http://localhost:9200/dictionary/_search",
-                        type: "POST",
-                        contentType: "application/json; charset=utf-8",
-                        data: JSON.stringify(postData),
-                        success: function(data) {
-                            var hitsJson = (data.hits.hits)
-                            for(var key in hitsJson) {
-                                arr.push(hitsJson[key]._source.name)
-                            }
-                            res(arr)
-                        }
-                    })
-                },
-                minLength: 1, delay:200
-            })
-        })
     </script>
 </head>
 <body>

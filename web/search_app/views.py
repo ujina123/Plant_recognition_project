@@ -5,7 +5,7 @@ from finalproject.forms import PlantRequestForm
 from elasticsearch import Elasticsearch
 
 def search(word):
-    es = Elasticsearch(hosts="localhost", port=9200)
+    es = Elasticsearch(hosts="localhost", port=8988)
     docs = es.search(index="dictionary",
                     body= {
                         "_source": ["URL", "name"],
