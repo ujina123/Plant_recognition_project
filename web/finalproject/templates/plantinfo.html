@@ -70,6 +70,10 @@
 		.active {
 			background-color: #04AA6D; /* Add an active/current color */
 		}
+        .container {
+			margin-top: 5%;
+			max-height: 100%;
+        }    
     </style>
 </head>
 <body>
@@ -77,16 +81,21 @@
     <div class="container">
         <div class="file-upload">
             <!-- 뒤로가기 버튼 -->
-            <div class="col col-xs-2" onClick="history.back()" style="width: 20%;">
-                <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>    
+            <div class="row">
+                <div class="col col-xs-2" onClick="history.back()" style="width: 20%;">
+                    <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>    
+                </div>
+                <div class="col col-md-6">
+                    <div style="font-family: 'EliceDigitalBaeum-Bd'; font-size: 20pt; margin-left: 5%;">나의 식물</div>
+                </div>
+                <div class="col col-xs-4">
+                    <div class="file-upload-btn" onclick="location.href='{% url 'plantmanage' %}'" 
+                    style="width: 80%; font-size: 10pt; text-align: center; float: left; font-family: 'EliceDigitalBaeum-Bd';">식물 추가
+                    </div>
+                </div>
             </div>
-            <div style="float: left; width: 70%;">
-                <div style="font-family: 'EliceDigitalBaeum-Bd'; font-size: 20pt; margin-left: 5%;">나의 식물</div>
-            </div>
-            <div class="file-upload-btn" onclick="location.href='{% url 'plantmanage' %}'" 
-                style="width: 28%; font-size: 10pt; text-align: center; float: left; font-family: 'EliceDigitalBaeum-Bd';">식물 추가
-            </div>
-            <br><br>
+
+            <br>
             {% for o in obj %}
             <fieldset>
                 <img src="{{o.plantid.url}}" class="img" style="margin-bottom: 10%;">
