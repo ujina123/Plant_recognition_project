@@ -202,13 +202,14 @@
 		}
 		/* sliderbar css */
 		ul {list-style:none;}
-		b {text-decoration:none; color:inherit; margin-right: 12%; font-size: 11pt;}
-		.box {max-width:960px; width:100%; height:67px; border:0.5px solid #ccc; margin:0 auto; border-radius: 5pt; margin-bottom: 5%; background-color: #f9f9f9;}
+		b {text-decoration:none; color:inherit; margin-right: 12%; font-size: 11pt; width: 30px; }
+		.box {max-width:960px; width:100%; height:7.5em; border:0.5px solid #ccc; margin:0 auto; border-radius: 5pt; margin-bottom: 5%; background-color: #f9f9f9;}
 		#tab {
 			height: 65px;
 		}
 		span {
-			height: 65px;
+			height: 64px;
+			width: 64px;
 			border-radius: 5pt;
 			white-space: pre-line;
 			width: 25%;
@@ -231,11 +232,30 @@
 			border-radius: 5px;
 			margin-right: 10%;
       	}
+		#condi_image {
+			height: 2em;
+			width:2em;
+		}
+
+		.bar{
+			border-radius: 5pt;
+			padding: 5%;
+			border:0.5px solid #ccc;
+			width: 93%;
+			margin-left: 3%;
+			background-color: #f8f8f8;
+			justify-content: center;
+		}
+
+		.container {
+			margin-top: 5%;
+			max-height: 100%;
+			height: 60em;
+		}
     </style>
 </head>
 <body>
 	<div class="container" style="background-color: white">
-		<div class="row">
 			<div class="file-upload">
 				<i style="margin-left: 5%; margin-right: 8%;">
 					<img src="{% static 'img/website_logo.png' %}" style="width: 55%; margin-bottom: 8%;">
@@ -262,23 +282,32 @@
 					<div style="margin-left: 30%;">
 						<div id="humidity" class="weather"></div>
 						<br>
-						<div id="uv" class="weather"></div>			
+						<div id="uv" class="weather"></div>	
 					</div>
 				</div>
 			</div>
-			<br><br>
+			<br>
 			<div class="row">
-				<div class="box" style="width: 93%; margin-left: 3%;">
-					<div id="tab">
-						<ul id="foreTemp"></ul>
+				<div class="bar">
+					<div class="row">
+						<div id="humidity" class="weather"></div>
+						<div id="uv" class="weather"></div>
 					</div>
 				</div>
+			</div>
 			<br>
+				
+			<div class="row">		
+				<div class="box" style="width: 93%; margin-left: 3%;">
+				<div id="tab">
+					<ul id="foreTemp"></ul>
+				</div>
+			</div>
 			<!-- 내식물 관리하기 회원 비회원 기능 구분 -->
 			{% if not user.is_authenticated %}
 				<div class="myplant" style="padding: 5%; background-color: #f4f4f4;">
 					<div onclick="location.href='{% url 'account_login' %}'"  style=" margin-top: 2%; margin-left: 2%; font-size: 16pt;">
-						<img src="{% static 'img/plant_cute.jpeg' %}" style="width: 32%; margin-bottom: 5%;">
+						<img src="{% static 'img/plant_cute.jpeg' %}" style="width: 32%; margin-bottom: 5%">
 						<div style="font-size: 13pt; font-weight: bold;">식물을 추가해주세요</div>
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
 					</div>
