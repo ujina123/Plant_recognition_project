@@ -261,8 +261,8 @@
 
 		.container {
 			margin-top: 5%;
-			max-height: 100%;
-			height: 60em;
+			margin-bottom: 10%;
+			height: auto;
 		}
 		.row {
 			margin-bottom: 5%;
@@ -344,7 +344,7 @@
 				{% if obj|length > 0 %}
 				<div class="myplant" style="padding: 5%; height: 15em;">
 					<div class="col col-lg-9">
-						<div style="font-size: 17pt; float: left; font-weight: bold;">언제 물줬지?</div>
+						<div style="font-size: 17pt; float: left; font-weight: bold;">언제 물주지?</div>
 					</div>
 					<div class="col col-lg-3">
 						<button onclick="location.href='{% url 'plantinfo' %}'" style="border-radius: 5pt; background-color: #04AA6D; color: cornsilk; padding: 2%; font-family: 'EliceDigitalBaeum-Bd';">나의 식물 관리</button>
@@ -374,10 +374,13 @@
 	</div>
 		
 </body>
-<div class="icon-bar">
-	<a class="active" href="{% url 'main' %}"><i class="fa fa-home"></i></a>
-	<a href="{% url 'plantimage:plantimage' %}"><i class="fa fa-pagelines"></i></a>
-	<a href="{% url 'diseaseimage:diseaseimage' %}"><i class="fa fa-medkit" aria-hidden="true"></i></a>
-	<a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
+
+<div style="margin-top: 10%">
+	<div class="icon-bar">
+		<a class="active" href="{% url 'main' %}"><i class="fa fa-home"></i></a>
+		<a href="{% url 'plantimage:plantimage' %}"><i class="fa fa-pagelines"></i></a>
+		<a href="{% url 'diseaseimage:diseaseimage' %}"><i class="fa fa-medkit" aria-hidden="true"></i></a>
+		<a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
+	</div>
 </div>
 </html>
