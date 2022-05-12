@@ -13,7 +13,7 @@ class Slack:
                                 task_id='slack_failed',
                                 channel=self.channel,
                                 token=self.token,
-                                text="""* Result : Failed\n* Task : {t}\n* Dag : {d}}\n* Exec Time : {e}\n* Next Exec Time : {n}* Log Url : {l}
+                                text="""result : fail\ntask : {t}\nexec time : {e}next exec time : {n}log : {l}
                                     """.format(
                                         t=context.get('task_instance').task_id,
                                         d=context.get('task_instance').dag_id,
@@ -28,7 +28,7 @@ class Slack:
                                 task_id='slack_success',
                                 channel=self.channel,
                                 token=self.token,
-                                text="""* Result : Success\n*Task : {t}\n* Dag : {d}\n* Execution Time : {e}\n* Log Url : {l}
+                                text="""result : success\ntask : {t}\nexec time : {e}\nlog : {l}
                                 """.format(
                                     t=context.get('task_instance').task_id,
                                     d=context.get('task_instance').dag_id,

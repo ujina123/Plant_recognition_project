@@ -78,15 +78,15 @@ func getWeather(lat, lng, aN string, c chan<- []weather.Weather) {
 	uvInt := int(result.Current.Uv)
 	uv := strconv.Itoa(uvInt)
 	if uvInt < 3 {
-		uvinfo = fmt.Sprintf("자외선 지수는 %d로 낮은 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+		uvinfo = fmt.Sprintf("자외선 지수는 %d으로 낮은 수준입니다. 식물들이 좋아하겠네요!", uvInt)
 	} else if uvInt < 6 {
-		uvinfo = fmt.Sprintf("자외선 지수는 %d로 보통 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+		uvinfo = fmt.Sprintf("자외선 지수는 %d으로 보통 수준입니다. 식물들이 좋아하겠네요!", uvInt)
 	} else if uvInt < 8 {
-		uvinfo = fmt.Sprintf("자외선 지수는 %d로 높은 수준입니다. 식물들도 자외선에 약하니 주의해주세요.", uvInt)
+		uvinfo = fmt.Sprintf("자외선 지수는 %d으로 높은 수준입니다. 식물들도 자외선에 약하니 주의해주세요.", uvInt)
 	} else if uvInt < 11 {
-		uvinfo = fmt.Sprintf("자외선 지수는 %d로 매우 높은 수준입니다. 식물들을 실내로 옮겨주세요!", uvInt)
+		uvinfo = fmt.Sprintf("자외선 지수는 %d으로 매우 높은 수준입니다. 식물들이 다치지 않도록 유의해주세요!", uvInt)
 	} else {
-		uvinfo = fmt.Sprintf("자외선 지수는 %d로 위험한 수준입니다. 식물들이 햇빛의 직사광선에 맞지 않게 해주세요!", uvInt)
+		uvinfo = fmt.Sprintf("자외선 지수는 %d으로 위험한 수준입니다. 식물들을 실내로 옮겨주세요!", uvInt)
 	}
 	if humidInt < 40 {
 		humidinfo = "현재 습도는 " + strconv.Itoa(humidInt) + "%로 건조한 날씨입니다. 건조에 약한 식물을 잘 보살펴 주세요."
@@ -131,15 +131,15 @@ func getWeather(lat, lng, aN string, c chan<- []weather.Weather) {
 			uvInt = int(v.Uv)
 			uv = strconv.Itoa(uvInt)
 			if uvInt < 3 {
-				uvinfo = fmt.Sprintf("자외선 지수는 %d로 낮은 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+				uvinfo = fmt.Sprintf("자외선 지수는 %d으로 낮은 수준입니다. 식물들이 좋아하겠네요!", uvInt)
 			} else if uvInt < 6 {
-				uvinfo = fmt.Sprintf("자외선 지수는 %d로 보통 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+				uvinfo = fmt.Sprintf("자외선 지수는 %d으로 보통 수준입니다. 식물들이 좋아하겠네요!", uvInt)
 			} else if uvInt < 8 {
-				uvinfo = fmt.Sprintf("자외선 지수는 %d로 높은 수준입니다. 식물들도 자외선에 약하니 주의해주세요.", uvInt)
+				uvinfo = fmt.Sprintf("자외선 지수는 %d으로 높은 수준입니다. 식물들도 자외선에 약하니 주의해주세요.", uvInt)
 			} else if uvInt < 11 {
-				uvinfo = fmt.Sprintf("자외선 지수는 %d로 매우 높은 수준입니다. 식물들이 다치지 않도록 유의해주세요!", uvInt)
+				uvinfo = fmt.Sprintf("자외선 지수는 %d으로 매우 높은 수준입니다. 식물들이 다치지 않도록 유의해주세요!", uvInt)
 			} else {
-				uvinfo = fmt.Sprintf("자외선 지수는 %d로 위험한 수준입니다. 식물들을 실내로 옮겨주세요!", uvInt)
+				uvinfo = fmt.Sprintf("자외선 지수는 %d으로 위험한 수준입니다. 식물들을 실내로 옮겨주세요!", uvInt)
 			}
 			w = weather.Weather{
 				AreaNo:    areaNo,
