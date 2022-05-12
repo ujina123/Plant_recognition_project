@@ -51,16 +51,13 @@
         }
         /* 혠겹 */
         body {
-			margin: 0 auto;
             width: 100%;
             overflow-x:hidden; 
             overflow-y:auto;
+            margin: 0 auto;
         }
         .message {
             font-size: 13pt;
-        }
-        .container {
-            height: 55em;
         }
     </style>
 </head>
@@ -107,10 +104,12 @@
         </div>
     </div>
 </body>
-<div class="icon-bar">
-    <a href="{% url 'main' %}"><i class="fa fa-home"></i></a>
-    <a href="{% url 'plantimage:plantimage' %}"><i class="fa fa-pagelines"></i></a>
-    <a href="{% url 'diseaseimage:diseaseimage' %}" class="active"><i class="fa fa-medkit" aria-hidden="true"></i></a>
-    <a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
+<div style="margin-top: 13%;">
+    <div class="icon-bar">
+        <a href="{% url 'main' %}"><i class="fa fa-home"></i></a>
+        <a href="{% url 'plantimage:plantimage' %}"><i class="fa fa-pagelines"></i></a>
+        <a href="{% url 'diseaseimage:diseaseimage' %}" class="active"><i class="fa fa-medkit" aria-hidden="true"></i></a>
+        <a href="{% url 'search' %}"><i class="fa fa-search"></i></a>
+    </div>
 </div>
 </html>
