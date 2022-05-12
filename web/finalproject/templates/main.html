@@ -21,10 +21,7 @@
 	<!-- 중모형 jquery -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
-		// loading
-		$(window).load(function(){
-			$(".loading").fadeOut();
-		})
+		
 		// 날씨 관련 script
 		function getLoc() {
 				// 사용자 위치
@@ -267,88 +264,89 @@
 			margin-bottom: 5%;
 		}
     </style>
+
 </head>
 <body>
-	
-	<div class="container" style="background-color: white">
-		<div class="file-upload">
-			<i style="margin-left: 5%; margin-right: 8%;">
-				<img src="{% static 'img/website_logo.png' %}" style="width: 55%; margin-bottom: 8%;">
-			</i>
-		
-		<!-- 로그인, 로그아웃 버튼 바뀌게하기! -->
-		{% if not user.is_authenticated %}
-			<button onclick="location.href='{% url 'account_login' %}'" class="login">로그인</button>
-		{% else %}
-			<button onclick="location.href='{% url 'account_logout' %}'" class="logout">로그아웃</button>
-		{% endif %}	 
-		
-		<div class="row">
-			<div style="border-radius: 5pt; background-color: #f8f8f8; padding: 2%; border:0.5px solid #ccc; width: 93%; margin-left: 3%;">
-				<div id="userloc" style="margin-bottom: 3%;"></div>
-				<div class="weather">💡온도</div>
-				<div id="temp" class="weather"></div>
-				<div class="weather">💡날씨</div>
-				<div id="condi" class="weather"></div>	
-				<img id="condi_image" src="" alt="server error">
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="myplant" style="width: 93%; margin-left: 3%; padding: 3%;">
-				<div>
-					<div id="humidity" class="weather" style="margin-bottom: 3%;"></div>
-					<div id="uv" class="weather"></div>	
-				</div>
-			</div>
-		</div>	
-
-		<div class="row">		
-			<div class="box" style="width: 93%; margin-left: 3%;">
-			<div id="tab">
-				<ul id="foreTemp"></ul>
-			</div>
-		</div>
-
-		<!-- 내식물 관리하기 회원 비회원 기능 구분 -->
-		{% if not user.is_authenticated %}
-			<div class="myplant" style="padding: 5%; background-color: #f4f4f4;">
-				<div onclick="location.href='{% url 'account_login' %}'"  style=" margin-top: 2%; margin-left: 2%; font-size: 16pt;">
-					<img src="{% static 'img/plant_cute.jpeg' %}" style="width: 32%; margin-bottom: 5%">
-					<div style="font-size: 13pt; font-weight: bold;">식물을 추가해주세요</div>
-					<i class="fa fa-plus-circle" aria-hidden="true"></i>
-				</div>
-			</div>
-		{% else %}
-			{% if obj|length > 0 %}
-			<div class="myplant" style="padding: 5%; height: 15em;">
-				<div class="col col-lg-9">
-					<div style="font-size: 17pt; float: left; font-weight: bold;">언제 물줬지?</div>
-				</div>
-				<div class="col col-lg-3">
-					<button onclick="location.href='{% url 'plantinfo' %}'" style="border-radius: 5pt; background-color: #04AA6D; color: cornsilk; padding: 2%; font-family: 'EliceDigitalBaeum-Bd';">나의 식물 관리</button>
-				</div>
-				<ul class="swiper">
-					{% for o in obj %}
-						<li>
-							<img src="{{o.plantid.url}}" style="width: 53%; text-decoration:none; color:inherit; margin-right: 7%; border-radius: 50%; border:0.5px solid #ccc;">
-							<b style="color: rgba(11, 97, 50, 0.571);">{{o.nickname}}</b>
-							<br>
-							<b>물주기 D{{o.nextdate|datedelta}}</b>
-						</li>
-					{% endfor %}
-				</ul>
-			</div>
+	<div class ='loading'>
+		<div class="container" style="background-color: white">
+			<div class="file-upload">
+				<i style="margin-left: 5%; margin-right: 8%;">
+					<img src="{% static 'img/website_logo.png' %}" style="width: 55%; margin-bottom: 8%;">
+				</i>
+			<!-- 로그인, 로그아웃 버튼 바뀌게하기! -->
+			{% if not user.is_authenticated %}
+				<button onclick="location.href='{% url 'account_login' %}'" class="login">로그인</button>
 			{% else %}
-			<div class="myplant" style="padding: 5%; background-color: #f4f4f4;">
-				<div onclick="location.href='{% url 'plantinfo' %}'"  style=" margin-top: 2%; margin-left: 2%; font-size: 16pt;">
-					<img src="{% static 'img/plant_cute.jpeg' %}" style="width: 32%; margin-bottom: 5%;">
-					<div style="font-size: 13pt; font-weight: bold;">식물을 추가해주세요</div>
-					<i class="fa fa-plus-circle" aria-hidden="true"></i>
+				<button onclick="location.href='{% url 'account_logout' %}'" class="logout">로그아웃</button>
+			{% endif %}	 
+			
+			<div class="row">
+				<div style="border-radius: 5pt; background-color: #f8f8f8; padding: 2%; border:0.5px solid #ccc; width: 93%; margin-left: 3%;">
+					<div id="userloc" style="margin-bottom: 3%;"></div>
+					<div class="weather">💡온도</div>
+					<div id="temp" class="weather"></div>
+					<div class="weather">💡날씨</div>
+					<div id="condi" class="weather"></div>	
+					<img id="condi_image" src="" alt="server error">
 				</div>
 			</div>
+
+			<div class="row">
+				<div class="myplant" style="width: 93%; margin-left: 3%; padding: 3%;">
+					<div>
+						<div id="humidity" class="weather" style="margin-bottom: 3%;"></div>
+						<div id="uv" class="weather"></div>	
+					</div>
+				</div>
+			</div>	
+
+			<div class="row">		
+				<div class="box" style="width: 93%; margin-left: 3%;">
+				<div id="tab">
+					<ul id="foreTemp"></ul>
+				</div>
+			</div>
+
+			<!-- 내식물 관리하기 회원 비회원 기능 구분 -->
+			{% if not user.is_authenticated %}
+				<div class="myplant" style="padding: 5%; background-color: #f4f4f4;">
+					<div onclick="location.href='{% url 'account_login' %}'"  style=" margin-top: 2%; margin-left: 2%; font-size: 16pt;">
+						<img src="{% static 'img/plant_cute.jpeg' %}" style="width: 32%; margin-bottom: 5%">
+						<div style="font-size: 13pt; font-weight: bold;">식물을 추가해주세요</div>
+						<i class="fa fa-plus-circle" aria-hidden="true"></i>
+					</div>
+				</div>
+			{% else %}
+				{% if obj|length > 0 %}
+				<div class="myplant" style="padding: 5%; height: 15em;">
+					<div class="col col-lg-9">
+						<div style="font-size: 17pt; float: left; font-weight: bold;">언제 물줬지?</div>
+					</div>
+					<div class="col col-lg-3">
+						<button onclick="location.href='{% url 'plantinfo' %}'" style="border-radius: 5pt; background-color: #04AA6D; color: cornsilk; padding: 2%; font-family: 'EliceDigitalBaeum-Bd';">나의 식물 관리</button>
+					</div>
+					<ul class="swiper">
+						{% for o in obj %}
+							<li>
+								<img src="{{o.plantid.url}}" style="width: 53%; text-decoration:none; color:inherit; margin-right: 7%; border-radius: 50%; border:0.5px solid #ccc;">
+								<b style="color: rgba(11, 97, 50, 0.571);">{{o.nickname}}</b>
+								<br>
+								<b>물주기 D{{o.nextdate|datedelta}}</b>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+				{% else %}
+				<div class="myplant" style="padding: 5%; background-color: #f4f4f4;">
+					<div onclick="location.href='{% url 'plantinfo' %}'"  style=" margin-top: 2%; margin-left: 2%; font-size: 16pt;">
+						<img src="{% static 'img/plant_cute.jpeg' %}" style="width: 32%; margin-bottom: 5%;">
+						<div style="font-size: 13pt; font-weight: bold;">식물을 추가해주세요</div>
+						<i class="fa fa-plus-circle" aria-hidden="true"></i>
+					</div>
+				</div>
+				{% endif %}
 			{% endif %}
-		{% endif %}
+			</div>
 		</div>
 	</div>
 		
