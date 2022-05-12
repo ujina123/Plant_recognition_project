@@ -284,6 +284,7 @@
 			margin: 35%;
 			top: 10%;
 		}
+
     </style>
 </head>
 <body>
@@ -348,7 +349,7 @@
 					<div class="col col-lg-3">
 						<button onclick="location.href='{% url 'plantinfo' %}'" style="border-radius: 5pt; background-color: #04AA6D; color: cornsilk; padding: 2%; font-family: 'EliceDigitalBaeum-Bd';">나의 식물 관리</button>
 					</div>
-					<ul class="swiper">
+					<ul class="swiper" style="height: 9.5rem;">
 						{% for o in obj %}
 							<li>
 								<img src="{{o.plantid.url}}" style="width: 53%; text-decoration:none; color:inherit; margin-right: 7%; border-radius: 50%; border:0.5px solid #ccc;">
