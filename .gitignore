@@ -8,3 +8,4 @@ node_modules
 media/
 migrations/
 yolo*/
+settings.py

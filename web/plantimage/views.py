@@ -13,6 +13,16 @@ plant_dic ={'orangejasmin':'오렌지 자스민', 'benghaltree':'벵갈 고무�
             'yeoincho':'여인초', 'wilma':'율마', 'skindapsus':'스킨답서스', 'sansevieria':'산세베리아', 'hongkong':'홍콩 야자', 'sanhosoo':'산호수', 
             'gaewoonjuk':'개운죽', 'tableyaja':'테이블 야자', 'hangwoonmok':'행운목', 'monstera':'몬스테라'}
 
+###### yolov5 모델 불러오기 ######
+# yolov5 디렉터리
+path_hubconfig = "yolo_plant"
+# 인식모델 파일
+path_weightfile = "yolo_plant/runs/train/yolov5s_results4/weights/best.pt"  
+# 모델 불러오기
+model = torch.hub.load(path_hubconfig, 'custom', path=path_weightfile, source='local')
+# 예측 confidence 기준 50%로 설정
+model.conf = 0.5
+
 def getImage(request):
     """ 식물 인식 모델 """
     # 요청 들어오면
@@ -22,8 +32,6 @@ def getImage(request):
         # 요청에서 img 가져오고
         if form.is_valid():
             imgfile = request.FILES["image"]
-            print(imgfile.size, imgfile.name, imgfile.file,
-                imgfile.content_type, imgfile.field_name)
 
             # 로그인 중이라면
             if request.user.is_authenticated:
@@ -42,17 +50,6 @@ def getImage(request):
             img_bytes = uploaded_img_qs.image.read()
             # img열기
             img = im.open(io.BytesIO(img_bytes))
-            
-            # yolov5 디렉터리
-            path_hubconfig = "yolo_plant"
-            # 인식모델 파일
-            path_weightfile = "yolo_plant/runs/train/yolov5s_results4/weights/best.pt"  
-
-            # 모델 불러오기
-            model = torch.hub.load(path_hubconfig, 'custom', path=path_weightfile, source='local')
-            
-            # 예측 confidence 기준 50%로 설정
-            model.conf = 0.5
             
             # 모델 결과 
             results = model(img, size=224)

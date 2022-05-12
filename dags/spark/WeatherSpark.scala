@@ -29,7 +29,7 @@ object WeatherSpark {
                                                         col("si"), col("time"), rownum - 1 as "timeRank", 
                                                         col("condiCode") as "code", col("isDay"),
                                                         col("temp"), col("humidity"), col("humidInfo"), col("rainRatio"),
-                                                        col("snowRatio"), col("uv"), col("uvInfo")).where(col("timeRank") < 24)
+                                                        col("snowRatio"), col("uv"), col("uvInfo")).where(col("timeRank") < 25)
         
         weather = weather.join(condiCode, Seq("code")).select("areaNo", "si", "time", "timeRank", "condi", "isDay", "temp", "humidity", "humidInfo", "rainRatio", "snowRatio", "uv", "uvInfo")
 

@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,7 +80,7 @@
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-        $(function() {
+	$(function() {
             $("#text_input").autocomplete({
                 source: function(req, res) {
                     var arr = new Array()
@@ -113,7 +114,7 @@
                         }
                     }
                     $.ajax({
-                        url: "http://localhost:9200/dictionary/_search",
+                        url: "https://plantdoctor.shop/dicsearch",
                         type: "POST",
                         contentType: "application/json; charset=utf-8",
                         data: JSON.stringify(postData),
@@ -140,7 +141,9 @@
                 <input type="submit" value="검색" class="searchbutton">
             </form>
             
+	    {% if not result %}
             <div style="margin-top: 30%; font-family: 'ACCchildrenheartOTF-Regular'; font-size: 14pt;">궁금하신 식물이 있으시다면 상단의 검색창에 입력해주세요!🌱</div>
+	    {% else %}
             <ul class="plant_items" style="background-color: white;">
                 {% for r in result %}
                     <div class="plant_item" style="background-color: white; width: 90%; text-align: center; margin-bottom: 8%;">
@@ -152,6 +155,7 @@
                         </a>
                     </div>
                 {% endfor %}
+	    {% endif %}
             </ul>
             <br><br><br><br>
         </div>

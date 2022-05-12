@@ -38,9 +38,11 @@
         }
         fieldset {
             background-color: #f9f9f9; padding: 5%; border-radius: 5pt; border:0.5px solid #ccc;
+            margin-bottom: 10%;
         }
         .img {
             width: 100%;
+            border-radius: 5pt;
         }
         body {
 			height: 100%;
@@ -70,19 +72,32 @@
 		.active {
 			background-color: #04AA6D; /* Add an active/current color */
 		}
+        .container {
+			margin-top: 5%;
+			max-height: 100%;
+        }    
     </style>
 </head>
 <body>
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <div class="container">
         <div class="file-upload">
-            <div style="float: left; width: 70%;">
-                <div style="font-family: 'EliceDigitalBaeum-Bd'; font-size: 20pt; margin-left: 5%;">나의 식물</div>
+            <div class="row">
+                <!-- 뒤로가기 버튼 -->
+                <div class="col col-xs-1" onClick="history.back()" style="width: 2%;">
+                    <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>    
+                </div>
+                <div class="col col-md-7">
+                    <div style="text-align:center; font-family: 'EliceDigitalBaeum-Bd'; font-size: 20pt; height: 2em; width: 8em;">나의 식물</div>
+                </div>
+                <div class="col col-xs-4">
+                    <div class="file-upload-btn" onclick="location.href='{% url 'plantmanage' %}'" 
+                    style=" width: 5.7em; height: 3.8em; font-size: 10pt; text-align: center; font-family: 'EliceDigitalBaeum-Bd';">식물 추가
+                    </div>
+                </div>
             </div>
-            <div class="file-upload-btn" onclick="location.href='{% url 'plantmanage' %}'" 
-                style="width: 28%; font-size: 10pt; text-align: center; float: left; font-family: 'EliceDigitalBaeum-Bd';">식물 추가
-            </div>
-            <br><br>
+
+            <br>
             {% for o in obj %}
             <fieldset>
                 <img src="{{o.plantid.url}}" class="img" style="margin-bottom: 10%;">
@@ -122,7 +137,7 @@
             <!-- 교철 : 식물이 없을 때 아래 멘트보여주는 것-->
             {% if obj|length == 0 %}
             <div class="myplant" style="padding: 5%; background-color: #f4f4f4;">
-                    <div style="font-size: 13pt; font-weight: bold;">식물을 추가하여 PlantDoctor와 함께 관리해봐요~</div>
+                <div style="font-size: 13pt; font-weight: bold;">식물을 추가하여 PlantDoctor와 함께 관리해봐요~</div>
             </div>
             {% endif %}
         </div>
