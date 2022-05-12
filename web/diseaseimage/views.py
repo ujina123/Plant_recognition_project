@@ -8,6 +8,15 @@ import io
 from PIL import Image as im
 import torch
 
+###### yolov5 모델 불러오기 ######
+# yolov5 디렉터리
+path_hubconfig = "yolo_disease"
+# 인식모델 파일
+path_weightfile = "yolo_disease/runs/train/yolov5s_results_ver5/weights/best.pt"  
+
+model = torch.hub.load(path_hubconfig, 'custom', path=path_weightfile, source='local')
+model.conf = 0.2
+
 def getImage(request):
     """ 식물 인식 모델 """
     # 요청 들어오면
@@ -32,14 +41,7 @@ def getImage(request):
             img_bytes = uploaded_img_qs.image.read()
             # img열기
             img = im.open(io.BytesIO(img_bytes))
-
-            # yolov5 디렉터리
-            path_hubconfig = "yolo_disease"
-            # 인식모델 파일
-            path_weightfile = "yolo_disease/runs/train/yolov5s_results_ver5/weights/best.pt"  
-
-            model = torch.hub.load(path_hubconfig, 'custom', path=path_weightfile, source='local')
-            model.conf = 0.2
+            
             results = model(img, size=224)
             
             try:
