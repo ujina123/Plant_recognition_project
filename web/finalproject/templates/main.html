@@ -21,7 +21,9 @@
 	<!-- 중모형 jquery -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
-		
+		$(window).on('load',function(){
+            $(".loading").fadeOut();
+        });
 		// 날씨 관련 script
 		function getLoc() {
 				// 사용자 위치
@@ -247,7 +249,6 @@
 			height: 2em;
 			width:2em;
 		}
-
 		.bar{
 			border-radius: 5pt;
 			padding: 5%;
@@ -266,11 +267,29 @@
 		.row {
 			margin-bottom: 5%;
 		}
+		.loading{
+			width:100%;
+			height:100%;
+			position:fixed;
+			left:0px;
+			top:0px;
+			background:#fff;
+			z-index:1000;
+			opacity:0.5 /* 이 값으로 레이어의 위치를 조정합니다. */
+		}
+		.loading > img{
+			position: absolute;
+			width: 10%;
+			left: 10%;
+			margin: 35%;
+			top: 10%;
+		}
     </style>
-
 </head>
 <body>
-	<div class ='loading'>
+	<div class="loading">
+		<img src="{% static 'img/Fading_circles.gif' %}">
+	</div>
 		<div class="container" style="background-color: white">
 			<div class="file-upload">
 				<i style="margin-left: 5%; margin-right: 8%;">
@@ -290,7 +309,7 @@
 					<div id="temp" class="weather"></div>
 					<div class="weather">💡날씨</div>
 					<div id="condi" class="weather"></div>	
-					<img id="condi_image" src="" alt="server error">
+					<img id="condi_image" src="" />
 				</div>
 			</div>
 
@@ -350,7 +369,6 @@
 				</div>
 				{% endif %}
 			{% endif %}
-			</div>
 		</div>
 	</div>
 		
