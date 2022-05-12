@@ -57,7 +57,7 @@
             font-family: 'Noto Sans KR', sans-serif;
         }
         .searchbar {
-            width: 75%;
+            width: 85%;
             border: 1px solid #04AA6D;
             padding: 5px;
             height: 2.5em;
@@ -66,6 +66,7 @@
             color:green;
             font-size: 11pt;
             margin-top: 1%;
+            margin-left: 3%;
             font-family: 'EliceDigitalBaeum-Bd';
         }
         .searchbutton {
@@ -136,13 +137,14 @@
     <div class="container">
         <div class="file-upload"> 
             <form action="/search/" method="GET" autocomplete="off">
-                <div style="font-size: 20pt; font-family: 'EliceDigitalBaeum-Bd'; padding: 3%;">식물검색</div>
+                <h1 style="text-align: center; font-family: 'EliceDigitalBaeum-Bd'; margin-top: 9%; margin-bottom:5%">식물검색</h1>
+                <!-- <div style="font-size: 20pt; font-family: 'EliceDigitalBaeum-Bd'; margin-top: 9%; margin-bottom: 2%;">식물검색</div> -->
                 <input id="text_input" type="text" placeholder="식물 이름을 검색해주세요" name="term" class="searchbar">
                 <input type="submit" value="검색" class="searchbutton">
             </form>
             
 	    {% if not result %}
-            <div style="margin-top: 30%; font-family: 'ACCchildrenheartOTF-Regular'; font-size: 14pt;">궁금하신 식물이 있으시다면 상단의 검색창에 입력해주세요!🌱</div>
+            <div style="margin-top: 30%; text-align:center; font-family: 'ACCchildrenheartOTF-Regular'; font-size: 14pt;">궁금하신 식물이 있으시다면 상단의 검색창에 입력해주세요!🌱</div>
 	    {% else %}
             <ul class="plant_items" style="background-color: white;">
                 {% for r in result %}
