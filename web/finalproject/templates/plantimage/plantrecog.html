@@ -46,8 +46,10 @@
             background-color: #04AA6D; /* Add an active/current color */
         }
         .plant_image{
-            width: 90%;
-            height: 200px;
+            min-width: 200px;
+            min-height: 200px;
+            width: 45%;
+            height: 45%;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -84,7 +86,7 @@
             </form>
             {% if plants %}
                 {% for p in plants %}
-                    <div class="plant_item" style="background-color: white; width: 85%; text-align: center; margin: 0 auto; margin-bottom: 8%;">
+                    <div class="plant_item" style="background-color: white; text-align: center; margin: 0 auto; margin-bottom: 6%;">
                         <a href="/search/info/?id={{p.plantid}}">
                             <div class="plant_image" style="background-image: url({{p.url}})"></div>
                             <div>
