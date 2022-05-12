@@ -6,14 +6,12 @@
 {% block content %}
 <style>
     input {
-        height: 3em;
-        width: 60%;
-        font-size: 12pt;
-        border-radius: 5pt;
+        height: 5vh;
+        width: 65%;
     }
     .login_button {
-        width: 62%;
-        height: 4em;
+        width: 70%;
+        height: 3em;
         margin: 0;
         color: #fff;
         background: #1FB264;
@@ -33,8 +31,8 @@
         text-decoration-line: none;
         /* a 태그 높이값, 가로값 넣기 */
         display: inline-block;
-        width: 60%;
-        height: 3em;
+        width: 65.5%;
+        height: 4vh;
         color: black;
         background: #f6e213;
         border: none;
@@ -87,7 +85,7 @@
             <br><br>
             <a href="{% provider_login_url 'kakao' %}" class="kakao_login_button">
                 <img src="{% static 'img/kakao_logo.png' %}" class="kakao_logo">
-                <div style="margin-top: 3%; font-family: 'EliceDigitalBaeum-Bd'; margin-right: 7%;">카카오로 간편 로그인</div>
+                <div style="margin-top: 1.5%; font-family: 'EliceDigitalBaeum-Bd'; margin-right: 7%;">카카오로 간편 로그인</div>
             </a>
             <br><br>
             <div class="login-or">{% trans '' %}</div>
