@@ -20,12 +20,22 @@ default_args = {
 }
 
 dag = DAG(
-    dag_id='Weather',
+    dag_id='airflow',
     default_args=default_args,
     schedule_interval="1,31 * * * *",
     start_date=datetime(2022, 5, 10, tzinfo=kst),
     end_date=datetime(2022, 5, 15, tzinfo=kst),
     catchup=False
+)
+
+#=================================================
+#                 ElasticSearch                  #
+#=================================================
+
+checkElastic = BashOperator(
+    task_id="checkElastic",
+    bash_command="shell/checkelastic.sh",
+    dag=dag
 )
 
 #=================================================
@@ -39,18 +49,18 @@ getWeather = BashOperator(
 )
 
 #=================================================
-#                      HDFS                      #
+#                     HDFS                       #
 #=================================================
 
 checkHDFS = BashOperator(
     task_id='checkHDFS',
-    bash_command="sh /home/ubuntu/finalproject/dags/shell/checkhdfs.sh",
+    bash_command="shell/checkhdfs.sh",
     dag=dag
 )
 
 putHDFS = BashOperator(
     task_id="putHDFS",
-    bash_command="hdfs dfs -put -f /home/ubuntu/finalproject/dags/data/weather.csv /home/data/",
+    bash_command="/home/ubuntu/hadoop/bin/hdfs dfs -put -f /home/ubuntu/finalproject/dags/data/weather.csv /home/data/",
     dag=dag
 )
 

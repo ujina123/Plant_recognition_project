@@ -76,7 +76,6 @@ def getImage(request):
                 result_name = result_name_list[max_idx]
                 if result_name != "정상":
                     result_name = Plantdisease.objects.filter(diseasename=result_name).values("diseaseid")[0]["diseaseid"]
-                    print(result_name)
 
             except:
                 # 안나오면

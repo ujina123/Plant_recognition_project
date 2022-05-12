@@ -58,7 +58,7 @@ func getWeather(lat, lng, aN string, c chan<- []weather.Weather) {
 	var weathers []weather.Weather
 	var w weather.Weather
 	var uvinfo, humidinfo string
-	res, err := http.Get(fmt.Sprintf("http://api.weatherapi.com/v1/forecast.json?key=&q=%s,%s&days=2", lat, lng))
+	res, err := http.Get(fmt.Sprintf("http://api.weatherapi.com/v1/forecast.json?key=64e03d17dc364181a17162500221704&q=%s,%s&days=2", lat, lng))
 	check.CheckError(err)
 	check.CheckCode(res)
 	defer res.Body.Close()
@@ -78,13 +78,25 @@ func getWeather(lat, lng, aN string, c chan<- []weather.Weather) {
 	uvInt := int(result.Current.Uv)
 	uv := strconv.Itoa(uvInt)
 	if uvInt < 3 {
-		uvinfo = fmt.Sprintf("자외선 지수는 %d으로 낮은 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+		uvinfo = fmt.Sprintf("자외선 지수는 %d로 낮은 수준입니다. 식물들이 좋아하겠네요!", uvInt)
 	} else if uvInt < 6 {
-		uvinfo = fmt.Sprintf("자외선 지수는 %d으로 보통 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+		if uvInt == 3 {
+			uvinfo = fmt.Sprintf("자외선 지수는 %d으로 보통 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+		} else {
+			uvinfo = fmt.Sprintf("자외선 지수는 %d로 보통 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+		}
 	} else if uvInt < 8 {
-		uvinfo = fmt.Sprintf("자외선 지수는 %d으로 높은 수준입니다. 식물들도 자외선에 약하니 주의해주세요.", uvInt)
+		if uvInt == 6 {
+			uvinfo = fmt.Sprintf("자외선 지수는 %d으로 높은 수준입니다. 식물들도 자외선에 약하니 주의해주세요.", uvInt)
+		} else {
+			uvinfo = fmt.Sprintf("자외선 지수는 %d로 높은 수준입니다. 식물들도 자외선에 약하니 주의해주세요.", uvInt)
+		}
 	} else if uvInt < 11 {
-		uvinfo = fmt.Sprintf("자외선 지수는 %d으로 매우 높은 수준입니다. 식물들이 다치지 않도록 유의해주세요!", uvInt)
+		if uvInt == 10 {
+			uvinfo = fmt.Sprintf("자외선 지수는 %d으로 매우 높은 수준입니다. 식물들이 다치지 않도록 유의해주세요!", uvInt)
+		} else {
+			uvinfo = fmt.Sprintf("자외선 지수는 %d로 매우 높은 수준입니다. 식물들이 다치지 않도록 유의해주세요!", uvInt)
+		}
 	} else {
 		uvinfo = fmt.Sprintf("자외선 지수는 %d으로 위험한 수준입니다. 식물들을 실내로 옮겨주세요!", uvInt)
 	}
@@ -131,16 +143,28 @@ func getWeather(lat, lng, aN string, c chan<- []weather.Weather) {
 			uvInt = int(v.Uv)
 			uv = strconv.Itoa(uvInt)
 			if uvInt < 3 {
-				uvinfo = fmt.Sprintf("자외선 지수는 %d으로 낮은 수준입니다. 식물들이 좋아하겠네요!", uvInt)
-			} else if uvInt < 6 {
-				uvinfo = fmt.Sprintf("자외선 지수는 %d으로 보통 수준입니다. 식물들이 좋아하겠네요!", uvInt)
-			} else if uvInt < 8 {
-				uvinfo = fmt.Sprintf("자외선 지수는 %d으로 높은 수준입니다. 식물들도 자외선에 약하니 주의해주세요.", uvInt)
-			} else if uvInt < 11 {
-				uvinfo = fmt.Sprintf("자외선 지수는 %d으로 매우 높은 수준입니다. 식물들이 다치지 않도록 유의해주세요!", uvInt)
-			} else {
-				uvinfo = fmt.Sprintf("자외선 지수는 %d으로 위험한 수준입니다. 식물들을 실내로 옮겨주세요!", uvInt)
-			}
+		                uvinfo = fmt.Sprintf("자외선 지수는 %d로 낮은 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+		        } else if uvInt < 6 {
+	                	if uvInt == 3 {
+        	                	uvinfo = fmt.Sprintf("자외선 지수는 %d으로 보통 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+	                	} else {
+         	               		uvinfo = fmt.Sprintf("자외선 지수는 %d로 보통 수준입니다. 식물들이 좋아하겠네요!", uvInt)
+	        	        }
+        		} else if uvInt < 8 {
+		                if uvInt == 6 {
+                		        uvinfo = fmt.Sprintf("자외선 지수는 %d으로 높은 수준입니다. 식물들도 자외선에 약하니 주의해주세요.", uvInt)
+		                } else {
+                		        uvinfo = fmt.Sprintf("자외선 지수는 %d로 높은 수준입니다. 식물들도 자외선에 약하니 주의해주세요.", uvInt)
+                		}
+		        } else if uvInt < 11 {
+                		if uvInt == 10 {
+		                        uvinfo = fmt.Sprintf("자외선 지수는 %d으로 매우 높은 수준입니다. 식물들이 다치지 않도록 유의해주세요!", uvInt)
+                		} else {
+		                        uvinfo = fmt.Sprintf("자외선 지수는 %d로 매우 높은 수준입니다. 식물들이 다치지 않도록 유의해주세요!", uvInt)
+                		}
+		        } else {
+                		uvinfo = fmt.Sprintf("자외선 지수는 %d로 위험한 수준입니다. 식물들을 실내로 옮겨주세요!", uvInt)
+		        }
 			w = weather.Weather{
 				AreaNo:    areaNo,
 				Time:      wtime,
