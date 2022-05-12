@@ -22,8 +22,6 @@ def getImage(request):
         # 요청에서 img 가져오고
         if form.is_valid():
             imgfile = request.FILES["image"]
-            print(imgfile.size, imgfile.name, imgfile.file,
-                imgfile.content_type, imgfile.field_name)
 
             # 로그인 중이라면
             if request.user.is_authenticated:
