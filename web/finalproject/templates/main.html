@@ -187,20 +187,16 @@
 			width: 23%;
 			font-size: 9pt;
 			font-family: 'EliceDigitalBaeum-Bd'; 
-			margin-top: 5%; 
-			float:right;
 		}
 		.logout{
 			background-color:#04AA6D;
 			border-radius: 5pt;
 			color: cornsilk;
-			float:right;
+			width: 23%;
 			font-size: 9pt;
 			font-family: 'EliceDigitalBaeum-Bd'; 
-			margin-top: 5%; 
 		}
 		.weather {
-			font-size:85%;
 			float: left;
 			margin-right: 4%;
 			font-weight: bold;
@@ -211,7 +207,7 @@
 			height: 7rem;
 		}
 		b {text-decoration:none; color:inherit; margin-right: 12%; font-size: 11pt; width: 30px; }
-		.box {max-width:960px; width:100%; height:7.5em; margin-bottom: 5%; background-color: #f9f9f9;}
+		.box {max-width:960px; width:100%; height:8em; solid #ccc; margin:0 auto; }
 		#tab {
 			height: 50px;
 		}
@@ -268,12 +264,13 @@
 			height: auto;
 		}
 		.row {
-			margin-bottom: 3%;
-			width:100%;
-			margin-top: 3%;
-			margin-left: 1%;
 			border-radius: 5pt; 
-			background-color: #f8f8f8;
+			background-color: #f8f8f8; 
+			padding: 2%; 
+			border:0.5px solid #ccc; 
+			width: 93%; 
+			height: 30%; 
+			margin: 3%;
 		}
 		.loading{
 			width:100%;
@@ -312,7 +309,7 @@
 			{% endif %}	 
 			
 			<div class="row">
-				<div>
+				<div style="border-radius: 5pt; background-color: #f8f8f8; padding: 2%; width: 93%; margin-left: 3%;">
 					<div id="userloc" style="margin-bottom: 3%;"></div>
 					<div class="weather">💡온도</div>
 					<div id="temp" class="weather"></div>
@@ -323,7 +320,7 @@
 			</div>
 
 			<div class="row">
-				<div class="myplant">
+				<div class="myplant" style="width: 93%; margin-left: 3%; padding: 3%;">
 					<div>
 						<div id="humidity" class="weather" style="margin-bottom: 3%;"></div>
 						<div id="uv" class="weather"></div>	
@@ -332,7 +329,8 @@
 			</div>	
 
 			<div class="row">		
-				<div class="box" style="width: 93%;">
+				<div class="box" style="width: 93%; margin-left: 3%;">
+					<div id="tab">
 						<ul id="foreTemp"></ul>
 					</div>
 				</div>
@@ -341,7 +339,7 @@
 			<!-- 내식물 관리하기 회원 비회원 기능 구분 -->
 			{% if not user.is_authenticated %}
 			<div class="row">
-				<div class="myplant" style="padding: 5%; background-color: #f4f4f4;">
+				<div class="myplant" style="padding: 5%;">
 					<div onclick="location.href='{% url 'account_login' %}'"  style=" margin-top: 2%; margin-left: 2%; font-size: 16pt;">
 						<img src="{% static 'img/plant_cute.jpeg' %}" style="width: 32%; margin-bottom: 5%">
 						<div style="font-size: 13pt; font-weight: bold;">식물을 추가해주세요</div>
@@ -352,7 +350,7 @@
 			{% else %}
 				{% if obj|length > 0 %}
 				<div class="row">
-					<div class="myplant" style="padding: 5%; height: 15em;">
+					<div class="myplant" style="padding: 3%; height: 13em;">
 						<div class="col col-lg-9">
 							<div style="font-size: 17pt; float: left; font-weight: bold;">언제 물주지?</div>
 						</div>
