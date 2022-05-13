@@ -138,10 +138,8 @@
 			text-align: center;
 			justify-content: center;
 			display: inline-block;
-			margin-left: 3%;
-			border-radius: 5pt;
-			background-color:#f9f9f9;
-			border:0.5px solid #ccc;
+			padding: 2%; 
+			margin: 3%;
 		}
 		.img{
 			width: 7%;
@@ -209,7 +207,7 @@
 			height: 7rem;
 		}
 		b {text-decoration:none; color:inherit; margin-right: 12%; font-size: 11pt; width: 30px; }
-		.box {max-width:960px; width:100%; height:7.5em; border:0.5px solid #ccc; margin:0 auto; border-radius: 5pt; margin-bottom: 5%; background-color: #f9f9f9;}
+		.box {max-width:960px; width:100%; height:8em; solid #ccc; margin:0 auto; }
 		#tab {
 			height: 50px;
 		}
@@ -221,12 +219,13 @@
 			width: 25%;
 		}
 		#tab ul{
+			padding: 3%;
 			white-space:nowrap;
 			overflow-x: auto; 
 			text-align:center;
 			background:#f9f9f9;
 			overflow-y: hidden;
-			}
+		}
 		#tab ul span{display:inline-block; padding: 5px 5px; background:#f9f9f9;}
 		/* 물주기 slider css */
 		.swiper {
@@ -265,7 +264,13 @@
 			height: auto;
 		}
 		.row {
-			margin-bottom: 5%;
+			border-radius: 5pt; 
+			background-color: #f8f8f8; 
+			padding: 2%; 
+			border:0.5px solid #ccc; 
+			width: 93%; 
+			height: 30%; 
+			margin: 3%;
 		}
 		.loading{
 			width:100%;
@@ -304,8 +309,7 @@
 			{% endif %}	 
 			
 			<div class="row">
-				<div style="border-radius: 5pt; background-color: #f8f8f8; padding: 2%; border:0.5px solid #ccc; width: 93%; margin-left: 3%;">
-					<div id="userloc" style="margin-bottom: 3%;"></div>
+				<div style="border-radius: 5pt; background-color: #f8f8f8; padding: 2%; width: 93%; margin-left: 3%;">
 					<div class="weather">💡온도</div>
 					<div id="temp" class="weather"></div>
 					<div class="weather">💡날씨</div>
@@ -333,39 +337,45 @@
 
 			<!-- 내식물 관리하기 회원 비회원 기능 구분 -->
 			{% if not user.is_authenticated %}
-				<div class="myplant" style="padding: 5%; background-color: #f4f4f4;">
+			<div class="row">
+				<div class="myplant" style="padding: 5%;">
 					<div onclick="location.href='{% url 'account_login' %}'"  style=" margin-top: 2%; margin-left: 2%; font-size: 16pt;">
 						<img src="{% static 'img/plant_cute.jpeg' %}" style="width: 32%; margin-bottom: 5%">
 						<div style="font-size: 13pt; font-weight: bold;">식물을 추가해주세요</div>
 						<i class="fa fa-plus-circle" aria-hidden="true"></i>
 					</div>
 				</div>
+			</div>
 			{% else %}
 				{% if obj|length > 0 %}
-				<div class="myplant" style="padding: 5%; height: 15em;">
-					<div class="col col-lg-9">
-						<div style="font-size: 17pt; float: left; font-weight: bold;">언제 물주지?</div>
+				<div class="row">
+					<div class="myplant" style="padding: 3%; height: 13em;">
+						<div class="col col-lg-9">
+							<div style="font-size: 17pt; float: left; font-weight: bold;">언제 물주지?</div>
+						</div>
+						<div class="col col-lg-3">
+							<button onclick="location.href='{% url 'plantinfo' %}'" style="border-radius: 5pt; background-color: #04AA6D; color: cornsilk; padding: 2%; font-family: 'EliceDigitalBaeum-Bd';">나의 식물 관리</button>
+						</div>
+						<ul class="swiper" style="height: 9.5rem;">
+							{% for o in obj %}
+								<li>
+									<img src="{{o.plantid.url}}" style="width: 53%; text-decoration:none; color:inherit; margin-right: 7%; border-radius: 50%; border:0.5px solid #ccc;">
+									<b style="color: rgba(11, 97, 50, 0.571);">{{o.nickname}}</b>
+									<br>
+									<b>물주기 D{{o.nextdate|datedelta}}</b>
+								</li>
+							{% endfor %}
+						</ul>
 					</div>
-					<div class="col col-lg-3">
-						<button onclick="location.href='{% url 'plantinfo' %}'" style="border-radius: 5pt; background-color: #04AA6D; color: cornsilk; padding: 2%; font-family: 'EliceDigitalBaeum-Bd';">나의 식물 관리</button>
-					</div>
-					<ul class="swiper" style="height: 9.5rem;">
-						{% for o in obj %}
-							<li>
-								<img src="{{o.plantid.url}}" style="width: 53%; text-decoration:none; color:inherit; margin-right: 7%; border-radius: 50%; border:0.5px solid #ccc;">
-								<b style="color: rgba(11, 97, 50, 0.571);">{{o.nickname}}</b>
-								<br>
-								<b>물주기 D{{o.nextdate|datedelta}}</b>
-							</li>
-						{% endfor %}
-					</ul>
 				</div>
 				{% else %}
-				<div class="myplant" style="padding: 5%; background-color: #f4f4f4;">
-					<div onclick="location.href='{% url 'plantinfo' %}'"  style=" margin-top: 2%; margin-left: 2%; font-size: 16pt;">
-						<img src="{% static 'img/plant_cute.jpeg' %}" style="width: 32%; margin-bottom: 5%;">
-						<div style="font-size: 13pt; font-weight: bold;">식물을 추가해주세요</div>
-						<i class="fa fa-plus-circle" aria-hidden="true"></i>
+				<div class="row">
+					<div class="myplant" style="padding: 5%; background-color: #f4f4f4;">
+						<div onclick="location.href='{% url 'plantinfo' %}'"  style=" margin-top: 2%; margin-left: 2%; font-size: 16pt;">
+							<img src="{% static 'img/plant_cute.jpeg' %}" style="width: 32%; margin-bottom: 5%;">
+							<div style="font-size: 13pt; font-weight: bold;">식물을 추가해주세요</div>
+							<i class="fa fa-plus-circle" aria-hidden="true"></i>
+						</div>
 					</div>
 				</div>
 				{% endif %}
