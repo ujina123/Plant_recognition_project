@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "PlantDoctor",
+    "slug": "PlantDoctor",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/plant_cute.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/plant_cute.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.eddyz.plantdoctor",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "package": "com.eddyz.plantdoctor",
+        "versionCode": 1,
+        "permissions": [
+          "ACCESS_COARSE_LOCATION", 
+          "ACCESS_FINE_LOCATION", 
+          "ACCESS_NETWORK_STATE", 
+          "CAMERA", 
+          "FOREGROUND_SERVICE", 
+          "INTERNET", 
+          "READ_EXTERNAL_STORAGE", 
+          "RECORD_AUDIO", 
+          "SYSTEM_ALERT_WINDOW", 
+          "VIBRATE", 
+          "WRITE_EXTERNAL_STORAGE", 
+          "BIND_GET_INSTALL_REFERRER_SERVICE", 
+          "ACTIVITY_RECOGNITION", 
+          "READ_GSERVICES"
+        ]
+      },
+      "package": "com.eddyz.plantdoctor"
+    },
+    "web": {
+      "favicon": "./assets/plant_cute.png"
+    }
+  }
+}
