@@ -61,6 +61,8 @@
             height: 4em;
             width: 5.5em;
         }
+
+
     </style>
 </head>
 <body>
@@ -81,19 +83,23 @@
                 </div>
             {% else %}
                 <div class="row">
-                    <div class="col col-xs-1" onClick="history.back()" style="width: 2%;">
-                        <i class="fa fa-angle-left fa-3x" aria-hidden="true"></i> 
+                    <div class="col col-xs">
+                            <div class="col" onClick="history.back()" style="width: 3%; background-color: honeydew; float: left;">
+                                <i class="fa fa-angle-left fa-3x" aria-hidden="true"></i>        
+                            </div>
+
+                            <div>
+                                <div style="text-align:center; font-family: 'EliceDigitalBaeum-Bd'; font-size: 20pt; height: 2em; width: 6em; background-color: green; ">식물정보</div>
+                            </div>
+
+                            <form action="/plantmanage/" method="get" autocomplete="off" style="width: 5%;">
+                                <div class="">    
+                                    <input type="hidden" name="plant" value="{{data.plantid}}">
+                                    <button type="submit" class="file-upload-btn" 
+                                    style="background-color: #04AA6D; width: 5.7em; height: 5em; font-size: 10pt; text-align: center; font-family: 'EliceDigitalBaeum-Bd'; margin-right: 20%;">내 식물로<br>등록하기</button>
+                                </div>
+                            </form>
                     </div>
-                    <div class="col col-md-7">
-                        <div style="text-align:center; font-family: 'EliceDigitalBaeum-Bd'; font-size: 20pt; height: 2em; width: 8em;">식물정보</div>
-                    </div>
-                    <form action="/plantmanage/" method="get" autocomplete="off">
-                        <div class="col col-xs-4">    
-                            <input type="hidden" name="plant" value="{{data.plantid}}">
-                            <button type="submit" class="file-upload-btn" 
-                            style="background-color: #04AA6D; width: 5.7em; height: 5em; font-size: 10pt; text-align: center; font-family: 'EliceDigitalBaeum-Bd';">내 식물로<br>등록하기</button>
-                        </div>
-                    </form>
                 </div>
             {% endif %}
         </div>
