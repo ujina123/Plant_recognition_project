@@ -146,6 +146,7 @@
 	    {% if not result %}
             <div style="margin-top: 30%; text-align:center; font-family: 'ACCchildrenheartOTF-Regular'; font-size: 14pt;">궁금하신 식물이 있으시다면 상단의 검색창에 입력해주세요!🌱</div>
 	    {% else %}
+        <div style="font-size:14pt; text-align: center; margin-top:2%;"><b>💡 식물인식 결과 💡</b><br><br></div>
             <ul class="plant_items" style="background-color: white;">
                 {% for r in result %}
                     <div class="plant_item" style="background-color: white; width: 90%; text-align: center; margin-bottom: 8%;">
