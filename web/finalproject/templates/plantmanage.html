@@ -45,7 +45,6 @@
             font-size: 10pt;
         }
         .request{
-			background-color:#04AA6D;
 			border-radius: 5pt;
             color: white;
             text-align: center;
@@ -119,11 +118,13 @@
                 <div class="col col-xs-1" onClick="history.back()" style="width: 2%;">
                     <i class="fa fa-angle-left fa-3x" aria-hidden="true"></i>    
                 </div>
-                <div class="col col-md-7">
-                    <div style="font-family: 'EliceDigitalBaeum-Bd'; font-size: 20pt; width:6em">나의 식물 추가</div>
+                <div class="col col-md-7" style="margin-top: 8px;">
+                    <div style="font-family: 'EliceDigitalBaeum-Bd'; font-size: 20pt; text-align: center; width:6em">나의 식물 추가</div>
                 </div>
-                <div class="col col-xs-4">
-                    <button class="request" data-toggle="modal" data-target="#myModal" style="width: 5em;">식물 추가 요청</button>
+                <div class="col col-xs-4" style="margin-top: 16px;">
+                    <a class="request" data-toggle="modal" data-target="#myModal">
+                        <i class="fa fa-question-circle-o fa-2x" aria-hidden="true" style="width: 150%;"></i>
+                    </a>
                 </div>
             </div>
 
@@ -205,3 +206,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
+
