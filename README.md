@@ -1,21 +1,5 @@
 ## 식물인식 및 식물병 인식 : DoctorPlant 반응형 웹앱 서비스
 
-[ Install ]
-
-pip install django (ver : 4.0.4)
-
-pip install django-allauth (ver : 0.50.0)
-
-pip install django-widget-tweaks (ver : 1.4.12)
-
-pip install pymysql
-
-pip install djangorestframework 
-
-pip install elasticsearch==7.13.4
-
-
-
 ### 1. 프로젝트 개요 
 
 - 배경
